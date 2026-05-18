@@ -6,7 +6,7 @@ import { Activity, CheckCircle } from "lucide-react";
 
 const telemetry = [
   {
-    value: "12.4k+",
+    value: "7.4k+",
     label: "Active Mailbox Infrastructure",
     meta: "STATUS: STABLE",
     status: "emerald",
@@ -20,14 +20,14 @@ const telemetry = [
     bar: 99,
   },
   {
-    value: "350+",
+    value: "1,235+",
     label: "Sending Domains Recovered",
     meta: "RECOVERY SYSTEMS: ACTIVE",
     status: "blue",
     bar: 72,
   },
   {
-    value: "8.2M+",
+    value: "5.3M+",
     label: "Monthly Delivery Throughput",
     meta: "INFRASTRUCTURE: OPERATIONAL",
     status: "emerald",
