@@ -2,6 +2,7 @@ import insights from "@/data/insights.json";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Terminal } from "lucide-react";
+import Footer from "@/components/Footer";
 
 const severityColor: Record<string, string> = {
   CRITICAL: "text-red-400 border-red-400/20 bg-red-400/5",
@@ -30,7 +31,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
       {/* Top Bar Navigation */}
       <nav className="border-b border-border-subtle bg-bg-dark/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/#insights" className="inline-flex items-center gap-2 text-xs font-mono text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/logs" className="inline-flex items-center gap-2 text-xs font-mono text-text-secondary hover:text-text-primary transition-colors">
             <ArrowLeft className="w-3 h-3" /> Intelligence Archive
           </Link>
           <div className="flex items-center gap-3">
@@ -125,7 +126,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
         </footer>
 
       </article>
-
+      <Footer />
     </main>
   );
 }

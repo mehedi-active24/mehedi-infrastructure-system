@@ -1,15 +1,16 @@
 import architectures from "@/data/architectures.json";
 import Link from "next/link";
 import { ArrowLeft, Network, Server, Shield, Database, Activity } from "lucide-react";
+import Footer from "@/components/Footer";
 
 export default function MasterSystemsMap() {
   return (
-    <main className="min-h-screen bg-bg-dark text-text-primary selection:bg-accent/30 p-6 md:p-12 relative overflow-hidden">
+    <main className="min-h-screen bg-bg-dark text-text-primary selection:bg-accent/30 relative overflow-hidden">
       
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KPHBhdGggZD0iTTAgNDBMMDAgMEw0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')] pointer-events-none z-0" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 px-6 md:px-12 pt-28 pb-16">
         
         <header className="mb-16 pb-8 border-b border-border-subtle flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
@@ -76,6 +77,7 @@ export default function MasterSystemsMap() {
         </div>
 
       </div>
+      <Footer />
     </main>
   );
 }
