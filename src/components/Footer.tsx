@@ -19,14 +19,7 @@ export default function Footer() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* Faint Telemetry Line */}
-        <div className="absolute top-1/3 left-0 w-full h-px bg-border-subtle opacity-50">
-           <motion.div
-             className="h-full w-1/4 bg-gradient-to-r from-transparent via-accent to-transparent opacity-30"
-             animate={{ x: ["-100vw", "100vw"] }}
-             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-           />
-        </div>
+
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
