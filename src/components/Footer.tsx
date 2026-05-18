@@ -48,22 +48,22 @@ export default function Footer() {
           {/* Column 2: Connect — Terminal Endpoint Nodes */}
           <div className="space-y-4">
             <h3 className="text-[10px] font-mono text-text-secondary uppercase tracking-widest border-l-2 border-accent pl-2 mb-6">Connect</h3>
-            <ul className="space-y-3.5 font-mono text-xs">
+            <ul className="space-y-3 font-mono text-xs">
               {([
                 { label: "LinkedIn Node", handle: "linkedin.com/in/mehedi-active24", href: "https://www.linkedin.com/in/mehedi-active24/" },
                 { label: "GitHub Repository", handle: "github.com/mehedi-active24", href: "https://github.com/mehedi-active24" },
                 { label: "Facebook Node", handle: "facebook.com/mehedi.active24", href: "https://www.facebook.com/mehedi.active24/" },
                 { label: "Email Endpoint", handle: "mehedi.active24@gmail.com", href: "mailto:mehedi.active24@gmail.com" },
               ] as { label: string; handle: string; href: string }[]).map((node, i) => (
-                <li key={i} className="border-b border-border-subtle/30 pb-2.5 last:border-0 last:pb-0">
+                <li key={i}>
                   <a
                     href={node.href}
                     target={node.href.startsWith("mailto") ? undefined : "_blank"}
                     rel={node.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                    className="group flex items-center justify-between gap-4 transition-all duration-200"
+                    className="group flex items-center hover:pl-1 transition-all duration-200"
                   >
-                    <span className="text-[9px] text-text-secondary/50 uppercase tracking-wider group-hover:text-accent transition-colors">[ {node.label} ]</span>
-                    <span className="text-[11px] text-text-secondary group-hover:text-text-primary transition-colors truncate max-w-[170px] sm:max-w-[300px] md:max-w-[130px] lg:max-w-none">{node.handle}</span>
+                    <span className="text-[9px] text-text-secondary/40 uppercase tracking-wider group-hover:text-accent transition-colors w-24 shrink-0">[ {node.label.replace(" Node", "").replace(" Repository", "").replace(" Protocol", "").replace(" Endpoint", "")} ]</span>
+                    <span className="text-[11px] text-text-secondary group-hover:text-text-primary transition-colors truncate">{node.handle}</span>
                   </a>
                 </li>
               ))}
