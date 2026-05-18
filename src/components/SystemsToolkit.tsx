@@ -1,13 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ecosystem = [
   {
     id: "sending",
     layer: "Layer 01",
     label: "Sending Infrastructure",
-    description: "Primary sending engines & enterprise outreach platforms",
+    description: "Primary sending engines & outreach platforms",
     groups: [
       {
         sublabel: "Primary Sending Engines",
@@ -23,7 +24,7 @@ const ecosystem = [
     id: "smtp",
     layer: "Layer 02",
     label: "SMTP & Delivery Layer",
-    description: "Transactional delivery infrastructure and relay systems",
+    description: "Transactional delivery infrastructure and relays",
     groups: [
       {
         sublabel: "SMTP Providers",
@@ -35,7 +36,7 @@ const ecosystem = [
     id: "dns",
     layer: "Layer 03",
     label: "DNS & Infrastructure Layer",
-    description: "Domain, DNS, and network infrastructure provisioning",
+    description: "Domain and DNS network provisioning tools",
     groups: [
       {
         sublabel: "DNS & Registrars",
@@ -59,7 +60,7 @@ const ecosystem = [
     id: "monitoring",
     layer: "Layer 05",
     label: "Deliverability Monitoring & Telemetry",
-    description: "Inbox placement, reputation, and delivery telemetry systems",
+    description: "Inbox placement, reputation, and tracking systems",
     groups: [
       {
         sublabel: "Monitoring Platforms",
@@ -71,7 +72,7 @@ const ecosystem = [
     id: "data",
     layer: "Layer 06",
     label: "Data & Enrichment Intelligence",
-    description: "Lead intelligence, contact enrichment, and validation systems",
+    description: "Lead intelligence, enrichment, and validation systems",
     groups: [
       {
         sublabel: "Data & Enrichment",
@@ -83,7 +84,7 @@ const ecosystem = [
     id: "automation",
     layer: "Layer 07",
     label: "Automation & System Orchestration",
-    description: "Workflow automation, webhooks, and system integration",
+    description: "Workflow automation, webhooks, and integrations",
     groups: [
       {
         sublabel: "Automation Stack",
@@ -94,6 +95,23 @@ const ecosystem = [
 ];
 
 export default function SystemsToolkit() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [expandedLayers, setExpandedLayers] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleLayer = (id: string) => {
+    setExpandedLayers((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   return (
     <section id="stack" className="py-24 border-b border-border-subtle bg-surface/20 relative overflow-hidden">
 
@@ -119,53 +137,93 @@ export default function SystemsToolkit() {
 
         {/* Ecosystem Layers */}
         <div className="space-y-3">
-          {ecosystem.map((layer, i) => (
-            <motion.div
-              key={layer.id}
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.06 }}
-              className="group border border-border-subtle bg-bg-dark hover:bg-surface hover:border-accent/30 transition-all duration-300"
-            >
-              {/* Layer Header — always visible */}
-              <div className="grid grid-cols-12 items-center px-5 py-4 gap-4">
+          {ecosystem.map((layer, i) => {
+            const isExpanded = expandedLayers[layer.id] || false;
+            return (
+              <motion.div
+                key={layer.id}
+                initial={{ opacity: 0, x: -8 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className="group border border-border-subtle bg-bg-dark hover:bg-surface hover:border-accent/30 transition-all duration-300"
+              >
+                {/* Layer Header — clickable on mobile */}
+                <div 
+                  onClick={() => isMobile && toggleLayer(layer.id)}
+                  className={`grid grid-cols-12 items-center px-5 py-4 gap-4 ${isMobile ? 'cursor-pointer select-none' : ''}`}
+                >
 
-                {/* Layer ID */}
-                <div className="col-span-2 md:col-span-1">
-                  <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest group-hover:text-accent/60 transition-colors">{layer.layer}</span>
-                </div>
+                  {/* Layer ID */}
+                  <div className="col-span-2 md:col-span-1">
+                    <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest group-hover:text-accent/60 transition-colors">{layer.layer}</span>
+                  </div>
 
-                {/* Layer Name */}
-                <div className="col-span-7 md:col-span-3">
-                  <div className="text-sm font-mono font-bold text-text-primary group-hover:text-accent transition-colors">{layer.label}</div>
-                  <div className="text-[10px] font-mono text-text-secondary/50 mt-0.5 hidden md:block">{layer.description}</div>
-                </div>
+                  {/* Layer Name */}
+                  <div className="col-span-7 md:col-span-3">
+                    <div className="text-sm font-mono font-bold text-text-primary group-hover:text-accent transition-colors">{layer.label}</div>
+                    <div className="text-[10px] font-mono text-text-secondary/50 mt-0.5 hidden md:block">{layer.description}</div>
+                  </div>
 
-                {/* Tools — horizontal scrollable tag list */}
-                <div className="col-span-12 md:col-span-8 flex flex-wrap gap-1.5 mt-2 md:mt-0">
-                  {layer.groups.flatMap(g => g.tools).map((tool, j) => (
-                    <span
-                      key={j}
-                      className="text-[9px] font-mono text-text-secondary border border-border-subtle bg-bg-dark px-2 py-0.5 group-hover:border-accent/20 group-hover:text-text-primary transition-all"
-                    >
-                      {tool}
+                  {/* Expansion Indicator (mobile only) */}
+                  <div className="col-span-3 text-right md:hidden">
+                    <span className="text-[9px] font-mono text-accent font-bold">
+                      {isExpanded ? "[ COLLAPSE ]" : "[ EXPAND ]"}
                     </span>
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              {/* Bottom pulse line on hover */}
-              <div className="h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
-            </motion.div>
-          ))}
+                  {/* Tools — Desktop Horizontal Layout */}
+                  <div className="hidden md:flex col-span-8 flex-wrap gap-1.5">
+                    {layer.groups.flatMap(g => g.tools).map((tool, j) => (
+                      <span
+                        key={j}
+                        className="text-[9px] font-mono text-text-secondary border border-border-subtle bg-bg-dark px-2 py-0.5 group-hover:border-accent/20 group-hover:text-text-primary transition-all"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Collapsible Panel for Mobile */}
+                <AnimatePresence initial={false}>
+                  {isMobile && isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden border-t border-border-subtle bg-surface/50"
+                    >
+                      <div className="px-5 py-4 flex flex-wrap gap-1.5">
+                        <div className="w-full text-[9px] font-mono text-text-secondary/60 mb-2 uppercase">
+                          {layer.description}
+                        </div>
+                        {layer.groups.flatMap(g => g.tools).map((tool, j) => (
+                          <span
+                            key={j}
+                            className="text-[9px] font-mono text-text-secondary border border-border-subtle bg-bg-dark px-2 py-0.5"
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Bottom pulse line on hover */}
+                <div className="h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Ecosystem Footer Note */}
         <div className="mt-8 pt-6 border-t border-border-subtle flex items-center justify-between text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest">
           <span>Infrastructure Ecosystem // v2026.4</span>
           <div className="flex items-center gap-2">
-            <motion.div className="w-1 h-1 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+            <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
             ALL SYSTEMS OPERATIONAL
           </div>
         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Network, ShieldAlert, Lock, RefreshCw, ServerCrash, Box,
@@ -119,6 +120,8 @@ const pulseColors: Record<string, { dot: string; border: string; bg: string; tex
 };
 
 export default function CapabilitiesGrid() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section id="capabilities" className="py-24 border-b border-border-subtle bg-surface/10 relative overflow-hidden">
 
@@ -151,6 +154,7 @@ export default function CapabilitiesGrid() {
             const Icon = mod.icon;
             const colors = pulseColors[mod.pulse];
             const colSpan = mod.size === "large" ? "md:col-span-3" : "md:col-span-2";
+            const isHiddenMobile = !showAll && i >= 4;
 
             return (
               <motion.div
@@ -159,7 +163,9 @@ export default function CapabilitiesGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: i * 0.05 }}
-                className={`group relative border border-border-subtle bg-bg-dark p-5 hover:bg-surface hover:border-accent/20 transition-all duration-300 overflow-hidden ${colSpan}`}
+                className={`group relative border border-border-subtle bg-bg-dark p-5 hover:bg-surface hover:border-accent/20 transition-all duration-300 overflow-hidden ${colSpan} ${
+                  isHiddenMobile ? "hidden md:block" : ""
+                }`}
               >
                 {/* Left accent strip */}
                 <div className={`absolute left-0 top-0 bottom-0 w-0.5 ${colors.dot} opacity-20 group-hover:opacity-80 transition-opacity duration-300`} />
@@ -207,6 +213,16 @@ export default function CapabilitiesGrid() {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Toggle Button for Mobile View */}
+        <div className="md:hidden mt-4 text-center">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest cursor-pointer border border-border-subtle bg-bg-dark px-4 py-2.5"
+          >
+            {showAll ? "[ COLLAPSE CAPABILITIES MATRIX ]" : "[ DISCLOSE FULL CAPABILITIES MATRIX ]"}
+          </button>
         </div>
 
       </div>

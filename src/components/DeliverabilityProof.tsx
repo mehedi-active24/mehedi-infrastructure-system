@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Activity, CheckCircle } from "lucide-react";
 
@@ -87,6 +88,8 @@ const severityColors: Record<string, string> = {
 };
 
 export default function DeliverabilityProof() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section id="results" className="py-24 border-b border-border-subtle bg-surface/10 relative overflow-hidden">
 
@@ -117,60 +120,72 @@ export default function DeliverabilityProof() {
               <span className="text-[9px] font-mono text-text-secondary uppercase tracking-widest flex items-center gap-2">
                 <Activity className="w-3 h-3 text-accent" /> Live Infrastructure Metrics
               </span>
-              <span className="text-[9px] font-mono text-text-secondary/40">STREAM: ACTIVE // UPDATE INTERVAL: CONTINUOUS</span>
+              <span className="text-[9px] font-mono text-text-secondary/40 hidden sm:inline">STREAM: ACTIVE // UPDATE INTERVAL: CONTINUOUS</span>
             </div>
 
             {/* Metric Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border-subtle">
-              {telemetry.map((metric, i) => {
-                const c = statusColors[metric.status];
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.07 }}
-                    className="group bg-bg-dark p-5 flex flex-col gap-3 hover:bg-surface transition-colors relative overflow-hidden"
-                  >
-                    {/* Status dot */}
-                    <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight">{metric.label}</span>
-                      <div className="flex items-center gap-1.5">
+              {telemetry
+                .slice(0, showAll ? telemetry.length : (typeof window !== "undefined" && window.innerWidth >= 768 ? telemetry.length : 4))
+                .map((metric, i) => {
+                  const c = statusColors[metric.status];
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: i * 0.07 }}
+                      className="group bg-bg-dark p-5 flex flex-col gap-3 hover:bg-surface transition-colors relative overflow-hidden"
+                    >
+                      {/* Status dot */}
+                      <div className="flex items-center justify-between">
+                        <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
+                        <div className="flex items-center gap-1.5">
+                          <motion.div
+                            className={`w-1.5 h-1.5 rounded-full ${c.dot}`}
+                            animate={{ opacity: [1, 0.3, 1] }}
+                            transition={{ duration: 2 + i * 0.2, repeat: Infinity }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Value */}
+                      <div className="text-2xl sm:text-3xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">
+                        {metric.value}
+                      </div>
+
+                      {/* Progress bar */}
+                      <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
                         <motion.div
-                          className={`w-1.5 h-1.5 rounded-full ${c.dot}`}
-                          animate={{ opacity: [1, 0.3, 1] }}
-                          transition={{ duration: 2 + i * 0.2, repeat: Infinity }}
+                          className={`h-full ${c.dot} opacity-60`}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${metric.bar}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.4, delay: i * 0.08, ease: "easeOut" }}
                         />
                       </div>
-                    </div>
 
-                    {/* Value */}
-                    <div className="text-3xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">
-                      {metric.value}
-                    </div>
+                      {/* Meta */}
+                      <div className={`text-[8px] font-mono px-1.5 py-0.5 border w-fit ${c.border} ${c.bg} ${c.text}`}>
+                        {metric.meta}
+                      </div>
 
-                    {/* Progress bar */}
-                    <div className="h-px bg-border-subtle w-full overflow-hidden">
-                      <motion.div
-                        className={`h-full ${c.dot} opacity-60`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${metric.bar}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.4, delay: i * 0.08, ease: "easeOut" }}
-                      />
-                    </div>
+                      {/* Hover line trace */}
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
+                    </motion.div>
+                  );
+                })}
+            </div>
 
-                    {/* Meta */}
-                    <div className={`text-[8px] font-mono px-1.5 py-0.5 border w-fit ${c.border} ${c.bg} ${c.text}`}>
-                      {metric.meta}
-                    </div>
-
-                    {/* Hover line trace */}
-                    <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
-                  </motion.div>
-                );
-              })}
+            {/* Toggle Button for Mobile */}
+            <div className="md:hidden border-t border-border-subtle p-3 text-center bg-bg-dark">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest cursor-pointer"
+              >
+                {showAll ? "[ COLLAPSE OBSERVABILITY LAYER ]" : "[ DISCLOSE FULL OBSERVABILITY LAYER ]"}
+              </button>
             </div>
           </div>
         </div>
@@ -188,9 +203,9 @@ export default function DeliverabilityProof() {
           </div>
 
           {/* Recovery Log Table */}
-          <div className="border border-border-subtle">
+          <div className="border border-border-subtle bg-bg-dark">
 
-            {/* Table Header */}
+            {/* Table Header (Desktop only) */}
             <div className="hidden md:grid grid-cols-12 bg-surface/50 border-b border-border-subtle px-5 py-2.5 gap-4 text-[9px] font-mono text-text-secondary uppercase tracking-widest">
               <div className="col-span-1">Ref</div>
               <div className="col-span-2">Environment</div>
@@ -200,59 +215,59 @@ export default function DeliverabilityProof() {
             </div>
 
             {/* Rows */}
-            {recoveryLogs.map((log, i) => (
-              <motion.div
-                key={log.id}
-                initial={{ opacity: 0, x: -8 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
-                className="group grid grid-cols-1 md:grid-cols-12 gap-4 px-5 py-5 border-b border-border-subtle last:border-0 hover:bg-surface/50 transition-colors relative"
-              >
-                {/* Left hover accent */}
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent/0 group-hover:bg-accent transition-colors" />
+            <div className="divide-y divide-border-subtle">
+              {recoveryLogs.map((log, i) => (
+                <motion.div
+                  key={log.id}
+                  initial={{ opacity: 0, x: -8 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.1 }}
+                  className="group grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 px-5 py-5 hover:bg-surface/50 transition-colors relative"
+                >
+                  {/* Left hover accent (Desktop only) */}
+                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent/0 group-hover:bg-accent transition-colors hidden md:block" />
 
-                {/* Ref */}
-                <div className="md:col-span-1 flex items-start gap-2">
-                  <span className="text-[9px] font-mono text-text-secondary/30">[ {log.id} ]</span>
-                </div>
+                  {/* Ref */}
+                  <div className="md:col-span-1 flex items-start gap-2 border-b border-border-subtle/50 md:border-0 pb-1.5 md:pb-0">
+                    <span className="text-[9px] font-mono text-accent">[ REF: {log.id} ]</span>
+                  </div>
 
-                {/* Environment */}
-                <div className="md:col-span-2">
-                  <div className="text-[9px] font-mono text-text-secondary/40 uppercase mb-1 md:hidden">Environment</div>
-                  <span className="text-xs font-mono font-bold text-text-primary">{log.env}</span>
-                  <div className="mt-1">
-                    <span className={`text-[8px] font-mono px-1.5 py-0.5 border ${severityColors[log.severity]}`}>
+                  {/* Environment */}
+                  <div className="md:col-span-2 space-y-1">
+                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase md:hidden">Environment</div>
+                    <span className="text-xs font-mono font-bold text-text-primary block">{log.env}</span>
+                    <span className={`inline-block text-[8px] font-mono px-1.5 py-0.5 border ${severityColors[log.severity]}`}>
                       {log.severity}
                     </span>
                   </div>
-                </div>
 
-                {/* Failure State */}
-                <div className="md:col-span-3">
-                  <div className="text-[9px] font-mono text-text-secondary/40 uppercase mb-1 md:hidden">Failure State</div>
-                  <span className="text-xs text-text-secondary">{log.failure}</span>
-                </div>
-
-                {/* Intervention */}
-                <div className="md:col-span-4">
-                  <div className="text-[9px] font-mono text-text-secondary/40 uppercase mb-1 md:hidden">Intervention</div>
-                  <span className="text-xs text-text-secondary">{log.intervention}</span>
-                </div>
-
-                {/* Result */}
-                <div className="md:col-span-2">
-                  <div className="text-[9px] font-mono text-text-secondary/40 uppercase mb-1 md:hidden">Result</div>
-                  <div className="flex items-start gap-1.5">
-                    <CheckCircle className="w-3 h-3 text-emerald-400 mt-0.5 shrink-0" />
-                    <span className="text-xs text-emerald-400 font-mono">{log.result}</span>
+                  {/* Failure State */}
+                  <div className="md:col-span-3">
+                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">Failure State</div>
+                    <span className="text-xs text-text-secondary leading-relaxed block">{log.failure}</span>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+
+                  {/* Intervention */}
+                  <div className="md:col-span-4">
+                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">Infrastructure Intervention</div>
+                    <span className="text-xs text-text-secondary leading-relaxed block">{log.intervention}</span>
+                  </div>
+
+                  {/* Result */}
+                  <div className="md:col-span-2">
+                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">Stabilization Result</div>
+                    <div className="flex items-start gap-1.5">
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                      <span className="text-xs text-emerald-400 font-mono leading-tight">{log.result}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
             {/* Table Footer */}
-            <div className="px-5 py-2.5 bg-surface/20 flex justify-between items-center text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest">
+            <div className="px-5 py-3 bg-surface/20 flex justify-between items-center text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest border-t border-border-subtle">
               <span>Recovery Archive // {recoveryLogs.length} Events Logged</span>
               <div className="flex items-center gap-2">
                 <motion.div className="w-1 h-1 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />

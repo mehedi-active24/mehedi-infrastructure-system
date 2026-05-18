@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import insights from "@/data/insights.json";
 import Link from "next/link";
 
@@ -9,6 +12,8 @@ const severityColor: Record<string, string> = {
 };
 
 export default function InsightsLog() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section id="insights" className="py-24 border-b border-border-subtle bg-bg-dark relative overflow-hidden">
       
@@ -37,67 +42,83 @@ export default function InsightsLog() {
         </div>
 
         {/* Archive Table */}
-        <div className="border border-border-subtle">
+        <div className="border border-border-subtle bg-bg-dark">
           {/* Table Header */}
-          <div className="grid grid-cols-12 border-b border-border-subtle px-4 py-2 bg-surface/50">
-            <div className="col-span-2 text-[9px] font-mono text-text-secondary uppercase tracking-widest">Timestamp</div>
+          <div className="grid grid-cols-12 border-b border-border-subtle px-4 py-2.5 bg-surface/50">
+            <div className="col-span-3 sm:col-span-2 text-[9px] font-mono text-text-secondary uppercase tracking-widest">Timestamp</div>
             <div className="col-span-1 text-[9px] font-mono text-text-secondary uppercase tracking-widest hidden md:block">Severity</div>
-            <div className="col-span-6 md:col-span-5 text-[9px] font-mono text-text-secondary uppercase tracking-widest">Report Title</div>
+            <div className="col-span-6 sm:col-span-8 md:col-span-5 text-[9px] font-mono text-text-secondary uppercase tracking-widest">Report Title</div>
             <div className="col-span-3 text-[9px] font-mono text-text-secondary uppercase tracking-widest hidden md:block">Tags</div>
-            <div className="col-span-4 md:col-span-1 text-[9px] font-mono text-text-secondary uppercase tracking-widest text-right">Action</div>
+            <div className="col-span-3 sm:col-span-2 md:col-span-1 text-[9px] font-mono text-text-secondary uppercase tracking-widest text-right">Action</div>
           </div>
 
           {/* Archive Rows */}
-          {insights.map((article, idx) => (
-            <Link
-              key={article.slug}
-              href={`/insights/${article.slug}`}
-              className={`
-                grid grid-cols-12 items-center px-4 py-4 group relative
-                border-b border-border-subtle last:border-b-0
-                hover:bg-surface/60 transition-colors duration-150
-              `}
+          <div className="divide-y divide-border-subtle">
+            {insights
+              .slice(0, showAll ? insights.length : (typeof window !== "undefined" && window.innerWidth >= 768 ? insights.length : 4))
+              .map((article, idx) => (
+                <Link
+                  key={article.slug}
+                  href={`/insights/${article.slug}`}
+                  className={`
+                    grid grid-cols-12 items-center px-4 py-4 group relative
+                    hover:bg-surface/60 transition-colors duration-150
+                  `}
+                >
+                  {/* Left accent border on hover */}
+                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent/0 group-hover:bg-accent transition-all duration-200" />
+
+                  {/* Date */}
+                  <div className="col-span-3 sm:col-span-2 text-[10px] sm:text-[11px] font-mono text-text-secondary group-hover:text-text-primary transition-colors">
+                    {article.date}
+                  </div>
+
+                  {/* Severity */}
+                  <div className="col-span-1 hidden md:flex">
+                    <span className={`text-[8px] font-mono px-1.5 py-0.5 border ${severityColor[article.severity] || "text-text-secondary border-border-subtle"}`}>
+                      {article.severity}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <div className="col-span-6 sm:col-span-8 md:col-span-5 pr-2 sm:pr-4">
+                    <span className="text-xs sm:text-sm text-text-primary group-hover:text-accent transition-colors leading-snug block">
+                      {article.title}
+                    </span>
+                    <span className="inline-block md:hidden text-[8px] font-mono mt-1 text-text-secondary/50 uppercase">
+                      Severity: {article.severity}
+                    </span>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="col-span-3 hidden md:flex flex-wrap gap-1.5">
+                    {article.tags.map((tag, i) => (
+                      <span key={i} className="text-[8px] font-mono text-text-secondary/60 border border-border-subtle px-1.5 py-0.5 bg-bg-dark">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div className="col-span-3 sm:col-span-2 md:col-span-1 flex justify-end">
+                    <span className="text-[10px] font-mono text-text-secondary group-hover:text-accent transition-colors whitespace-nowrap flex items-center gap-1">
+                      Open
+                      <span className="transform group-hover:translate-x-0.5 transition-transform">→</span>
+                    </span>
+                  </div>
+                </Link>
+              ))}
+          </div>
+
+          {/* Toggle Button for Mobile */}
+          <div className="md:hidden border-t border-border-subtle p-3 text-center bg-bg-dark">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest cursor-pointer"
             >
-              {/* Left accent border on hover */}
-              <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent/0 group-hover:bg-accent transition-all duration-200" />
-
-              {/* Date */}
-              <div className="col-span-2 text-[11px] font-mono text-text-secondary group-hover:text-text-primary transition-colors">
-                {article.date}
-              </div>
-
-              {/* Severity */}
-              <div className="col-span-1 hidden md:flex">
-                <span className={`text-[8px] font-mono px-1.5 py-0.5 border ${severityColor[article.severity] || "text-text-secondary border-border-subtle"}`}>
-                  {article.severity}
-                </span>
-              </div>
-
-              {/* Title */}
-              <div className="col-span-6 md:col-span-5 pr-4">
-                <span className="text-sm text-text-primary group-hover:text-accent transition-colors leading-snug">
-                  {article.title}
-                </span>
-              </div>
-
-              {/* Tags */}
-              <div className="col-span-3 hidden md:flex flex-wrap gap-1.5">
-                {article.tags.map((tag, i) => (
-                  <span key={i} className="text-[8px] font-mono text-text-secondary/60 border border-border-subtle px-1.5 py-0.5 bg-bg-dark">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <div className="col-span-4 md:col-span-1 flex justify-end">
-                <span className="text-[10px] font-mono text-text-secondary group-hover:text-accent transition-colors whitespace-nowrap flex items-center gap-1">
-                  Open Report
-                  <span className="transform group-hover:translate-x-0.5 transition-transform">→</span>
-                </span>
-              </div>
-            </Link>
-          ))}
+              {showAll ? "[ COLLAPSE INTELLIGENCE ARCHIVE ]" : "[ DISCLOSE FULL INTELLIGENCE ARCHIVE ]"}
+            </button>
+          </div>
         </div>
 
       </div>

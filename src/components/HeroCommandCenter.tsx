@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 export default function HeroCommandCenter() {
   const { personal, telemetry } = content;
   
+  const [showAllMetrics, setShowAllMetrics] = useState(false);
   const [subtitleText, setSubtitleText] = useState("");
   const fullText = personal.subtitle;
   
@@ -17,12 +18,12 @@ export default function HeroCommandCenter() {
       setSubtitleText(fullText.substring(0, i));
       i++;
       if (i > fullText.length) clearInterval(interval);
-    }, 20); // Fast, restrained typewriter
+    }, 20);
     return () => clearInterval(interval);
   }, [fullText]);
 
   return (
-    <section className="pt-32 pb-16 border-b border-border-subtle bg-bg-dark">
+    <section className="pt-28 pb-16 border-b border-border-subtle bg-bg-dark">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
           
@@ -30,26 +31,26 @@ export default function HeroCommandCenter() {
           <div className="space-y-6 pt-4">
             <div>
               <h2 className="text-text-secondary text-sm font-mono mb-2 uppercase tracking-wider">{personal.name}</h2>
-              <h1 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight">
+              <h1 className="text-3xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight uppercase">
                 {personal.title}
               </h1>
             </div>
             
-            <p className="text-text-secondary text-base md:text-lg max-w-xl min-h-[80px]">
+            <p className="text-text-secondary text-sm md:text-base max-w-xl min-h-[70px]">
               {subtitleText}
-              <span className="animate-pulse inline-block w-1 h-4 bg-text-secondary ml-1 align-middle" />
+              <span className="animate-pulse inline-block w-1 h-3.5 bg-text-secondary ml-1 align-middle" />
             </p>
             
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-3 pt-2">
               <a 
                 href="#results"
-                className="px-6 py-3 bg-accent text-white text-sm font-medium hover:bg-accent/90 transition-colors"
+                className="px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
               >
                 See Infrastructure Proof
               </a>
               <a 
                 href="#book"
-                className="px-6 py-3 bg-surface text-text-primary text-sm font-medium border border-border-subtle hover:bg-surface-hover transition-colors"
+                className="px-5 py-2.5 bg-surface text-text-primary text-xs font-mono uppercase tracking-wider border border-border-subtle hover:bg-surface-hover transition-colors"
               >
                 Book a System Audit
               </a>
@@ -57,13 +58,13 @@ export default function HeroCommandCenter() {
           </div>
 
           {/* Right Side: Dual-Layer Portrait System */}
-          <div className="relative w-full max-w-lg mx-auto lg:ml-auto h-[400px] flex items-center justify-center">
+          <div className="relative w-full max-w-lg mx-auto lg:ml-auto h-[350px] md:h-[400px] flex items-center justify-center">
             
             {/* Environment: Background Topology Lines & Pulses */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
                {/* Ambient blue glow */}
                <motion.div 
-                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent/10 rounded-full blur-[80px]"
+                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 bg-accent/10 rounded-full blur-[80px]"
                  animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                />
@@ -74,14 +75,14 @@ export default function HeroCommandCenter() {
 
             {/* Core Portrait Node */}
             <motion.div 
-              className="relative w-64 h-64 md:w-72 md:h-72 z-10 group"
+              className="relative w-48 h-48 md:w-64 md:h-64 z-10 group"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
               {/* Radial Masked Portrait */}
               <div 
                 className="absolute inset-0 rounded-full overflow-hidden"
-                style={{ maskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)' }}
+                style={{ maskImage: 'radial-gradient(circle at center, black 45%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle at center, black 45%, transparent 70%)' }}
               >
                 <Image 
                   src="/portrait.jpg" 
@@ -105,7 +106,7 @@ export default function HeroCommandCenter() {
                
                {/* Telemetry Node 1 (Top Left) */}
                <motion.div 
-                 className="absolute top-8 left-0 md:left-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex items-center gap-2"
+                 className="hidden md:flex absolute top-8 left-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 items-center gap-2"
                  animate={{ y: [0, -8, 0] }}
                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                >
@@ -115,7 +116,7 @@ export default function HeroCommandCenter() {
 
                {/* Telemetry Node 2 (Bottom Right) */}
                <motion.div 
-                 className="absolute bottom-12 right-0 md:right-4 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
+                 className="hidden md:flex absolute bottom-12 right-4 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
                  animate={{ y: [0, 10, 0] }}
                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                >
@@ -124,7 +125,7 @@ export default function HeroCommandCenter() {
                </motion.div>
 
                {/* Routing Path Overlay */}
-               <div className="absolute top-1/2 right-1/4 w-32 h-px bg-border-subtle overflow-hidden">
+               <div className="hidden md:block absolute top-1/2 right-1/4 w-32 h-px bg-border-subtle overflow-hidden">
                  <motion.div
                    className="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"
                    animate={{ x: ["-100%", "200%"] }}
@@ -134,7 +135,7 @@ export default function HeroCommandCenter() {
 
                {/* DNS Metric Panel (Bottom Left) */}
                <motion.div 
-                 className="absolute bottom-8 left-4 md:left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
+                 className="hidden md:block absolute bottom-8 left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
                  animate={{ y: [0, -5, 0] }}
                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                >
@@ -167,30 +168,42 @@ export default function HeroCommandCenter() {
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border-subtle">
-            {telemetry.map((metric, idx) => (
-              <div key={idx} className="bg-bg-dark p-4 flex flex-col gap-2 group hover:bg-surface transition-colors relative overflow-hidden">
-                {/* Subtle bar graph background */}
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
-                  <span className={`text-[8px] font-mono px-1.5 py-0.5 border shrink-0 ${
-                    metric.status === 'ACTIVE' || metric.status === 'RUNNING' ? 'text-emerald-400 border-emerald-400/20 bg-emerald-400/5' :
-                    metric.status === 'STABLE' ? 'text-blue-400 border-blue-400/20 bg-blue-400/5' :
-                    'text-text-secondary border-border-subtle'
-                  }`}>{metric.status}</span>
+            {telemetry
+              .slice(0, showAllMetrics ? telemetry.length : (typeof window !== "undefined" && window.innerWidth >= 768 ? telemetry.length : 3))
+              .map((metric, idx) => (
+                <div key={idx} className="bg-bg-dark p-4 flex flex-col gap-2 group hover:bg-surface transition-colors relative overflow-hidden">
+                  {/* Subtle bar graph background */}
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
+                    <span className={`text-[8px] font-mono px-1.5 py-0.5 border shrink-0 ${
+                      metric.status === 'ACTIVE' || metric.status === 'RUNNING' ? 'text-emerald-400 border-emerald-400/20 bg-emerald-400/5' :
+                      metric.status === 'STABLE' ? 'text-blue-400 border-blue-400/20 bg-blue-400/5' :
+                      'text-text-secondary border-border-subtle'
+                    }`}>{metric.status}</span>
+                  </div>
+                  <span className="text-2xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">{metric.value}</span>
+                  {/* Micro graph line */}
+                  <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
+                    <motion.div
+                      className="h-full bg-accent/40"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${60 + (idx * 7)}%` }}
+                      transition={{ duration: 1.5, delay: idx * 0.1, ease: 'easeOut' }}
+                    />
+                  </div>
                 </div>
-                <span className="text-2xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">{metric.value}</span>
-                {/* Micro graph line */}
-                <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
-                  <motion.div
-                    className="h-full bg-accent/40"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${60 + (idx * 7)}%` }}
-                    transition={{ duration: 1.5, delay: idx * 0.1, ease: 'easeOut' }}
-                  />
-                </div>
-              </div>
-            ))}
+              ))}
+          </div>
+
+          {/* Toggle for mobile view */}
+          <div className="md:hidden border-t border-border-subtle p-3 text-center bg-bg-dark">
+            <button
+              onClick={() => setShowAllMetrics(!showAllMetrics)}
+              className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest cursor-pointer"
+            >
+              {showAllMetrics ? "[ COLLAPSE SYSTEM VARIABLES ]" : "[ DISCLOSE SYSTEM VARIABLES ]"}
+            </button>
           </div>
         </div>
 
