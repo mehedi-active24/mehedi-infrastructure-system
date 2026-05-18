@@ -1,0 +1,205 @@
+[
+  {
+    "slug": "neo-science-outreach",
+    "title": "NEO Science Outreach Infrastructure",
+    "systemType": "Enterprise Lead Generation",
+    "scale": "High Volume (250k+/mo)",
+    "category": "Complete Ecosystem",
+    "status": "ACTIVE",
+    "tools": ["Clay", "Instantly", "HubSpot", "Cloudflare"],
+    "overview": "A fully decentralized outbound architecture built to isolate domain risk and scale indefinitely while maintaining a 99%+ inbox placement rate.",
+    "flow": [
+      { "step": "Lead Intake", "detail": "CSV Import" },
+      { "step": "Data Enrichment", "detail": "Clay.com API Waterfall" },
+      { "step": "Outreach Routing", "detail": "Instantly Smart Throttling" },
+      { "step": "Delivery", "detail": "22 Rotating Domains" },
+      { "step": "Sales Handoff", "detail": "HubSpot CRM Pipeline" }
+    ],
+    "deliverabilityLayer": "Strict SPF/DKIM/DMARC alignment across a 22-domain cluster, utilizing dedicated secondary workspace tenants to protect the root corporate domain.",
+    "scalingLogic": "Algorithmic domain cycling. If monitoring detects a 5% drop in inbox placement for any specific domain, the kill-switch triggers and routing shifts to standby pools.",
+    "monitoring": ["Google Postmaster", "MXToolbox", "Spamhaus Blacklists", "SNDS"],
+    "failurePrevention": "Automated DNS scanning and daily seed list testing to catch reputation decay before production campaigns are affected.",
+    "metrics": [
+      { "label": "Inbox Rate", "value": "99.4%" },
+      { "label": "Active Domains", "value": "22" },
+      { "label": "Monthly Volume", "value": "250k+" }
+    ],
+    "technicalNotes": "This architecture requires dedicated infrastructure nodes. Shared hosting environments will result in immediate IP blacklisting."
+  },
+  {
+    "slug": "multi-domain-rotation",
+    "title": "Multi-Domain Rotation System",
+    "systemType": "Delivery Infrastructure",
+    "scale": "Medium-High Volume",
+    "category": "Deliverability Layer",
+    "status": "ACTIVE",
+    "tools": ["Google Workspace", "Cloudflare", "Smartlead"],
+    "overview": "A sophisticated load-balancing system that distributes cold outbound volume across a massive cluster of parallel domains to bypass ESP throttling limits.",
+    "flow": [
+      { "step": "Campaign Queue", "detail": "Smartlead Payload" },
+      { "step": "Load Balancer", "detail": "Algorithmic Distribution" },
+      { "step": "Sender Node 1-50", "detail": "Google Workspace APIs" },
+      { "step": "Recipient Server", "detail": "Gmail / Outlook MX" }
+    ],
+    "deliverabilityLayer": "Decentralized sender IP architecture utilizing multiple independent tenant environments.",
+    "scalingLogic": "Linear horizontal scaling. Add N domains to increase daily volume by N*40 without altering the fundamental architecture.",
+    "monitoring": ["Smartlead Global Dashboard", "Custom Webhooks"],
+    "failurePrevention": "Max 40 sends/day/mailbox hardcap. Strict reply-rate pause rules.",
+    "metrics": [
+      { "label": "Mailboxes", "value": "150+" },
+      { "label": "ESP Throttling", "value": "0%" }
+    ],
+    "technicalNotes": "All domains must use distinct naming conventions to prevent pattern-matching by anti-spam algorithms."
+  },
+  {
+    "slug": "cold-email-warmup",
+    "title": "Enterprise Warmup Cluster",
+    "systemType": "Reputation Building",
+    "scale": "Automated Scale",
+    "category": "Infrastructure Provisioning",
+    "status": "MAINTENANCE",
+    "tools": ["Maildoso", "Instantly Warmup Pool"],
+    "overview": "An automated infrastructure network designed to programmatically establish high-trust sender reputation for newly registered domains.",
+    "flow": [
+      { "step": "Domain Registration", "detail": "Aged 30+ Days" },
+      { "step": "DNS Propagation", "detail": "Auth Records Set" },
+      { "step": "Warmup Injection", "detail": "Seed List Sync" },
+      { "step": "Algorithmic Ramp", "detail": "1 -> 40 Daily Progression" }
+    ],
+    "deliverabilityLayer": "Simulated peer-to-peer human interaction patterns (read, reply, mark important, remove from spam).",
+    "scalingLogic": "Ramp schedule mathematically tied to domain age. Never exceed 5% daily volume growth.",
+    "monitoring": ["Warmup Health Score", "Spam Placement Rate"],
+    "failurePrevention": "If spam placement > 10%, ramp halts automatically and holds volume steady until reputation recovers.",
+    "metrics": [
+      { "label": "Warmup Duration", "value": "21 Days" },
+      { "label": "Trust Score", "value": "98/100" }
+    ],
+    "technicalNotes": "Never mix warmup traffic with production traffic on the same IP pool during the first 14 days."
+  },
+  {
+    "slug": "deliverability-recovery",
+    "title": "Deliverability Recovery Pipeline",
+    "systemType": "Incident Remediation",
+    "scale": "Emergency Operations",
+    "category": "Deliverability Layer",
+    "status": "STANDBY",
+    "tools": ["GlockApps", "Spamhaus", "Google Postmaster"],
+    "overview": "A systematic intervention protocol designed to rescue burned domains, identify the root cause of the spam trap hit, and restore inbox flow.",
+    "flow": [
+      { "step": "Kill Switch", "detail": "Halt All Campaigns" },
+      { "step": "Diagnostic Scan", "detail": "GlockApps Seed Test" },
+      { "step": "Remediation", "detail": "Blacklist Delisting & DNS Fix" },
+      { "step": "Re-Warming", "detail": "Slow Phased Recovery" }
+    ],
+    "deliverabilityLayer": "Complete audit of SPF syntax, DKIM key rotation, and DMARC forensic reporting analysis.",
+    "scalingLogic": "Negative scaling. Volume drops to 0, then scales up at 1/4 the speed of a standard warmup.",
+    "monitoring": ["DMARC XML Reports", "Blacklist Alerts"],
+    "failurePrevention": "Post-recovery, domain is restricted to transactional emails only for 30 days before returning to cold outbound.",
+    "metrics": [
+      { "label": "Recovery Time", "value": "14-21 Days" },
+      { "label": "Blacklists Cleared", "value": "100%" }
+    ],
+    "technicalNotes": "Recovery is not guaranteed if the domain hits a critical Tier 1 Spamhaus trap."
+  },
+  {
+    "slug": "clay-instantly-hubspot",
+    "title": "Clay + Instantly + HubSpot Pipeline",
+    "systemType": "Full-Stack Automation",
+    "scale": "High Velocity",
+    "category": "Complete Ecosystem",
+    "status": "ACTIVE",
+    "tools": ["Clay", "Instantly", "HubSpot", "Make.com"],
+    "overview": "An end-to-end operational pipeline connecting data enrichment, outbound execution, and CRM routing into a single seamless loop.",
+    "flow": [
+      { "step": "Lead Gen", "detail": "Apollo/Ocean" },
+      { "step": "Enrichment", "detail": "Clay Waterfall" },
+      { "step": "Outbound", "detail": "Instantly Sequences" },
+      { "step": "Routing", "detail": "Make.com Webhooks" },
+      { "step": "CRM", "detail": "HubSpot Deal Creation" }
+    ],
+    "deliverabilityLayer": "Enrichment layer includes strict email validation (bounce prevention) using MillionVerifier before data enters the sending engine.",
+    "scalingLogic": "Pipeline scales based on Make.com operational limits and API rate limits of the connected tools.",
+    "monitoring": ["Make.com Scenario Logs", "Bounce Rate Analytics"],
+    "failurePrevention": "Webhook error handling and queue management to prevent data loss during API outages.",
+    "metrics": [
+      { "label": "Bounce Rate", "value": "< 0.5%" },
+      { "label": "Automation Uptime", "value": "99.9%" }
+    ],
+    "technicalNotes": "Requires strict mapping of custom variables between Clay and Instantly to prevent personalization parsing errors."
+  },
+  {
+    "slug": "inbox-placement-monitoring",
+    "title": "Enterprise Inbox Placement Monitoring",
+    "systemType": "Intelligence Network",
+    "scale": "Global Telemetry",
+    "category": "Monitoring Systems",
+    "status": "ACTIVE",
+    "tools": ["Postmaster Tools", "GlockApps", "Custom Scripts"],
+    "overview": "A pervasive monitoring shell that continuously samples network health and visualizes inbox placement rates across major ESPs.",
+    "flow": [
+      { "step": "Production Traffic", "detail": "Live Campaign" },
+      { "step": "Seed List Injection", "detail": "1% Sampling" },
+      { "step": "Placement Analysis", "detail": "Inbox vs Spam vs Tab" },
+      { "step": "Alert Routing", "detail": "Slack Critical Alerts" }
+    ],
+    "deliverabilityLayer": "Continuous analysis of IP reputation, domain reputation, and spam complaint rates.",
+    "scalingLogic": "Monitoring sampling rate increases logarithmically with total outbound volume.",
+    "monitoring": ["Real-time Placement Dashboards"],
+    "failurePrevention": "Alerts trigger automated campaign pauses via API if placement drops below 90%.",
+    "metrics": [
+      { "label": "Sampling Rate", "value": "Every 24h" },
+      { "label": "ESPs Monitored", "value": "40+" }
+    ],
+    "technicalNotes": "Seed lists must be rotated regularly to prevent ESPs from identifying and ignoring the test mailboxes."
+  },
+  {
+    "slug": "ai-personalization",
+    "title": "AI Personalization Infrastructure",
+    "systemType": "Data Engineering",
+    "scale": "Compute Intensive",
+    "category": "Data Layer",
+    "status": "ACTIVE",
+    "tools": ["OpenAI API", "Clay", "Perplexity"],
+    "overview": "A dynamic pipeline utilizing LLMs to synthesize fragmented company data into highly contextualized first lines, reducing perceived spam.",
+    "flow": [
+      { "step": "Raw Data", "detail": "LinkedIn/Web Scrape" },
+      { "step": "Context Assembly", "detail": "Prompt Engineering" },
+      { "step": "LLM Synthesis", "detail": "OpenAI / Claude" },
+      { "step": "Human-in-loop", "detail": "Confidence Scoring" }
+    ],
+    "deliverabilityLayer": "Highly variable email body content drastically reduces the probability of triggering spam content filters.",
+    "scalingLogic": "Parallel API requests handling 1000s of rows per minute, limited only by OpenAI rate tiers.",
+    "monitoring": ["API Spend Rates", "Token Usage", "Generation Failure Rates"],
+    "failurePrevention": "Fallback mechanisms (generic but safe first lines) if the LLM hallucinates or fails to generate a high-confidence output.",
+    "metrics": [
+      { "label": "Processing Speed", "value": "200 leads/min" },
+      { "label": "Content Variability", "value": "High" }
+    ],
+    "technicalNotes": "Temperature settings on LLMs must be strictly tuned to prevent inappropriate or grammatically incorrect generations."
+  },
+  {
+    "slug": "agency-outreach-command",
+    "title": "Agency Outreach Command Center",
+    "systemType": "Multi-Tenant Operation",
+    "scale": "Massive Scale",
+    "category": "Complete Ecosystem",
+    "status": "ACTIVE",
+    "tools": ["Smartlead", "Client Workspaces", "Central Dashboards"],
+    "overview": "The master architecture required for an agency to manage dozens of client infrastructure setups simultaneously without cross-contamination.",
+    "flow": [
+      { "step": "Client Onboarding", "detail": "Automated Provisioning" },
+      { "step": "Tenant Isolation", "detail": "Dedicated IP/Domains" },
+      { "step": "Centralized Execution", "detail": "Master Smartlead Account" },
+      { "step": "Aggregated Reporting", "detail": "Looker Studio Dashboard" }
+    ],
+    "deliverabilityLayer": "Absolute logical separation of client data and sender reputation to prevent cascading failures.",
+    "scalingLogic": "Modular tenant additions. Each new client adds a self-contained node to the network.",
+    "monitoring": ["Aggregated Health Scores", "Cross-Tenant Metrics"],
+    "failurePrevention": "If Client A violates spam policies and is blacklisted, the infrastructure architecture ensures Client B remains completely unaffected.",
+    "metrics": [
+      { "label": "Clients Managed", "value": "25+" },
+      { "label": "Total Domains", "value": "400+" }
+    ],
+    "technicalNotes": "Requires meticulous documentation and infrastructure-as-code principles to maintain."
+  }
+]

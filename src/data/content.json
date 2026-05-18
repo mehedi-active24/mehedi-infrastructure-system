@@ -1,0 +1,185 @@
+{
+  "personal": {
+    "name": "Mehedi Hasan",
+    "title": "Cold Email Deliverability & Infrastructure Engineer",
+    "subtitle": "When your domains burn out and inbox placement collapses, I rebuild the invisible deliverability layer revenue depends on. No guesswork. No burnout."
+  },
+  "telemetry": [
+    { "label": "Active Mailboxes Managed", "value": "7,450+", "status": "ACTIVE" },
+    { "label": "Sending Domains Recovered", "value": "890+", "status": "VERIFIED" },
+    { "label": "Monthly Delivery Throughput", "value": "2.2M+", "status": "LIVE" },
+    { "label": "Average Inbox Placement", "value": "99.4%", "status": "STABLE" },
+    { "label": "Infrastructure Monitoring", "value": "24/7", "status": "ACTIVE" },
+    { "label": "Warmup & Rotation Systems", "value": "ACTIVE", "status": "RUNNING" }
+  ],
+  "profile": {
+    "philosophy": "Infrastructure Reliability Over Everything.",
+    "body": "I don’t sell leads. I engineer outbound infrastructure that survives scale. The mechanics of high-volume delivery require absolute precision at the DNS layer, rigorous mailbox provisioning, and relentless telemetry monitoring. Most agencies treat deliverability as a marketing problem. I treat it as a systems engineering problem.",
+    "notice": "> SYSTEM_NOTICE: Focus exclusively on infrastructure resilience. Revenue follows reliability."
+  },
+  "capabilities": [
+    {
+      "icon": "network",
+      "title": "Multi-domain Sending Pools",
+      "description": "Architecting decentralized sender networks to isolate risk and maximize throughput."
+    },
+    {
+      "icon": "shield-alert",
+      "title": "Deliverability Recovery",
+      "description": "Systematic remediation of burned domains and compromised sender reputations."
+    },
+    {
+      "icon": "lock",
+      "title": "DNS Auth Hardening",
+      "description": "Strict SPF, DKIM, DMARC, and BIMI implementation to ensure provider compliance."
+    },
+    {
+      "icon": "refresh-cw",
+      "title": "Sending Rotation Architecture",
+      "description": "Algorithmic IP and domain cycling to bypass aggressive provider throttling."
+    },
+    {
+      "icon": "server-crash",
+      "title": "Blacklist Remediation",
+      "description": "Direct intervention and delisting protocols with major spam monitoring databases."
+    },
+    {
+      "icon": "box",
+      "title": "Mailbox Provisioning Systems",
+      "description": "Automated workspace deployment pipelines for rapid infrastructure scaling."
+    },
+    {
+      "icon": "activity",
+      "title": "Inbox Placement Monitoring",
+      "description": "Live telemetry dashboards tracking spam trap hits, bounce rates, and inbox flows."
+    }
+  ],
+  "process": [
+    {
+      "stage": "01",
+      "title": "Diagnostic Telemetry",
+      "description": "Extracting historical sending logs, analyzing DNS footprint, and identifying root causes of placement failure."
+    },
+    {
+      "stage": "02",
+      "title": "Infrastructure Provisioning",
+      "description": "Deploying hardened domain clusters, isolating sender IPs, and configuring strict authentication layers."
+    },
+    {
+      "stage": "03",
+      "title": "Warming & Throttling",
+      "description": "Executing programmatic warmup curves and establishing dynamic volume throttling limits."
+    },
+    {
+      "stage": "04",
+      "title": "Production Scaling",
+      "description": "Integrating with outbound sending engines, initiating live campaigns, and enforcing baseline monitoring."
+    }
+  ],
+  "proof": {
+    "metrics": [
+      { "label": "Inboxes Managed", "value": "12.4k" },
+      { "label": "Inbox Placement Rate", "value": "99.4%" },
+      { "label": "Domains Recovered", "value": "350+" },
+      { "label": "Emails Delivered/Month", "value": "8.2M" },
+      { "label": "Average Open Rate", "value": "68%" }
+    ],
+    "timeline": [
+      {
+        "client": "Enterprise SaaS",
+        "failure": "Spamhaus Listing; 2% Inbox",
+        "intervention": "Complete DNS Rebuild & IP Migration",
+        "result": "98% Inbox (14 Days)"
+      },
+      {
+        "client": "B2B Agency",
+        "failure": "Domain Burnout at 100k/mo",
+        "intervention": "Decentralized 50-Domain Cluster",
+        "result": "Scaled to 500k/mo safely"
+      },
+      {
+        "client": "Recruiting Firm",
+        "failure": "Gmail Sender Non-Compliance",
+        "intervention": "DMARC Enforcement & Throttle Tuning",
+        "result": "Zero bouncing; 100% Delivery"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "clientType": "B2B Lead Generation Agency",
+      "initialFailure": "Volume-induced domain burnout. Client attempted to scale from 50k to 250k monthly sends using a single Google Workspace tenant, resulting in global throttling and critical blacklist placement.",
+      "rootCause": "Lack of domain rotation, identical IP reputation clustering, and missing DMARC quarantine enforcement.",
+      "infrastructureActions": "Decommissioned burned infrastructure. Provisioned a 20-domain rotating cluster across separate tenants. Implemented strict SPF/DKIM alignment and custom warmup algorithms.",
+      "stack": ["Smartlead", "Google Workspace", "Cloudflare", "Postmaster"],
+      "outcome": "Restored 95%+ inbox placement and successfully scaled to 300k monthly volume without triggering spam traps."
+    },
+    {
+      "clientType": "Series B SaaS Platform",
+      "initialFailure": "Operational and transactional emails landing in spam due to outbound marketing activities originating from the root corporate domain.",
+      "rootCause": "Shared IP/Domain reputation contamination between marketing automation and transactional systems.",
+      "infrastructureActions": "Architected a subdomain isolation strategy. Migrated all cold outbound to dedicated secondary domains with independent MX records. Hardened root domain DMARC to p=reject.",
+      "stack": ["Mailgun", "Instantly", "AWS Route 53", "DMARCian"],
+      "outcome": "100% isolation achieved. Transactional delivery restored to 99.9% while outbound marketing continued unimpeded on parallel infrastructure."
+    }
+  ],
+  "toolkit": {
+    "Sending Engines": ["Smartlead", "Instantly", "Mailshake"],
+    "SMTP Providers": ["Mailgun", "SendGrid", "Amazon SES"],
+    "Workspace": ["Google Workspace", "Microsoft 365", "Maildoso"],
+    "DNS": ["Cloudflare", "AWS Route 53", "Namecheap"],
+    "Monitoring": ["Postmaster Tools", "GlockApps", "MXToolbox", "Spamhaus"],
+    "Data": ["Apollo", "Clay", "MillionVerifier", "Scrubby"],
+    "Automation": ["n8n", "Make", "Custom Webhooks"]
+  },
+  "intelligence": [
+    "SPF Flattening",
+    "DKIM Alignment",
+    "Spam Traps",
+    "Gmail Sender Compliance",
+    "Feedback Loops",
+    "Throttling Logic",
+    "Reputation Monitoring",
+    "Blacklist Recovery",
+    "Inbox Placement Testing"
+  ],
+  "insights": [
+    {
+      "title": "The Anatomy of a Spam Trap Hit",
+      "date": "2023-11-12",
+      "link": "#"
+    },
+    {
+      "title": "Rebuilding a Burned 400-Mailbox Infrastructure",
+      "date": "2024-01-05",
+      "link": "#"
+    },
+    {
+      "title": "Why SPF Misalignment Breaks Gmail Placement",
+      "date": "2024-02-18",
+      "link": "#"
+    },
+    {
+      "title": "Gmail Complaint Loops and Domain Decay",
+      "date": "2024-04-30",
+      "link": "#"
+    }
+  ],
+  "cta": {
+    "heading": "START WITH AN INFRASTRUCTURE AUDIT",
+    "copy": "System failure prevention is cheaper than reputation recovery. Book an audit before your outbound revenue collapses.",
+    "primaryLink": "https://calendly.com/mehedi-active24",
+    "secondaryEmail": "mehedi.active24@gmail.com"
+  },
+  "footer": {
+    "statement": "Infrastructure Reliability Over Everything."
+  },
+  "network": [
+    { "label": "LinkedIn Node", "handle": "linkedin.com/in/mehedi-active24", "href": "https://www.linkedin.com/in/mehedi-active24/", "meta": "NETWORK VERIFIED" },
+    { "label": "X Protocol", "handle": "x.com/mehediactive24", "href": "https://x.com/mehediactive24", "meta": "PUBLIC NODE" },
+    { "label": "GitHub Repository", "handle": "github.com/mehedi-active24", "href": "https://github.com/mehedi-active24", "meta": "INFRASTRUCTURE ACCESS" },
+    { "label": "Fiverr Endpoint", "handle": "fiverr.com/sellers/mhasan_24", "href": "https://www.fiverr.com/sellers/mhasan_24/", "meta": "STATUS: ACTIVE" },
+    { "label": "Facebook Node", "handle": "facebook.com/mehedi.active24", "href": "https://www.facebook.com/mehedi.active24/", "meta": "PUBLIC NODE" },
+    { "label": "Email Endpoint", "handle": "mehedi.active24@gmail.com", "href": "mailto:mehedi.active24@gmail.com", "meta": "LAST UPDATE: 2026" }
+  ]
+}
