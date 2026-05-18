@@ -1,5 +1,6 @@
 import HeroCommandCenter from "@/components/HeroCommandCenter";
 import OperatorProfile from "@/components/OperatorProfile";
+import ProactiveScaling from "@/components/ProactiveScaling";
 import ArchitecturePreviews from "@/components/ArchitecturePreviews";
 import DeliverabilityProof from "@/components/DeliverabilityProof";
 import SystemsToolkit from "@/components/SystemsToolkit";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen bg-bg-dark selection:bg-accent/30 overflow-x-hidden">
       <HeroCommandCenter />
       <OperatorProfile />
+      <ProactiveScaling />
       <DeliverabilityProof />
       <ArchitecturePreviews />
       <SystemsToolkit condensed={true} />
