@@ -52,8 +52,6 @@ export default function Footer() {
               {([
                 { label: "LinkedIn Node", handle: "linkedin.com/in/mehedi-active24", href: "https://www.linkedin.com/in/mehedi-active24/" },
                 { label: "GitHub Repository", handle: "github.com/mehedi-active24", href: "https://github.com/mehedi-active24" },
-                { label: "X Protocol", handle: "x.com/mehediactive24", href: "https://x.com/mehediactive24" },
-                { label: "Fiverr Endpoint", handle: "fiverr.com/sellers/mhasan_24", href: "https://www.fiverr.com/sellers/mhasan_24/" },
                 { label: "Facebook Node", handle: "facebook.com/mehedi.active24", href: "https://www.facebook.com/mehedi.active24/" },
                 { label: "Email Endpoint", handle: "mehedi.active24@gmail.com", href: "mailto:mehedi.active24@gmail.com" },
               ] as { label: string; handle: string; href: string }[]).map((node, i) => (
