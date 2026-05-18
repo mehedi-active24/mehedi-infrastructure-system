@@ -106,7 +106,7 @@ export default function HeroCommandCenter() {
                
                {/* Telemetry Node 1 (Top Left) */}
                <motion.div 
-                 className="hidden md:flex absolute top-8 left-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 items-center gap-2"
+                 className="flex absolute top-4 left-4 sm:top-8 sm:left-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 items-center gap-2"
                  animate={{ y: [0, -8, 0] }}
                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                >
@@ -116,7 +116,7 @@ export default function HeroCommandCenter() {
 
                {/* Telemetry Node 2 (Bottom Right) */}
                <motion.div 
-                 className="hidden md:flex absolute bottom-12 right-4 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
+                 className="flex absolute bottom-8 right-2 sm:bottom-12 sm:right-4 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
                  animate={{ y: [0, 10, 0] }}
                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                >
@@ -135,7 +135,7 @@ export default function HeroCommandCenter() {
 
                {/* DNS Metric Panel (Bottom Left) */}
                <motion.div 
-                 className="hidden md:block absolute bottom-8 left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
+                 className="block absolute bottom-4 left-4 sm:bottom-8 sm:left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
                  animate={{ y: [0, -5, 0] }}
                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                >
