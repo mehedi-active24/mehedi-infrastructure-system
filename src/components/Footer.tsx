@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative pt-24 pb-8 bg-bg-dark border-t border-border-subtle overflow-hidden selection:bg-accent/30">
+    <footer className="relative pt-12 pb-8 bg-bg-dark overflow-hidden selection:bg-accent/30">
       
       {/* Background Depth Layers */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -32,7 +32,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Section 3: Navigation — 3 curated columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 border-t border-border-subtle pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
 
           {/* Column 1: Infrastructure */}
           <div className="space-y-4">
