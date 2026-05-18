@@ -172,9 +172,6 @@ export default function HeaderNav() {
                         className="flex items-center justify-between px-3 py-2.5 border border-border-subtle hover:border-accent/30 hover:bg-surface transition-all group"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="text-[8px] font-mono text-text-secondary/30 w-4">
-                            [ {String(i + 1).padStart(2, "0")} ]
-                          </span>
                           <span className="text-[11px] font-mono text-text-secondary group-hover:text-text-primary uppercase tracking-wider transition-colors">
                             {item.label}
                           </span>
