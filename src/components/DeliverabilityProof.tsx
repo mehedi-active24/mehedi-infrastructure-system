@@ -59,25 +59,25 @@ const recoveryLogs = [
   {
     id: "01",
     env: "Enterprise SaaS",
-    failure: "Spamhaus Escalation & Severe Placement Degradation",
-    intervention: "Complete DNS Authentication Rebuild, Reputation Isolation, and IP Migration",
-    result: "Placement Recovery Stabilized Across 14 Days",
+    failure: "Spamhaus blocklist escalation causing all cold outreach to hit spam.",
+    intervention: "Rebuilt DNS authentication (SPF/DKIM/DMARC), isolated damaged domains, and migrated to clean sending IPs.",
+    result: "100% inbox placement restored within 14 days, resuming pipeline growth.",
     severity: "CRITICAL",
   },
   {
     id: "02",
     env: "B2B Agency",
-    failure: "Domain Burnout During High-Volume Scaling",
-    intervention: "Decentralized 50-Domain Sending Architecture with Rotational Segmentation",
-    result: "Sustained 500k/mo Delivery Without Reputation Drift",
+    failure: "Domain burnout and blacklisting within 3 weeks of cold email campaign launch.",
+    intervention: "Engineered a decentralized 50-domain sending architecture with automated rotational segmentation.",
+    result: "Sustained delivery of 500k+ emails per month with zero domain reputation drift.",
     severity: "HIGH",
   },
   {
     id: "03",
-    env: "Recruiting Infrastructure",
-    failure: "Google Sender Compliance Failure & Elevated Bounce Activity",
-    intervention: "DMARC Enforcement, Authentication Hardening, and Adaptive Throttle Tuning",
-    result: "Bounce Rate Reduced Below 1% With Stable Inbox Placement",
+    env: "Recruiting Firm",
+    failure: "Failed Google's new sender compliance requirements, leading to high bounce rates.",
+    intervention: "Hardened domain validation, enforced DMARC security, and applied adaptive sending delays.",
+    result: "Bounces cut below 1% and maintained 99%+ deliverability ever since.",
     severity: "HIGH",
   },
 ];
@@ -209,9 +209,9 @@ export default function DeliverabilityProof() {
             <div className="hidden md:grid grid-cols-12 bg-surface/50 border-b border-border-subtle px-5 py-2.5 gap-4 text-[9px] font-mono text-text-secondary uppercase tracking-widest">
               <div className="col-span-1">Ref</div>
               <div className="col-span-2">Environment</div>
-              <div className="col-span-3">Failure State</div>
-              <div className="col-span-4">Infrastructure Intervention</div>
-              <div className="col-span-2">Stabilization Result</div>
+              <div className="col-span-3">🔴 Problem</div>
+              <div className="col-span-4">🛠️ Action</div>
+              <div className="col-span-2">🟢 Result</div>
             </div>
 
             {/* Rows */}
@@ -244,19 +244,19 @@ export default function DeliverabilityProof() {
 
                   {/* Failure State */}
                   <div className="md:col-span-3">
-                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">Failure State</div>
+                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">🔴 Problem</div>
                     <span className="text-xs text-text-secondary leading-relaxed block">{log.failure}</span>
                   </div>
 
                   {/* Intervention */}
                   <div className="md:col-span-4">
-                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">Infrastructure Intervention</div>
+                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">🛠️ Action</div>
                     <span className="text-xs text-text-secondary leading-relaxed block">{log.intervention}</span>
                   </div>
 
                   {/* Result */}
                   <div className="md:col-span-2">
-                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">Stabilization Result</div>
+                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">🟢 Result</div>
                     <div className="flex items-start gap-1.5">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
                       <span className="text-xs text-emerald-400 font-mono leading-tight">{log.result}</span>
