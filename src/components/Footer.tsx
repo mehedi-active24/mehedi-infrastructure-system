@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Activity, Shield, Server, Database, Terminal } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -32,75 +31,6 @@ export default function Footer() {
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
-        {/* Top Grid: Statement & Status Panel */}
-        <div className="grid lg:grid-cols-12 gap-12 mb-20">
-          
-          {/* Section 1: Operational Statement */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-             <div className="flex items-center gap-3 mb-6">
-               <div className="flex items-center justify-center w-6 h-6 border border-border-subtle bg-surface">
-                 <Terminal className="w-3 h-3 text-text-secondary" />
-               </div>
-               <span className="text-[10px] font-mono text-text-secondary uppercase tracking-widest">
-                 System Terminal :: Shutdown Layer
-               </span>
-             </div>
-             
-             <h2 className="text-3xl md:text-5xl font-bold text-text-primary tracking-tight mb-4 uppercase">
-               Infrastructure Reliability<br />Over Everything.
-             </h2>
-             
-             <div className="flex flex-wrap items-center gap-4 text-sm md:text-base text-text-secondary">
-               <p>Cold Email Deliverability & Infrastructure Systems</p>
-               <span className="hidden md:inline text-border-subtle">|</span>
-               <div className="flex items-center gap-2 font-mono text-xs">
-                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                 <span className="text-emerald-400">GLOBAL ROUTING ACTIVE</span>
-               </div>
-             </div>
-          </div>
-
-          {/* Section 2: Live System Status Panel */}
-          <div className="lg:col-span-5">
-             <div className="bg-surface/50 border border-border-subtle backdrop-blur-sm p-6 font-mono text-xs text-text-secondary">
-                <div className="flex items-center justify-between border-b border-border-subtle pb-4 mb-4">
-                  <div className="flex items-center gap-2">
-                    <Activity className="w-4 h-4 text-accent" />
-                    <span className="text-text-primary uppercase tracking-wider">System Status</span>
-                  </div>
-                  <div className="px-2 py-1 bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">
-                    OPERATIONAL
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center group cursor-default">
-                    <span className="group-hover:text-text-primary transition-colors flex items-center gap-2"><Shield className="w-3 h-3"/> DNS Authentication</span>
-                    <span className="text-emerald-400">HEALTHY</span>
-                  </div>
-                  <div className="flex justify-between items-center group cursor-default">
-                    <span className="group-hover:text-text-primary transition-colors flex items-center gap-2"><Activity className="w-3 h-3"/> Inbox Placement</span>
-                    <span className="text-blue-400">MONITORED</span>
-                  </div>
-                  <div className="flex justify-between items-center group cursor-default">
-                    <span className="group-hover:text-text-primary transition-colors flex items-center gap-2"><Server className="w-3 h-3"/> Warmup Systems</span>
-                    <span className="text-emerald-400">ACTIVE</span>
-                  </div>
-                  <div className="flex justify-between items-center group cursor-default">
-                    <span className="group-hover:text-text-primary transition-colors flex items-center gap-2"><Database className="w-3 h-3"/> Reputation Layer</span>
-                    <span className="text-emerald-400">STABLE</span>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-border-subtle flex justify-between items-center text-[10px] opacity-60">
-                  <span>INFRASTRUCTURE VERSION: v2026.4</span>
-                  <span>UPDATED: 2026</span>
-                </div>
-             </div>
-          </div>
-
-        </div>
-
         {/* Section 3: Navigation — 3 curated columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 border-t border-border-subtle pt-12">
 
