@@ -6,8 +6,8 @@
   },
   "telemetry": [
     { "label": "Active Mailboxes Managed", "value": "7,450+", "status": "ACTIVE" },
-    { "label": "Sending Domains Recovered", "value": "890+", "status": "VERIFIED" },
-    { "label": "Monthly Delivery Throughput", "value": "2.2M+", "status": "LIVE" },
+    { "label": "Sending Domains Recovered", "value": "1,235+", "status": "VERIFIED" },
+    { "label": "Monthly Delivery Throughput", "value": "5.3M+", "status": "LIVE" },
     { "label": "Average Inbox Placement", "value": "99.4%", "status": "STABLE" },
     { "label": "Infrastructure Monitoring", "value": "24/7", "status": "ACTIVE" },
     { "label": "Warmup & Rotation Systems", "value": "ACTIVE", "status": "RUNNING" }
