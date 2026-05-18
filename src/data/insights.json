@@ -131,7 +131,7 @@
   },
   {
     "slug": "dkim-key-rotation-enterprise-sending-cluster",
-    "date": "2026-06-02",
+    "date": "2026-05-17",
     "title": "DKIM Key Rotation Protocol Across an Enterprise Sending Cluster",
     "tags": ["DKIM", "INFRASTRUCTURE", "MONITORING"],
     "severity": "MAINTENANCE",
@@ -151,7 +151,7 @@
   },
   {
     "slug": "throttle-logic-calibration-google-sending-limits",
-    "date": "2026-06-19",
+    "date": "2026-05-18",
     "title": "Throttle Logic Calibration Under Google's Updated Sending Limits",
     "tags": ["INFRASTRUCTURE", "GMAIL", "MONITORING"],
     "severity": "HIGH",
