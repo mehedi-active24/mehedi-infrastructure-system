@@ -4,7 +4,7 @@ export default function AuditCTA() {
   const { cta } = content;
 
   return (
-    <section id="book" className="py-32 border-b border-border-subtle bg-bg-dark text-center">
+    <section id="book" className="py-20 border-b border-border-subtle bg-bg-dark text-center">
       <div className="container mx-auto px-6 max-w-3xl">
         
         <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4 uppercase tracking-tight">

@@ -91,12 +91,12 @@ export default function DeliverabilityProof() {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <section id="results" className="py-24 border-b border-border-subtle bg-surface/10 relative overflow-hidden">
+    <section id="results" className="py-16 border-b border-border-subtle bg-surface/10 relative overflow-hidden">
 
       {/* Background texture */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KPHBhdGggZD0iTTAgNDBMMDAgMEw0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')] pointer-events-none opacity-30 z-0" />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 space-y-20">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 space-y-12">
 
         {/* ── SECTION 1: TELEMETRY METRICS ── */}
         <div>

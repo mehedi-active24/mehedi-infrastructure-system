@@ -3,14 +3,17 @@ import Link from "next/link";
 import { Activity, Server } from "lucide-react";
 
 export default function ArchitecturePreviews() {
+  // Show only 2 featured architectures on the homepage
+  const featuredArchitectures = architectures.slice(0, 2);
+
   return (
-    <section id="architectures" className="py-24 border-b border-border-subtle bg-bg-dark">
+    <section id="architectures" className="py-16 border-b border-border-subtle bg-bg-dark relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-10">
           <div>
             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">Systems Library</h2>
-            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Infrastructure Architectures</h3>
+            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Featured Infrastructure Architectures</h3>
           </div>
           <Link href="/architecture" className="text-xs font-mono text-accent hover:underline hidden md:block">
             [ View Master Systems Map ]
@@ -18,7 +21,7 @@ export default function ArchitecturePreviews() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {architectures.map((arch) => (
+          {featuredArchitectures.map((arch) => (
             <Link 
               href={`/architecture/${arch.slug}`} 
               key={arch.slug}
@@ -67,9 +70,13 @@ export default function ArchitecturePreviews() {
           ))}
         </div>
 
-        <div className="mt-8 text-center md:hidden">
-          <Link href="/architecture" className="text-xs font-mono text-accent hover:underline">
-            [ View Master Systems Map ]
+        {/* Permanent CTA */}
+        <div className="mt-10 text-center">
+          <Link 
+            href="/architecture" 
+            className="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline uppercase tracking-widest"
+          >
+            [ VIEW FULL ARCHITECTURE ARCHIVES → ]
           </Link>
         </div>
 

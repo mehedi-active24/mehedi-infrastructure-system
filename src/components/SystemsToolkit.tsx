@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const ecosystem = [
   {
@@ -94,7 +95,7 @@ const ecosystem = [
   },
 ];
 
-export default function SystemsToolkit() {
+export default function SystemsToolkit({ condensed = true }: { condensed?: boolean }) {
   const [isMobile, setIsMobile] = useState(false);
   const [expandedLayers, setExpandedLayers] = useState<Record<string, boolean>>({});
 
@@ -112,8 +113,13 @@ export default function SystemsToolkit() {
     }));
   };
 
+  // Filter displaying layers based on condensed prop
+  const displayedLayers = condensed
+    ? ecosystem.filter((layer) => ["sending", "smtp", "dns", "monitoring"].includes(layer.id))
+    : ecosystem;
+
   return (
-    <section id="stack" className="py-24 border-b border-border-subtle bg-surface/20 relative overflow-hidden">
+    <section id="stack" className="py-16 border-b border-border-subtle bg-surface/20 relative overflow-hidden">
 
       {/* Background depth */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KPHBhdGggZD0iTTAgNDBMMDAgMEw0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')] pointer-events-none opacity-30 z-0" />
@@ -121,23 +127,25 @@ export default function SystemsToolkit() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
 
         {/* Header */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Ecosystem Layer</h2>
-            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Outbound Infrastructure Ecosystem</h3>
+            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
+              {condensed ? "Condensed Systems Toolkit" : "Outbound Infrastructure Ecosystem"}
+            </h3>
             <p className="text-xs font-mono text-text-secondary mt-2">
-              Infrastructure-grade platforms powering outbound delivery, enrichment, monitoring, and automation systems.
+              Infrastructure-grade platforms powering outbound delivery, DNS configuration, and active monitoring.
             </p>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-accent border border-accent/20 bg-accent/5 px-3 py-1.5 shrink-0">
             <motion.div className="w-1.5 h-1.5 rounded-full bg-accent" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-            7 INFRASTRUCTURE LAYERS
+            {displayedLayers.length} INFRASTRUCTURE LAYERS ACTIVE
           </div>
         </div>
 
         {/* Ecosystem Layers */}
         <div className="space-y-3">
-          {ecosystem.map((layer, i) => {
+          {displayedLayers.map((layer, i) => {
             const isExpanded = expandedLayers[layer.id] || false;
             return (
               <motion.div
@@ -219,14 +227,25 @@ export default function SystemsToolkit() {
           })}
         </div>
 
-        {/* Ecosystem Footer Note */}
-        <div className="mt-8 pt-6 border-t border-border-subtle flex items-center justify-between text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest">
-          <span>Infrastructure Ecosystem // v2026.4</span>
-          <div className="flex items-center gap-2">
-            <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-            ALL SYSTEMS OPERATIONAL
+        {/* Dynamic CTA Footer based on condensed prop */}
+        {condensed ? (
+          <div className="mt-8 text-center">
+            <Link 
+              href="/toolkit" 
+              className="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline uppercase tracking-widest"
+            >
+              [ VIEW FULL OUTBOUND ECOSYSTEM → ]
+            </Link>
           </div>
-        </div>
+        ) : (
+          <div className="mt-8 pt-6 border-t border-border-subtle flex items-center justify-between text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest">
+            <span>Infrastructure Ecosystem // v2026.4</span>
+            <div className="flex items-center gap-2">
+              <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+              ALL SYSTEMS OPERATIONAL
+            </div>
+          </div>
+        )}
 
       </div>
     </section>

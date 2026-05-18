@@ -6,11 +6,12 @@ import Link from "next/link";
 import { Menu, X, Terminal, Activity, Shield } from "lucide-react";
 
 const navItems = [
-  { label: "Operator",      href: "/#operator"     },
+  { label: "Operator",      href: "/#about"        },
   { label: "Architecture",  href: "/architecture"  },
   { label: "Telemetry",     href: "/#results"      },
-  { label: "Ecosystem",     href: "/#stack"        },
-  { label: "Intelligence",  href: "/#intelligence" },
+  { label: "Ecosystem",     href: "/toolkit"       },
+  { label: "Intelligence",  href: "/intelligence"  },
+  { label: "Logs",          href: "/logs"          },
   { label: "Audit",         href: "/#book"         },
 ];
 

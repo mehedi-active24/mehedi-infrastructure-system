@@ -4,7 +4,7 @@ export default function OperatorProfile() {
   const { profile } = content;
 
   return (
-    <section id="about" className="py-24 border-b border-border-subtle bg-bg-dark">
+    <section id="about" className="py-16 border-b border-border-subtle bg-bg-dark">
       <div className="container mx-auto px-6 max-w-7xl">
         
         <div className="grid md:grid-cols-12 gap-12">
