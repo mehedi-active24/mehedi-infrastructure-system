@@ -3,96 +3,106 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { Layers, ChevronDown, ChevronUp } from "lucide-react";
 
-const ecosystem = [
+interface ToolAnnotation {
+  name: string;
+  why: string;
+}
+
+interface EcosystemLayer {
+  id: string;
+  layer: string;
+  label: string;
+  description: string;
+  primary: ToolAnnotation[];
+  extended: string[];
+}
+
+const ecosystem: EcosystemLayer[] = [
   {
     id: "sending",
     layer: "Layer 01",
     label: "Sending Infrastructure",
     description: "Primary sending engines & outreach platforms",
-    groups: [
-      {
-        sublabel: "Primary Sending Engines",
-        tools: ["Smartlead", "Instantly", "Lemlist", "Mailshake", "Salesforge", "Reply.io", "QuickMail", "Woodpecker", "Klenty", "SmartReach.io", "Reachinbox", "Pipl.ai", "Snov.io"],
-      },
-      {
-        sublabel: "Enterprise Outreach Platforms",
-        tools: ["HubSpot Sequences", "GoHighLevel", "Outreach.io", "Salesloft", "Apollo Outreach", "Close CRM Outreach"],
-      },
+    primary: [
+      { name: "Smartlead", why: "Industry-standard for high-volume outreach and automated multi-sender rotational warmup loops." },
+      { name: "Instantly", why: "Highly efficient UI for scale-focused agencies running decentralized workspace structures." },
+      { name: "Maildoso", why: "Dedicated, optimized enterprise sending nodes with pre-configured custom IP subnets." }
     ],
+    extended: ["Mailshake", "Salesforge", "Reply.io", "QuickMail", "Woodpecker", "GoHighLevel", "Apollo Outreach"]
   },
   {
     id: "smtp",
     layer: "Layer 02",
     label: "SMTP & Delivery Layer",
     description: "Transactional delivery infrastructure and relays",
-    groups: [
-      {
-        sublabel: "SMTP Providers",
-        tools: ["Amazon SES", "Mailgun", "SendGrid", "Postmark", "SparkPost", "SocketLabs", "SMTP2GO", "MailChannels", "Elastic Email", "Mailjet", "Brevo SMTP", "ZeptoMail", "Mailazy", "Inboxroad", "Mailreef"],
-      },
+    primary: [
+      { name: "Amazon SES", why: "Maximum deliverability throughput and cost efficiency when configured with dedicated IP warmups." },
+      { name: "Mailgun", why: "Excellent MTA logs and tracking APIs for high-frequency transactional and promotional isolation." },
+      { name: "Postmark", why: "State-of-the-art transactional inbox placement and strict bounce classification metrics." }
     ],
+    extended: ["SendGrid", "SocketLabs", "SMTP2GO", "Brevo SMTP", "ZeptoMail", "Postfix MTA"]
   },
   {
     id: "dns",
     layer: "Layer 03",
     label: "DNS & Infrastructure Layer",
     description: "Domain and DNS network provisioning tools",
-    groups: [
-      {
-        sublabel: "DNS & Registrars",
-        tools: ["Cloudflare", "AWS Route 53", "Google Cloud DNS", "Azure DNS", "DNSMadeEasy", "Bunny DNS", "Hetzner DNS", "Namecheap", "Porkbun", "Dynadot", "Spaceship", "GoDaddy"],
-      },
+    primary: [
+      { name: "Cloudflare", why: "Ultra-fast DNS propagation, strict security layers, and scalable API record management." },
+      { name: "AWS Route 53", why: "Enterprise-grade registrar routing with programmatic record generation profiles." }
     ],
+    extended: ["Google Cloud DNS", "Porkbun", "Namecheap", "Dynadot", "Spaceship"]
   },
   {
     id: "mailbox",
     layer: "Layer 04",
     label: "Workspace & Mailbox Systems",
     description: "Mailbox provisioning and workspace management",
-    groups: [
-      {
-        sublabel: "Email Workspace Providers",
-        tools: ["Google Workspace", "Microsoft 365", "Outlook Exchange", "Zoho Mail", "Maildoso", "Fastmail"],
-      },
+    primary: [
+      { name: "Google Workspace", why: "Gold standard for outreach inbox placement. Demands strict per-mailbox warmups." },
+      { name: "Microsoft 365", why: "Essential for enterprise B2B coverage. Bypasses strict Microsoft spam filters by default." }
     ],
+    extended: ["Zoho Mail", "Outlook Exchange", "Fastmail"]
   },
   {
     id: "monitoring",
     layer: "Layer 05",
     label: "Deliverability Monitoring & Telemetry",
     description: "Inbox placement, reputation, and tracking systems",
-    groups: [
-      {
-        sublabel: "Monitoring Platforms",
-        tools: ["Google Postmaster Tools", "Microsoft SNDS", "GlockApps", "MXToolbox", "Spamhaus", "Validity Everest", "Litmus", "InboxAlly", "Folderly", "MailReach", "URIports", "DMARCian", "ZeroBounce Monitor"],
-      },
+    primary: [
+      { name: "Google Postmaster Tools", why: "Critical source of truth for raw sender domain and IP reputation tracking." },
+      { name: "GlockApps", why: "Invaluable seed-list placement testing for catching silent spam routing behaviors." },
+      { name: "MXToolbox", why: "Automatic blacklist monitoring and DNS authentication audit sweeps." },
+      { name: "Spamhaus", why: "Direct ZEN/SBL monitoring and remediation interface for enterprise threat pools." }
     ],
+    extended: ["Microsoft SNDS", "DMARCian", "Folderly", "MailReach", "Litmus"]
   },
   {
     id: "data",
     layer: "Layer 06",
     label: "Data & Enrichment Intelligence",
     description: "Lead intelligence, enrichment, and validation systems",
-    groups: [
-      {
-        sublabel: "Data & Enrichment",
-        tools: ["Clay", "Apollo", "ZoomInfo", "Clearbit", "People Data Labs", "Hunter.io", "FullEnrich", "Dropcontact", "Prospeo", "Lusha", "Kaspr", "Seamless.ai", "MillionVerifier", "Scrubby"],
-      },
+    primary: [
+      { name: "Clay", why: "Unmatched programmatic enrichment and multi-source scraping orchestration." },
+      { name: "Apollo", why: "Standard database for targeted high-fidelity B2B sales data." },
+      { name: "MillionVerifier", why: "Rigorous multi-pass email cleaning to secure outbound bounce protection." }
     ],
+    extended: ["Scrubby", "Hunter.io", "Dropcontact", "Prospeo"]
   },
   {
     id: "automation",
     layer: "Layer 07",
     label: "Automation & System Orchestration",
     description: "Workflow automation, webhooks, and integrations",
-    groups: [
-      {
-        sublabel: "Automation Stack",
-        tools: ["n8n", "Make", "Zapier", "Airtable Automations", "Retool", "Supabase", "Custom Webhooks", "Cloud Functions", "Serverless Workflows", "Webhook Relay"],
-      },
+    primary: [
+      { name: "n8n", why: "Self-hosted, highly secure visual automation engine for custom outbound data pipelines." },
+      { name: "Make", why: "Robust cloud orchestration for multi-app webhook integrations." },
+      { name: "Custom Webhooks", why: "Ultra-lightweight direct programmatic system triggers." }
     ],
-  },
+    extended: ["Zapier", "Airtable Automations", "Retool", "Cloud Functions"]
+  }
 ];
 
 export default function SystemsToolkit({ condensed = true }: { condensed?: boolean }) {
@@ -113,15 +123,14 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
     }));
   };
 
-  // Filter displaying layers based on condensed prop
   const displayedLayers = condensed
     ? ecosystem.filter((layer) => ["sending", "smtp", "dns", "monitoring"].includes(layer.id))
     : ecosystem;
 
   return (
     <section id="stack" className="py-16 border-b border-border-subtle bg-surface/20 relative overflow-hidden">
-
-      {/* Background depth */}
+      
+      {/* Background Grid */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KPHBhdGggZD0iTTAgNDBMMDAgMEw0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')] pointer-events-none opacity-30 z-0" />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
@@ -131,20 +140,20 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
           <div>
             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Ecosystem Layer</h2>
             <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
-              {condensed ? "Condensed Systems Toolkit" : "Outbound Infrastructure Ecosystem"}
+              {condensed ? "Opinionated Systems Toolkit" : "Hardened Outbound Ecosystem Map"}
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-2">
-              Infrastructure-grade platforms powering outbound delivery, DNS configuration, and active monitoring.
+              Highly prioritized system stacks chosen for enterprise reliability and proactive scaling security.
             </p>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-accent border border-accent/20 bg-accent/5 px-3 py-1.5 shrink-0">
-            <motion.div className="w-1.5 h-1.5 rounded-full bg-accent" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-            {displayedLayers.length} INFRASTRUCTURE LAYERS ACTIVE
+            <Layers className="w-3.5 h-3.5" />
+            {displayedLayers.length} OPERATIONAL LAYERS ACTIVE
           </div>
         </div>
 
         {/* Ecosystem Layers */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {displayedLayers.map((layer, i) => {
             const isExpanded = expandedLayers[layer.id] || false;
             return (
@@ -154,74 +163,82 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.06 }}
-                className="group border border-border-subtle bg-bg-dark hover:bg-surface hover:border-accent/30 transition-all duration-300"
+                className="group border border-border-subtle bg-bg-dark p-5 hover:border-accent/30 transition-all duration-300 relative"
               >
-                {/* Layer Header — clickable on mobile */}
-                <div 
-                  onClick={() => isMobile && toggleLayer(layer.id)}
-                  className={`grid grid-cols-12 items-center px-5 py-4 gap-4 ${isMobile ? 'cursor-pointer select-none' : ''}`}
-                >
-
-                  {/* Layer ID */}
-                  <div className="col-span-2 md:col-span-1">
-                    <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest group-hover:text-accent/60 transition-colors">{layer.layer}</span>
-                  </div>
-
-                  {/* Layer Name */}
-                  <div className="col-span-7 md:col-span-3">
-                    <div className="text-sm font-mono font-bold text-text-primary group-hover:text-accent transition-colors">{layer.label}</div>
-                    <div className="text-[10px] font-mono text-text-secondary/50 mt-0.5 hidden md:block">{layer.description}</div>
-                  </div>
-
-                  {/* Expansion Indicator (mobile only) */}
-                  <div className="col-span-3 text-right md:hidden">
-                    <span className="text-[9px] font-mono text-accent font-bold">
-                      {isExpanded ? "[ COLLAPSE ]" : "[ EXPAND ]"}
+                {/* Layer Metadata */}
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4 pb-4 border-b border-border-subtle/50">
+                  <div>
+                    <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest block mb-1">
+                      {layer.layer} // {layer.id.toUpperCase()}_LAYER
                     </span>
+                    <h4 className="text-base font-mono font-bold text-text-primary group-hover:text-accent transition-colors">
+                      {layer.label}
+                    </h4>
+                    <p className="text-xs font-mono text-text-secondary/60 mt-0.5">
+                      {layer.description}
+                    </p>
                   </div>
+                </div>
 
-                  {/* Tools — Desktop Horizontal Layout */}
-                  <div className="hidden md:flex col-span-8 flex-wrap gap-1.5">
-                    {layer.groups.flatMap(g => g.tools).map((tool, j) => (
-                      <span
-                        key={j}
-                        className="text-[9px] font-mono text-text-secondary border border-border-subtle bg-bg-dark px-2 py-0.5 group-hover:border-accent/20 group-hover:text-text-primary transition-all"
-                      >
-                        {tool}
-                      </span>
+                {/* Primary Stack List */}
+                <div className="space-y-3">
+                  <div className="text-[9px] font-mono text-accent/80 uppercase tracking-wider mb-2">
+                    [ PRIMARY DEPLOYMENT STACK — DEFAULT CONFIG ]
+                  </div>
+                  <div className="grid gap-3 md:grid-cols-1">
+                    {layer.primary.map((tool, j) => (
+                      <div key={j} className="flex flex-col md:flex-row md:items-center gap-2 bg-surface/30 border border-border-subtle/40 p-3 hover:bg-surface/50 transition-colors">
+                        <span className="text-xs font-mono font-bold text-text-primary shrink-0 min-w-[120px] md:border-r md:border-border-subtle/50 md:pr-4">
+                          {tool.name}
+                        </span>
+                        <span className="text-[11px] font-mono text-text-secondary md:pl-2">
+                          {tool.why}
+                        </span>
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Collapsible Panel for Mobile */}
-                <AnimatePresence initial={false}>
-                  {isMobile && isExpanded && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
-                      className="overflow-hidden border-t border-border-subtle bg-surface/50"
+                {/* Collapsible Extended Compatibility Accordion */}
+                {layer.extended.length > 0 && (
+                  <div className="mt-4">
+                    <button
+                      onClick={() => toggleLayer(layer.id)}
+                      className="inline-flex items-center gap-1.5 text-[10px] font-mono text-text-secondary/70 hover:text-accent transition-colors cursor-pointer select-none border border-border-subtle/50 bg-surface/10 px-2.5 py-1"
                     >
-                      <div className="px-5 py-4 flex flex-wrap gap-1.5">
-                        <div className="w-full text-[9px] font-mono text-text-secondary/60 mb-2 uppercase">
-                          {layer.description}
-                        </div>
-                        {layer.groups.flatMap(g => g.tools).map((tool, j) => (
-                          <span
-                            key={j}
-                            className="text-[9px] font-mono text-text-secondary border border-border-subtle bg-bg-dark px-2 py-0.5"
-                          >
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      {isExpanded ? <ChevronUp className="w-3 h-3 text-accent" /> : <ChevronDown className="w-3 h-3" />}
+                      {isExpanded
+                        ? `[ HIDE COMPATIBILITY NODE ]`
+                        : `[ DISCLOSE EXTENDED SYSTEM COMPATIBILITY (+${layer.extended.length} PLATFORMS) ]`}
+                    </button>
 
-                {/* Bottom pulse line on hover */}
-                <div className="h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
+                    <AnimatePresence initial={false}>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-3 flex flex-wrap gap-1.5">
+                            {layer.extended.map((extTool, j) => (
+                              <span
+                                key={j}
+                                className="text-[9px] font-mono text-text-secondary/80 border border-border-subtle/40 bg-bg-dark px-2 py-0.5"
+                              >
+                                {extTool}
+                              </span>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )}
+
+                {/* Hover line accent */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
               </motion.div>
             );
           })}
