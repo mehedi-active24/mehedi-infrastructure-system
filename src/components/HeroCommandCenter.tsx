@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import content from "@/data/content.json";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function HeroCommandCenter() {
   const { personal, telemetry } = content;
@@ -15,7 +16,7 @@ export default function HeroCommandCenter() {
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
-      setSubtitleText(fullText.substring(0, i));
+      setSubtitleText(fullText.slice(0, i));
       i++;
       if (i > fullText.length) clearInterval(interval);
     }, 20);
@@ -41,19 +42,29 @@ export default function HeroCommandCenter() {
               <span className="animate-pulse inline-block w-1 h-3.5 bg-text-secondary ml-1 align-middle" />
             </p>
             
-            <div className="flex flex-wrap gap-3 pt-2">
-              <a 
-                href="#results"
-                className="px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
-              >
-                See Infrastructure Proof
-              </a>
-              <a 
-                href="#book"
-                className="px-5 py-2.5 bg-surface text-text-primary text-xs font-mono uppercase tracking-wider border border-border-subtle hover:bg-surface-hover transition-colors"
-              >
-                Book a System Audit
-              </a>
+            <div className="space-y-4 pt-2">
+              <div className="flex flex-wrap gap-3">
+                <a 
+                  href="#results"
+                  className="px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
+                >
+                  See Infrastructure Proof
+                </a>
+                <a 
+                  href="#book"
+                  className="px-5 py-2.5 bg-surface text-text-primary text-xs font-mono uppercase tracking-wider border border-border-subtle hover:bg-surface-hover transition-colors"
+                >
+                  Book a System Audit
+                </a>
+              </div>
+              <div>
+                <Link 
+                  href="/services"
+                  className="inline-flex items-center text-[10px] font-mono text-text-secondary hover:text-accent transition-colors gap-1 uppercase tracking-wider pl-1"
+                >
+                  View services and pricing →
+                </Link>
+              </div>
             </div>
           </div>
 
