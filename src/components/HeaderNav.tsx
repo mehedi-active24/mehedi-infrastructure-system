@@ -6,13 +6,14 @@ import Link from "next/link";
 import { Menu, X, Terminal, Activity, Shield } from "lucide-react";
 
 const navItems = [
-  { label: "Operator",      href: "/#about"        },
-  { label: "Architecture",  href: "/architecture"  },
-  { label: "Telemetry",     href: "/#results"      },
-  { label: "Ecosystem",     href: "/toolkit"       },
-  { label: "Intelligence",  href: "/intelligence"  },
-  { label: "Logs",          href: "/logs"          },
-  { label: "Audit",         href: "/#book"         },
+  { label: "About",         href: "/#about"        },
+  { label: "Case Studies",  href: "/architecture"  },
+  { label: "Results",       href: "/#results"      },
+  { label: "Stack",         href: "/toolkit"       },
+  { label: "Services",      href: "/services"      },
+  { label: "Field Reports", href: "/intelligence"  },
+  { label: "Archive",       href: "/logs"          },
+  { label: "Hire Me",       href: "/#book"         },
 ];
 
 export default function HeaderNav() {
@@ -94,7 +95,7 @@ export default function HeaderNav() {
 
                 {/* Label */}
                 <span className="relative z-10 flex items-center gap-1.5">
-                  {item.label === "Audit" && (
+                  {item.label === "Hire Me" && (
                     <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                   )}
                   {item.label}
