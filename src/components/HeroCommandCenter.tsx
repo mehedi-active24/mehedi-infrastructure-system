@@ -110,18 +110,8 @@ export default function HeroCommandCenter() {
                  animate={{ y: [0, -8, 0] }}
                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                >
-                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                  <div className="text-[9px] font-mono text-text-secondary uppercase">Node: ACTIVE</div>
-               </motion.div>
-
-               {/* Telemetry Node 2 (Bottom Right) */}
-               <motion.div 
-                 className="flex absolute bottom-8 right-2 sm:bottom-12 sm:right-4 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
-                 animate={{ y: [0, 10, 0] }}
-                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-               >
-                 <div className="text-[8px] font-mono text-text-secondary uppercase">Packet Loss</div>
-                 <div className="text-xs font-mono text-accent font-bold">0.00%</div>
                </motion.div>
 
                {/* Routing Path Overlay */}
@@ -133,22 +123,6 @@ export default function HeroCommandCenter() {
                  />
                </div>
 
-               {/* DNS Metric Panel (Bottom Left) */}
-               <motion.div 
-                 className="block absolute bottom-4 left-4 sm:bottom-8 sm:left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
-                 animate={{ y: [0, -5, 0] }}
-                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-               >
-                 <div className="flex items-end gap-3">
-                   <div className="flex flex-col gap-0.5">
-                     <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
-                     <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
-                     <div className="w-8 h-1 bg-border-subtle"><div className="w-3/4 h-full bg-emerald-400" /></div>
-                   </div>
-                   <div className="text-[9px] font-mono text-text-secondary uppercase leading-none">DNS SYNC</div>
-                 </div>
-               </motion.div>
-
             </div>
           </div>
 
@@ -159,51 +133,33 @@ export default function HeroCommandCenter() {
           <div className="px-6 py-3 border-b border-border-subtle flex items-center justify-between">
             <span className="text-[10px] font-mono text-text-secondary uppercase tracking-widest">Outbound Infrastructure Scale</span>
             <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400">
-              <motion.div 
-                className="w-1.5 h-1.5 rounded-full bg-emerald-400"
-                animate={{ opacity: [1, 0.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              TELEMETRY LIVE
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              INFRASTRUCTURE VERIFIED
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border-subtle">
-            {telemetry
-              .slice(0, showAllMetrics ? telemetry.length : (typeof window !== "undefined" && window.innerWidth >= 768 ? telemetry.length : 3))
-              .map((metric, idx) => (
-                <div key={idx} className="bg-bg-dark p-4 flex flex-col gap-2 group hover:bg-surface transition-colors relative overflow-hidden">
-                  {/* Subtle bar graph background */}
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
-                    <span className={`text-[8px] font-mono px-1.5 py-0.5 border shrink-0 ${
-                      metric.status === 'ACTIVE' || metric.status === 'RUNNING' ? 'text-emerald-400 border-emerald-400/20 bg-emerald-400/5' :
-                      metric.status === 'STABLE' ? 'text-blue-400 border-blue-400/20 bg-blue-400/5' :
-                      'text-text-secondary border-border-subtle'
-                    }`}>{metric.status}</span>
-                  </div>
-                  <span className="text-2xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">{metric.value}</span>
-                  {/* Micro graph line */}
-                  <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
-                    <motion.div
-                      className="h-full bg-accent/40"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${60 + (idx * 7)}%` }}
-                      transition={{ duration: 1.5, delay: idx * 0.1, ease: 'easeOut' }}
-                    />
-                  </div>
+            {telemetry.map((metric, idx) => (
+              <div key={idx} className="bg-bg-dark p-4 flex flex-col gap-2 group hover:bg-surface transition-colors relative overflow-hidden">
+                {/* Subtle bar graph background */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
+                  <span className="text-[8px] font-mono px-1.5 py-0.5 border shrink-0 text-text-secondary border-border-subtle">
+                    {metric.status}
+                  </span>
                 </div>
-              ))}
-          </div>
-
-          {/* Toggle for mobile view */}
-          <div className="md:hidden border-t border-border-subtle p-3 text-center bg-bg-dark">
-            <button
-              onClick={() => setShowAllMetrics(!showAllMetrics)}
-              className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest cursor-pointer"
-            >
-              {showAllMetrics ? "[ COLLAPSE SYSTEM VARIABLES ]" : "[ DISCLOSE SYSTEM VARIABLES ]"}
-            </button>
+                <span className="text-2xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">{metric.value}</span>
+                {/* Micro graph line */}
+                <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
+                  <motion.div
+                    className="h-full bg-accent/40"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${60 + (idx * 7)}%` }}
+                    transition={{ duration: 1.5, delay: idx * 0.1, ease: 'easeOut' }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -5,12 +5,12 @@
     "subtitle": "When your domains burn out and inbox placement collapses, I rebuild the invisible deliverability layer revenue depends on. No guesswork. No burnout."
   },
   "telemetry": [
-    { "label": "Active Mailboxes Managed", "value": "150+", "status": "ACTIVE" },
-    { "label": "Sending Domains Recovered", "value": "890+", "status": "VERIFIED" },
-    { "label": "Monthly Delivery Throughput", "value": "2.2M+", "status": "LIVE" },
-    { "label": "Average Inbox Placement", "value": "94%", "status": "STABLE" },
-    { "label": "Infrastructure Monitoring", "value": "24/7", "status": "ACTIVE" },
-    { "label": "Warmup & Rotation Systems", "value": "ACTIVE", "status": "RUNNING" }
+    { "label": "Active Mailboxes Managed", "value": "150+", "status": "AS OF Q2 2026" },
+    { "label": "Sending Domains Recovered", "value": "890+", "status": "CUMULATIVE" },
+    { "label": "Monthly Delivery Throughput", "value": "2.2M+", "status": "PEAK VOLUME" },
+    { "label": "Average Inbox Placement", "value": "94%", "status": "VERIFIED" },
+    { "label": "Infrastructure Monitoring", "value": "24/7", "status": "MONITORED" },
+    { "label": "Warmup & Rotation Systems", "value": "ACTIVE", "status": "OPERATIONAL" }
   ],
   "profile": {
     "philosophy": "Infrastructure Reliability Over Everything.",

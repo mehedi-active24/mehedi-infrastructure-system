@@ -8,42 +8,42 @@ const telemetry = [
   {
     value: "150+",
     label: "Active Mailbox Infrastructure",
-    meta: "STATUS: STABLE",
+    meta: "AS OF Q2 2026",
     status: "emerald",
     bar: 88,
   },
   {
     value: "94%",
     label: "Average Inbox Placement",
-    meta: "SIGNAL HEALTH: VERIFIED",
+    meta: "VERIFIED",
     status: "emerald",
     bar: 94,
   },
   {
     value: "890+",
     label: "Sending Domains Recovered",
-    meta: "RECOVERY SYSTEMS: ACTIVE",
+    meta: "CUMULATIVE",
     status: "blue",
     bar: 72,
   },
   {
     value: "2.2M+",
     label: "Monthly Delivery Throughput",
-    meta: "INFRASTRUCTURE: OPERATIONAL",
+    meta: "PEAK VOLUME",
     status: "emerald",
     bar: 82,
   },
   {
     value: "<0.3%",
     label: "Complaint Rate Stability",
-    meta: "MONITORING: ACTIVE",
+    meta: "VERIFIED",
     status: "emerald",
     bar: 97,
   },
   {
     value: "24/7",
     label: "Infrastructure Monitoring",
-    meta: "LAST CHECK: LIVE",
+    meta: "MONITORED",
     status: "accent",
     bar: 100,
   },
@@ -88,7 +88,6 @@ const severityColors: Record<string, string> = {
 };
 
 export default function DeliverabilityProof() {
-  const [showAll, setShowAll] = useState(false);
 
   return (
     <section id="results" className="py-16 border-b border-border-subtle bg-surface/10 relative overflow-hidden">
@@ -109,8 +108,8 @@ export default function DeliverabilityProof() {
               </p>
             </div>
             <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">
-              <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-              TELEMETRY STREAM LIVE
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              VERIFIED METRICS
             </div>
           </div>
 
@@ -118,74 +117,58 @@ export default function DeliverabilityProof() {
           <div className="border border-border-subtle">
             <div className="bg-surface/50 px-5 py-2.5 border-b border-border-subtle flex items-center justify-between">
               <span className="text-[9px] font-mono text-text-secondary uppercase tracking-widest flex items-center gap-2">
-                <Activity className="w-3 h-3 text-accent" /> Live Infrastructure Metrics
+                <Activity className="w-3 h-3 text-accent" /> Infrastructure Metrics
               </span>
-              <span className="text-[9px] font-mono text-text-secondary/40 hidden sm:inline">STREAM: ACTIVE // UPDATE INTERVAL: CONTINUOUS</span>
+              <span className="text-[9px] font-mono text-text-secondary/40 hidden sm:inline">DATASET: COMPLIANT // VERIFICATION STATUS: COMPLETE</span>
             </div>
 
             {/* Metric Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border-subtle">
-              {telemetry
-                .slice(0, showAll ? telemetry.length : (typeof window !== "undefined" && window.innerWidth >= 768 ? telemetry.length : 4))
-                .map((metric, i) => {
-                  const c = statusColors[metric.status];
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.07 }}
-                      className="group bg-bg-dark p-5 flex flex-col gap-3 hover:bg-surface transition-colors relative overflow-hidden"
-                    >
-                      {/* Status dot */}
-                      <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
-                        <div className="flex items-center gap-1.5">
-                          <motion.div
-                            className={`w-1.5 h-1.5 rounded-full ${c.dot}`}
-                            animate={{ opacity: [1, 0.3, 1] }}
-                            transition={{ duration: 2 + i * 0.2, repeat: Infinity }}
-                          />
-                        </div>
+              {telemetry.map((metric, i) => {
+                const c = statusColors[metric.status];
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.07 }}
+                    className="group bg-bg-dark p-5 flex flex-col gap-3 hover:bg-surface transition-colors relative overflow-hidden"
+                  >
+                    {/* Status dot */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
+                      <div className="flex items-center gap-1.5">
+                        <div className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
                       </div>
+                    </div>
 
-                      {/* Value */}
-                      <div className="text-2xl sm:text-3xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">
-                        {metric.value}
-                      </div>
+                    {/* Value */}
+                    <div className="text-2xl sm:text-3xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">
+                      {metric.value}
+                    </div>
 
-                      {/* Progress bar */}
-                      <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
-                        <motion.div
-                          className={`h-full ${c.dot} opacity-60`}
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${metric.bar}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.4, delay: i * 0.08, ease: "easeOut" }}
-                        />
-                      </div>
+                    {/* Progress bar */}
+                    <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
+                      <motion.div
+                        className={`h-full ${c.dot} opacity-60`}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${metric.bar}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.4, delay: i * 0.08, ease: "easeOut" }}
+                      />
+                    </div>
 
-                      {/* Meta */}
-                      <div className={`text-[8px] font-mono px-1.5 py-0.5 border w-fit ${c.border} ${c.bg} ${c.text}`}>
-                        {metric.meta}
-                      </div>
+                    {/* Meta */}
+                    <div className={`text-[8px] font-mono px-1.5 py-0.5 border w-fit ${c.border} ${c.bg} ${c.text}`}>
+                      {metric.meta}
+                    </div>
 
-                      {/* Hover line trace */}
-                      <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
-                    </motion.div>
-                  );
-                })}
-            </div>
-
-            {/* Toggle Button for Mobile */}
-            <div className="md:hidden border-t border-border-subtle p-3 text-center bg-bg-dark">
-              <button
-                onClick={() => setShowAll(!showAll)}
-                className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest cursor-pointer"
-              >
-                {showAll ? "[ COLLAPSE OBSERVABILITY LAYER ]" : "[ DISCLOSE FULL OBSERVABILITY LAYER ]"}
-              </button>
+                    {/* Hover line trace */}
+                    <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
