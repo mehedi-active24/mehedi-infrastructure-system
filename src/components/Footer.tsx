@@ -45,8 +45,7 @@ export default function Footer() {
               {([
                 { label: "LinkedIn Node", handle: "linkedin.com/in/mehedi-active24", href: "https://www.linkedin.com/in/mehedi-active24/" },
                 { label: "GitHub Repository", handle: "github.com/mehedi-active24", href: "https://github.com/mehedi-active24" },
-                { label: "Facebook Node", handle: "facebook.com/mehedi.active24", href: "https://www.facebook.com/mehedi.active24/" },
-                { label: "Email Endpoint", handle: "mehedi.active24@gmail.com", href: "mailto:mehedi.active24@gmail.com" },
+                { label: "Email Endpoint", handle: "mehedi@mehedi-infrastructure.com", href: "mailto:mehedi@mehedi-infrastructure.com" },
               ] as { label: string; handle: string; href: string }[]).map((node, i) => (
                 <li key={i}>
                   <a
@@ -90,7 +89,7 @@ export default function Footer() {
         {/* Section 4: Copyright & Signature Layer */}
         <div className="border-t border-border-subtle pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-text-secondary/60 uppercase tracking-widest">
           <div>
-             <span className="text-text-primary/80">MEHEDI HASAN</span> // INFRASTRUCTURE SYSTEMS
+             <span className="text-text-primary/80">MEHEDI HASAN</span> // COLD EMAIL INFRASTRUCTURE
           </div>
           <div className="flex items-center gap-2">
              © 2026 // ALL SYSTEMS OPERATIONAL <div className="w-1 h-1 bg-text-secondary/60 rounded-full animate-pulse" />
