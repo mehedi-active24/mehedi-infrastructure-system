@@ -114,6 +114,16 @@ export default function HeroCommandCenter() {
                  <div className="text-[9px] font-mono text-text-secondary uppercase">Node: ACTIVE</div>
                </motion.div>
 
+               {/* Telemetry Node 2 (Bottom Right) */}
+               <motion.div 
+                 className="flex absolute bottom-8 right-2 sm:bottom-12 sm:right-4 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
+                 animate={{ y: [0, 10, 0] }}
+                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+               >
+                 <div className="text-[8px] font-mono text-text-secondary uppercase">Packet Loss</div>
+                 <div className="text-xs font-mono text-accent font-bold">0.00%</div>
+               </motion.div>
+
                {/* Routing Path Overlay */}
                <div className="hidden md:block absolute top-1/2 right-1/4 w-32 h-px bg-border-subtle overflow-hidden">
                  <motion.div
@@ -122,6 +132,22 @@ export default function HeroCommandCenter() {
                    transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
                  />
                </div>
+
+               {/* DNS Metric Panel (Bottom Left) */}
+               <motion.div 
+                 className="block absolute bottom-4 left-4 sm:bottom-8 sm:left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
+                 animate={{ y: [0, -5, 0] }}
+                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+               >
+                 <div className="flex items-end gap-3">
+                   <div className="flex flex-col gap-0.5">
+                     <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
+                     <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
+                     <div className="w-8 h-1 bg-border-subtle"><div className="w-3/4 h-full bg-emerald-400" /></div>
+                   </div>
+                   <div className="text-[9px] font-mono text-text-secondary uppercase leading-none">DNS SYNC</div>
+                 </div>
+               </motion.div>
 
             </div>
           </div>
