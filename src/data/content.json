@@ -2,7 +2,7 @@
   "personal": {
     "name": "Mehedi Hasan",
     "title": "Cold Email Deliverability & Infrastructure Engineer",
-    "subtitle": "When your domains burn out and inbox placement collapses, I rebuild the invisible deliverability layer revenue depends on. No guesswork. No burnout."
+    "subtitle": "I recover inbox placement for cold email agencies where the infrastructure has failed invisibly. Instantly. Smartlead. GoHighLevel. Any scale."
   },
   "telemetry": [
     { "label": "Active Mailboxes Managed", "value": "150+", "status": "AS OF Q2 2026" },
@@ -14,8 +14,8 @@
   ],
   "profile": {
     "philosophy": "Infrastructure Reliability Over Everything.",
-    "body": "I don’t sell leads. I engineer outbound infrastructure that survives scale. The mechanics of high-volume delivery require absolute precision at the DNS layer, rigorous mailbox provisioning, and relentless telemetry monitoring. Most agencies treat deliverability as a marketing problem. I treat it as a systems engineering problem.",
-    "notice": "> SYSTEM_NOTICE: Focus exclusively on infrastructure resilience. Revenue follows reliability."
+    "body": "Cold email agencies and outbound teams hire me when inbox placement is declining and every surface-level check says it should not be. The problem is almost never copy or targeting. It is the infrastructure layer — SPF breaking on forwards, DKIM misaligning on replies, DMARC generating zero visibility, warmup and campaign timing creating a detectable fingerprint for ESP filters.\n\nI do not add records. I run a forensic Inbox Autopsy on the sending architecture and fix the failure that standard tools cannot see. My focus is cold email agencies running 5 to 50 sending domains on Instantly, Smartlead, or GoHighLevel in US, UK, and Australian markets — where outbound is the primary acquisition channel and a two-week deliverability failure has a direct revenue cost.",
+    "notice": "> SYSTEM_NOTICE: I work exclusively with outbound teams. Single senders, newsletter operators, and transactional email systems are outside my scope."
   },
   "capabilities": [
     {
@@ -169,7 +169,7 @@
     "heading": "START WITH AN INFRASTRUCTURE AUDIT",
     "copy": "System failure prevention is cheaper than reputation recovery. Book an audit before your outbound revenue collapses.",
     "primaryLink": "https://calendly.com/mehedi-active24",
-    "secondaryEmail": "mehedi@mehedi-infrastructure.com"
+    "secondaryEmail": "mehedi.active24@gmail.com"
   },
   "footer": {
     "statement": "Infrastructure Reliability Over Everything."
@@ -179,6 +179,6 @@
     { "label": "X Protocol", "handle": "x.com/mehediactive24", "href": "https://x.com/mehediactive24", "meta": "PUBLIC NODE" },
     { "label": "GitHub Repository", "handle": "github.com/mehedi-active24", "href": "https://github.com/mehedi-active24", "meta": "INFRASTRUCTURE ACCESS" },
     { "label": "Fiverr Endpoint", "handle": "fiverr.com/sellers/mhasan_24", "href": "https://www.fiverr.com/sellers/mhasan_24/", "meta": "STATUS: ACTIVE" },
-    { "label": "Email Endpoint", "handle": "mehedi@mehedi-infrastructure.com", "href": "mailto:mehedi@mehedi-infrastructure.com", "meta": "LAST UPDATE: 2026" }
+    { "label": "Email Endpoint", "handle": "mehedi.active24@gmail.com", "href": "mailto:mehedi.active24@gmail.com", "meta": "LAST UPDATE: 2026" }
   ]
 }

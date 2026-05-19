@@ -15,7 +15,7 @@ export default function OperatorProfile() {
           </div>
 
           <div className="md:col-span-8 space-y-8">
-            <p className="text-lg text-text-secondary leading-relaxed">
+            <p className="text-lg text-text-secondary leading-relaxed whitespace-pre-line">
               {profile.body}
             </p>
             

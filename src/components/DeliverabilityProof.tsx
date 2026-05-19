@@ -180,7 +180,7 @@ export default function DeliverabilityProof() {
               <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Remediation Archive</h2>
               <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Infrastructure Recovery Logs</h3>
               <p className="text-xs font-mono text-text-secondary mt-2">
-                Archived remediation events across live outbound delivery systems.
+                Forensic case archive — cold email agencies and outbound teams, US/UK/AU markets.
               </p>
             </div>
           </div>

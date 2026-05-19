@@ -45,7 +45,7 @@ export default function Footer() {
               {([
                 { label: "LinkedIn Node", handle: "linkedin.com/in/mehedi-active24", href: "https://www.linkedin.com/in/mehedi-active24/" },
                 { label: "GitHub Repository", handle: "github.com/mehedi-active24", href: "https://github.com/mehedi-active24" },
-                { label: "Email Endpoint", handle: "mehedi@mehedi-infrastructure.com", href: "mailto:mehedi@mehedi-infrastructure.com" },
+                { label: "Email Endpoint", handle: "mehedi.active24@gmail.com", href: "mailto:mehedi.active24@gmail.com" },
               ] as { label: string; handle: string; href: string }[]).map((node, i) => (
                 <li key={i}>
                   <a

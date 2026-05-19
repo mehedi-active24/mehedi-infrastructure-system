@@ -170,7 +170,7 @@ export default function ServicesPage() {
               {/* Action Button */}
               <div className="mt-8 pt-4 border-t border-border-subtle/30 relative z-10">
                 <a
-                  href={`mailto:mehedi@mehedi-infrastructure.com?subject=${encodeURIComponent(svc.subject)}`}
+                  href={`mailto:mehedi.active24@gmail.com?subject=${encodeURIComponent(svc.subject)}`}
                   className="flex items-center justify-between w-full px-4 py-3 bg-bg-dark border border-border-subtle text-xs font-mono uppercase tracking-wider text-text-primary hover:border-accent hover:text-accent hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-200"
                 >
                   <span className="flex items-center gap-2">
@@ -215,7 +215,7 @@ export default function ServicesPage() {
 
             <div className="pt-2">
               <a
-                href="mailto:mehedi@mehedi-infrastructure.com?subject=Infrastructure%20Diagnostic"
+                href="mailto:mehedi.active24@gmail.com?subject=Infrastructure%20Diagnostic"
                 className="inline-flex items-center gap-3 px-5 py-3.5 bg-bg-dark border border-border-subtle hover:border-accent text-xs font-mono uppercase tracking-wider text-text-primary hover:text-accent hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] transition-all duration-300"
               >
                 <Terminal className="w-4 h-4 text-accent" />
