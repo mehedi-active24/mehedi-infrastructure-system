@@ -3,6 +3,7 @@
     "slug": "spf-alignment-failure-48-domain-infrastructure",
     "date": "2026-01-14",
     "title": "SPF Alignment Failure Across a 48-Domain Sending Infrastructure",
+    "preview": "A 48-domain cold email stack began producing PermError rejections on Microsoft 365 targets with no corresponding bounce codes — silent delivery failure at scale. Root cause: SPF record DNS lookup count at 14 across all primary domains, exceeding the RFC 7208 hard limit of 10. Full remediation walkthrough including the rebuild to 4-lookup SPF architecture.",
     "tags": ["SPF", "DMARC", "INFRASTRUCTURE"],
     "severity": "CRITICAL",
     "content": [
@@ -26,6 +27,7 @@
     "slug": "rebuilding-failed-400-mailbox-outreach-system",
     "date": "2026-02-03",
     "title": "Rebuilding a Failed 400-Mailbox Outreach System in 48 Hours",
+    "preview": "A 400-mailbox outbound operation collapsed after a single warmup platform flagging event cascaded across the entire infrastructure due to shared ASN and identical sending fingerprints. Full forensic breakdown of the cascade failure mechanism, the 48-hour isolation and rebuild protocol, and the zero-trust architecture that prevented recurrence.",
     "tags": ["INFRASTRUCTURE", "REPUTATION", "BLACKLIST"],
     "severity": "CRITICAL",
     "content": [
@@ -50,6 +52,7 @@
     "slug": "diagnosing-inbox-placement-degradation-google-workspace",
     "date": "2026-03-11",
     "title": "Diagnosing Hidden Inbox Placement Degradation in Google Workspace",
+    "preview": "Google Workspace domain reputation declining directionally in Postmaster Tools for six weeks while all surface-level checks showed clean — no blacklist flags, no bounce spikes, no DMARC failures. Field report on how to read directional reputation signals rather than point-in-time snapshots, and the specific behavioral triggers that caused the degradation.",
     "tags": ["GMAIL", "MONITORING", "INFRASTRUCTURE"],
     "severity": "WARNING",
     "content": [
@@ -73,6 +76,7 @@
     "slug": "complaint-loop-escalation-rotating-domain-pool",
     "date": "2026-04-07",
     "title": "Complaint Loop Escalation Across a Rotating Domain Pool",
+    "preview": "A rotating 20-domain pool developed a complaint loop where spam complaint signals from one domain were contaminating the reputation of adjacent domains through shared tracking subdomain infrastructure. Breakdown of how complaint loops propagate through shared infrastructure, and the isolation protocol that stopped the cascade within 72 hours.",
     "tags": ["GMAIL", "REPUTATION", "MONITORING"],
     "severity": "HIGH",
     "content": [

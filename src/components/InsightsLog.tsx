@@ -90,6 +90,11 @@ export default function InsightsLog({ condensed = true }: { condensed?: boolean 
                   <span className="text-xs sm:text-sm text-text-primary group-hover:text-accent transition-colors leading-snug block">
                     {article.title}
                   </span>
+                  {"preview" in article && article.preview && (
+                    <p className="text-[11px] text-text-secondary mt-1.5 leading-relaxed block font-sans">
+                      {article.preview}
+                    </p>
+                  )}
                   <span className="inline-block md:hidden text-[8px] font-mono mt-1 text-text-secondary/50 uppercase">
                     Severity: {article.severity}
                   </span>
