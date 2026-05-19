@@ -58,26 +58,26 @@ const statusColors: Record<string, { dot: string; text: string; border: string; 
 const recoveryLogs = [
   {
     id: "01",
-    env: "Enterprise SaaS",
-    failure: "Spamhaus blocklist escalation causing all cold outreach to hit spam.",
-    intervention: "Rebuilt DNS authentication (SPF/DKIM/DMARC), isolated damaged domains, and migrated to clean sending IPs.",
-    result: "100% inbox placement restored within 14 days, resuming pipeline growth.",
+    env: "B2B Cold Email Agency",
+    failure: "Silent inbox placement collapse — 31% placement over 90 days. All validators passing. All blacklists clean.\n\nRoot Cause Identified:\n• Warmup service running on identical timing schedule as active outbound campaigns — ESPs flagging combined pattern as automated bulk traffic\n• DKIM passing format validation but breaking on replies and forwards — the sends that generate engagement signals with receiving servers\n• DMARC at p=none with no RUA reporting — zero visibility into authentication failures at receiving servers",
+    intervention: "Warmup schedule isolated from outbound cadences. DKIM realigned across all message paths including reply and forward paths. DMARC enforced to p=quarantine with active RUA and RUF forensic reporting. Domain reputation isolated per sending domain.",
+    result: "Inbox placement recovered from 31% to 68% by day 18. 10 of 12 domains recovered. 2 domains had exceeded the reputation recovery window and were retired. [TIMELINE: 18 DAYS]",
     severity: "CRITICAL",
   },
   {
     id: "02",
-    env: "B2B Agency",
-    failure: "Domain burnout and blacklisting within 3 weeks of cold email campaign launch.",
-    intervention: "Engineered a decentralized 50-domain sending architecture with automated rotational segmentation.",
-    result: "Sustained delivery of 500k+ emails per month with zero domain reputation drift.",
+    env: "B2B Agency (50 Domains)",
+    failure: "Domain burnout during volume scaling. Sustained 500k/month sends collapsing to Junk across Microsoft 365 targets.\n\nRoot Cause Identified:\n- All 50 sending domains registered under the same registrar account with shared billing — Microsoft Defender clustering all 50 as a single sender identity\n- SPF lookup count at 14 across primary domains — RFC 7208 hard limit of 10 causing PermError on strict receivers producing silent delivery failures without bounce codes\n- No domain reputation isolation — one domain reputation event cascading across the entire fleet",
+    intervention: "Domain registrar accounts separated across 3 entities. SPF records rebuilt to 4 DNS lookups maximum using IP4 directives. Fleet architecture redesigned with reputation isolation per cluster — 10-domain clusters, no shared ASN or DNS provider across clusters.",
+    result: "Sustained 500k/month delivery restored without reputation drift. Microsoft 365 SCL scores reduced from 5-6 to 1-2 across fleet. [TIMELINE: 21 DAYS]",
     severity: "HIGH",
   },
   {
     id: "03",
-    env: "Recruiting Firm",
-    failure: "Failed Google's new sender compliance requirements, leading to high bounce rates.",
-    intervention: "Hardened domain validation, enforced DMARC security, and applied adaptive sending delays.",
-    result: "Bounces cut below 1% and maintained 94%+ deliverability ever since.",
+    env: "Recruiting Outreach",
+    failure: "Google Sender Compliance failure. Bounce rate elevated to 4.2%. Gmail rejection rate rising week-over-week despite clean MXToolbox results.\n\nRoot Cause Identified:\n- DMARC enforcement absent — p=none with no aggregate reporting — Google's bulk sender requirements (effective Feb 2024) requiring p=quarantine for >5k/day senders\n- Bounce classification undifferentiated — hard bounces and soft bounces treated identically, accelerating list decay into reputation damage\n- No PTR record configured on sending IP — reverse DNS mismatch flagged by Gmail's inbound authentication layer",
+    intervention: "DMARC enforced to p=quarantine with active RUA reporting. PTR records configured with reverse DNS matching the sending hostname. Bounce classification separated by error code — 5xx hard bounces suppressed permanently, 4xx soft bounces retried with adaptive throttle tuning.",
+    result: "Bounce rate reduced from 4.2% to 0.7% within 30 days. Google Postmaster domain reputation recovered to High tier. Google Sender Compliance requirements met in full. [TIMELINE: 30 DAYS]",
     severity: "HIGH",
   },
 ];
@@ -228,7 +228,7 @@ export default function DeliverabilityProof() {
                   {/* Failure State */}
                   <div className="md:col-span-3">
                     <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">🔴 Problem</div>
-                    <span className="text-xs text-text-secondary leading-relaxed block">{log.failure}</span>
+                    <span className="text-xs text-text-secondary leading-relaxed block whitespace-pre-line">{log.failure}</span>
                   </div>
 
                   {/* Intervention */}
