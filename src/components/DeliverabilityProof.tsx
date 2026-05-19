@@ -6,28 +6,28 @@ import { Activity, CheckCircle } from "lucide-react";
 
 const telemetry = [
   {
-    value: "7,450+",
+    value: "150+",
     label: "Active Mailbox Infrastructure",
     meta: "STATUS: STABLE",
     status: "emerald",
     bar: 88,
   },
   {
-    value: "99.4%",
+    value: "94%",
     label: "Average Inbox Placement",
     meta: "SIGNAL HEALTH: VERIFIED",
     status: "emerald",
-    bar: 99,
+    bar: 94,
   },
   {
-    value: "1,235+",
+    value: "890+",
     label: "Sending Domains Recovered",
     meta: "RECOVERY SYSTEMS: ACTIVE",
     status: "blue",
     bar: 72,
   },
   {
-    value: "5.3M+",
+    value: "2.2M+",
     label: "Monthly Delivery Throughput",
     meta: "INFRASTRUCTURE: OPERATIONAL",
     status: "emerald",
@@ -77,7 +77,7 @@ const recoveryLogs = [
     env: "Recruiting Firm",
     failure: "Failed Google's new sender compliance requirements, leading to high bounce rates.",
     intervention: "Hardened domain validation, enforced DMARC security, and applied adaptive sending delays.",
-    result: "Bounces cut below 1% and maintained 99%+ deliverability ever since.",
+    result: "Bounces cut below 1% and maintained 94%+ deliverability ever since.",
     severity: "HIGH",
   },
 ];

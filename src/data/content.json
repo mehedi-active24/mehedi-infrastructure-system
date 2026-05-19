@@ -5,10 +5,10 @@
     "subtitle": "When your domains burn out and inbox placement collapses, I rebuild the invisible deliverability layer revenue depends on. No guesswork. No burnout."
   },
   "telemetry": [
-    { "label": "Active Mailboxes Managed", "value": "7,450+", "status": "ACTIVE" },
-    { "label": "Sending Domains Recovered", "value": "1,235+", "status": "VERIFIED" },
-    { "label": "Monthly Delivery Throughput", "value": "5.3M+", "status": "LIVE" },
-    { "label": "Average Inbox Placement", "value": "99.4%", "status": "STABLE" },
+    { "label": "Active Mailboxes Managed", "value": "150+", "status": "ACTIVE" },
+    { "label": "Sending Domains Recovered", "value": "890+", "status": "VERIFIED" },
+    { "label": "Monthly Delivery Throughput", "value": "2.2M+", "status": "LIVE" },
+    { "label": "Average Inbox Placement", "value": "94%", "status": "STABLE" },
     { "label": "Infrastructure Monitoring", "value": "24/7", "status": "ACTIVE" },
     { "label": "Warmup & Rotation Systems", "value": "ACTIVE", "status": "RUNNING" }
   ],
@@ -78,10 +78,10 @@
   ],
   "proof": {
     "metrics": [
-      { "label": "Inboxes Managed", "value": "12.4k" },
-      { "label": "Inbox Placement Rate", "value": "99.4%" },
-      { "label": "Domains Recovered", "value": "350+" },
-      { "label": "Emails Delivered/Month", "value": "8.2M" },
+      { "label": "Inboxes Managed", "value": "150+" },
+      { "label": "Inbox Placement Rate", "value": "94%" },
+      { "label": "Domains Recovered", "value": "890+" },
+      { "label": "Emails Delivered/Month", "value": "2.2M" },
       { "label": "Average Open Rate", "value": "68%" }
     ],
     "timeline": [
@@ -89,7 +89,7 @@
         "client": "Enterprise SaaS",
         "failure": "Spamhaus Listing; 2% Inbox",
         "intervention": "Complete DNS Rebuild & IP Migration",
-        "result": "98% Inbox (14 Days)"
+        "result": "94% Inbox (14 Days)"
       },
       {
         "client": "B2B Agency",
@@ -112,7 +112,7 @@
       "rootCause": "Lack of domain rotation, identical IP reputation clustering, and missing DMARC quarantine enforcement.",
       "infrastructureActions": "Decommissioned burned infrastructure. Provisioned a 20-domain rotating cluster across separate tenants. Implemented strict SPF/DKIM alignment and custom warmup algorithms.",
       "stack": ["Smartlead", "Google Workspace", "Cloudflare", "Postmaster"],
-      "outcome": "Restored 95%+ inbox placement and successfully scaled to 300k monthly volume without triggering spam traps."
+      "outcome": "Restored 94%+ inbox placement and successfully scaled to 300k monthly volume without triggering spam traps."
     },
     {
       "clientType": "Series B SaaS Platform",

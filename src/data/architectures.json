@@ -7,7 +7,7 @@
     "category": "Complete Ecosystem",
     "status": "ACTIVE",
     "tools": ["Clay", "Instantly", "HubSpot", "Cloudflare"],
-    "overview": "A fully decentralized outbound architecture built to isolate domain risk and scale indefinitely while maintaining a 99%+ inbox placement rate.",
+    "overview": "A fully decentralized outbound architecture built to isolate domain risk and scale indefinitely while maintaining a 94%+ inbox placement rate.",
     "flow": [
       { "step": "Lead Intake", "detail": "CSV Import" },
       { "step": "Data Enrichment", "detail": "Clay.com API Waterfall" },
@@ -20,7 +20,7 @@
     "monitoring": ["Google Postmaster", "MXToolbox", "Spamhaus Blacklists", "SNDS"],
     "failurePrevention": "Automated DNS scanning and daily seed list testing to catch reputation decay before production campaigns are affected.",
     "metrics": [
-      { "label": "Inbox Rate", "value": "99.4%" },
+      { "label": "Inbox Rate", "value": "94%" },
       { "label": "Active Domains", "value": "22" },
       { "label": "Monthly Volume", "value": "250k+" }
     ],
