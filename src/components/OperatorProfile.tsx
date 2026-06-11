@@ -10,7 +10,7 @@ export default function OperatorProfile() {
         <div className="grid md:grid-cols-12 gap-12">
           
           <div className="md:col-span-4">
-             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">Why Hire a Specialist</h2>
+             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">What Standard Audits Miss</h2>
              <h3 className="text-xl font-bold text-text-primary">{profile.philosophy}</h3>
           </div>
 
