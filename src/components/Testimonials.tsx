@@ -42,12 +42,12 @@ export default function Testimonials() {
       <div className="container mx-auto px-6 max-w-7xl">
 
         <div className="mb-12">
-          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Client Results</h2>
+          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Client Recovery Logs</h2>
           <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
-            What Clients Say
+            The Failure. The Diagnosis. The Number.
           </h3>
           <p className="text-xs font-mono text-text-secondary mt-2">
-            Outcome summaries from completed engagements. Full technical breakdowns in the case studies below.
+            Each entry is one engagement: what broke, what standard tools missed, and the result in days and percentages.
           </p>
         </div>
 

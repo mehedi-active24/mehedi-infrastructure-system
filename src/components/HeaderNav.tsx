@@ -62,14 +62,14 @@ export default function HeaderNav() {
             </span>
           </Link>
 
-          {/* CENTER: System Status Indicator (desktop) */}
-          <div className="hidden lg:flex items-center gap-2 text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
+          {/* CENTER: Availability Signal (desktop) */}
+          <div className="hidden lg:flex items-center gap-2 text-[9px] font-mono text-text-secondary/50 uppercase tracking-widest">
             <motion.div
               className="w-1.5 h-1.5 rounded-full bg-emerald-400"
               animate={{ opacity: [1, 0.3, 1] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             />
-            <span>Infrastructure Status: Active</span>
+            <span>Accepting new clients · Q3 2026</span>
           </div>
 
           {/* RIGHT: Navigation (desktop) */}
