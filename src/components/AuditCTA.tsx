@@ -12,10 +12,21 @@ export default function AuditCTA() {
           {cta.heading}
         </h2>
         
-        <p className="text-text-secondary text-base md:text-lg mb-10 max-w-xl mx-auto">
+        <p className="text-text-secondary text-base md:text-lg mb-8 max-w-xl mx-auto">
           {cta.copy}
         </p>
-        
+
+        {/* Proof bar */}
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-10 text-[10px] font-mono text-text-secondary/40 uppercase tracking-wider">
+          <span>3 completed case breakdowns available</span>
+          <span className="text-text-secondary/20">·</span>
+          <span>Avg. recovery: 14–30 days</span>
+          <span className="text-text-secondary/20">·</span>
+          <span>94% post-fix placement rate</span>
+          <span className="text-text-secondary/20">·</span>
+          <span>Discovery call is free — no obligation</span>
+        </div>
+
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={cta.primaryLink}

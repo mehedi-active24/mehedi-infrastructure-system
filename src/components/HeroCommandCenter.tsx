@@ -3,25 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import content from "@/data/content.json";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function HeroCommandCenter() {
   const { personal, telemetry } = content;
-  
-  const [showAllMetrics, setShowAllMetrics] = useState(false);
-  const [subtitleText, setSubtitleText] = useState("");
-  const fullText = personal.subtitle;
-  
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setSubtitleText(fullText.slice(0, i));
-      i++;
-      if (i > fullText.length) clearInterval(interval);
-    }, 20);
-    return () => clearInterval(interval);
-  }, [fullText]);
 
   return (
     <section className="pt-28 pb-16 border-b border-border-subtle bg-bg-dark">
@@ -37,9 +22,8 @@ export default function HeroCommandCenter() {
               </h1>
             </div>
             
-            <p className="text-text-secondary text-sm md:text-base max-w-xl min-h-[70px]">
-              {subtitleText}
-              <span className="animate-pulse inline-block w-1 h-3.5 bg-text-secondary ml-1 align-middle" />
+            <p className="text-text-secondary text-sm md:text-base max-w-xl">
+              {personal.subtitle}
             </p>
             
             <div className="space-y-4 pt-2">
@@ -67,6 +51,25 @@ export default function HeroCommandCenter() {
                   View services and pricing →
                 </Link>
               </div>
+            </div>
+
+            {/* Above-fold proof bar */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-2 pl-1">
+              <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">
+                1,235+ domains recovered
+              </span>
+              <span className="text-text-secondary/20 text-[10px]">·</span>
+              <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">
+                Avg. recovery 14–30 days
+              </span>
+              <span className="text-text-secondary/20 text-[10px]">·</span>
+              <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">
+                US · UK · AU
+              </span>
+              <span className="text-text-secondary/20 text-[10px]">·</span>
+              <span className="text-[10px] font-mono text-accent/60 uppercase tracking-wider">
+                Tests DKIM on replies, not just sends
+              </span>
             </div>
           </div>
 

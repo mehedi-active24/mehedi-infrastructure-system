@@ -2,7 +2,7 @@
   "personal": {
     "name": "Mehedi Hasan",
     "title": "Stop Losing Pipeline to the Spam Folder.",
-    "subtitle": "I help cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation — before deliverability problems cost them pipeline. 1,235+ domains recovered across US, UK, and AU markets."
+    "subtitle": "I find the deliverability failures that MXToolbox misses — DKIM breaking on reply paths, SPF hitting RFC lookup limits, DMARC generating zero forensic data. Cold email agencies and B2B outbound teams come to me when every validator says pass and inbox placement still drops. 1,235+ domains recovered."
   },
   "telemetry": [
     { "label": "Active Mailboxes Managed", "value": "7.4k+", "status": "AS OF Q2 2026" },
@@ -13,7 +13,7 @@
     { "label": "Markets Served", "value": "US / UK / AU", "status": "ACTIVE" }
   ],
   "profile": {
-    "philosophy": "Deliverability failures have a fixable cause. I find it and fix it.",
+    "philosophy": "Most deliverability tools check that your records exist. I check whether they work on replies, forwards, and forwarded-to-spam paths. That is where most failures actually happen.",
     "body": "Cold email agencies and B2B outbound teams come to me when inbox placement is declining and every surface-level check says it should not be. The problem is almost never copy or targeting. It is the infrastructure layer — SPF breaking on forwards, DKIM misaligning on replies, DMARC generating zero visibility, warmup and campaign timing creating a detectable fingerprint for ESP filters.\n\nI am an Email Deliverability Consultant. I do not add records and call it done. I run a forensic audit of your sending architecture and identify the specific failure that standard tools cannot see. My clients are outbound-led agencies and SaaS teams running 5 to 50 sending domains — where a two-week deliverability failure translates directly into lost revenue and missed pipeline.",
     "notice": "> NOTE: I work exclusively with outbound teams running cold email infrastructure. Single senders, newsletter operators, and transactional systems are outside my scope."
   },
@@ -166,8 +166,8 @@
     }
   ],
   "cta": {
-    "heading": "READY TO FIX YOUR INBOX PLACEMENT?",
-    "copy": "Most deliverability failures are diagnosable in a single call. Book a free 20-minute discovery call — you'll leave knowing exactly what's broken and whether it's fixable.",
+    "heading": "Every Week You Wait, Your Domain Reputation Gets Harder to Recover.",
+    "copy": "Most deliverability failures are diagnosable in a single 20-minute call. You'll leave knowing the specific cause, whether it's fixable, and what it would take. No pitch. No obligation.",
     "primaryLink": "https://calendly.com/mehedi-active24",
     "secondaryEmail": "mehedi.active24@gmail.com"
   },

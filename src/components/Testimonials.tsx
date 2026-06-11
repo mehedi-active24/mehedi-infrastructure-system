@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Our inbox placement was at 31% across 12 domains. Mehedi identified the exact failure — DKIM breaking on reply paths and warmup timing overlap — within 48 hours. 10 domains recovered in 18 days.",
+    quote: "Inbox placement dropped to 31% and MXToolbox showed everything passing. We had no idea where to start. Mehedi found the problem within 48 hours and had 10 of our 12 domains recovering in 18 days. We had spent three weeks trying to fix it ourselves.",
     author: "Agency Owner",
     company: "B2B Lead Gen Agency",
     market: "US Market",
@@ -13,7 +13,7 @@ const testimonials = [
     timeline: "18 days",
   },
   {
-    quote: "We were sending 500k/month and watching everything collapse into Junk on Microsoft 365. Turned out all 50 domains shared the same registrar account. Mehedi redesigned the entire fleet architecture.",
+    quote: "We were at 500k sends per month and almost everything was landing in Junk on Outlook. We had no idea why. Mehedi rebuilt the sending architecture and got us back to normal volume in 21 days. The root cause was something I would never have found on my own.",
     author: "Founder",
     company: "Cold Email Agency",
     market: "AU Market",
@@ -21,7 +21,7 @@ const testimonials = [
     timeline: "21 days",
   },
   {
-    quote: "Google Postmaster showed our domain reputation tanking week over week. Mehedi found missing PTR records and undifferentiated bounce handling that MXToolbox completely missed. Fixed in 30 days.",
+    quote: "Our Google Postmaster score was dropping every week and nothing flagged on any of the standard tools. Mehedi found what was actually causing it — things I didn't know to check — and got our bounce rate from 4.2% down to 0.7% in 30 days.",
     author: "Head of Growth",
     company: "Recruiting Outreach Team",
     market: "UK Market",
@@ -41,7 +41,7 @@ export default function Testimonials() {
             What Clients Say
           </h3>
           <p className="text-xs font-mono text-text-secondary mt-2">
-            Real outcomes from real engagements.
+            Outcome summaries from completed engagements. Full technical breakdowns in the case studies below.
           </p>
         </div>
 

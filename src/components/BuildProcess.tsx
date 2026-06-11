@@ -93,10 +93,10 @@ export default function BuildProcess() {
           <div>
             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">How I Work</h2>
             <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight leading-tight">
-              The Consulting Process
+              What Standard Tools Miss — And How I Find It
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-3 max-w-lg">
-              From first call to fixed infrastructure. Every engagement starts with a free discovery call — no obligation, no pitch.
+              Every engagement starts with a free 20-minute call. You'll leave knowing whether this is an infrastructure problem, what caused it, and whether it's fixable — before any money changes hands.
             </p>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">
