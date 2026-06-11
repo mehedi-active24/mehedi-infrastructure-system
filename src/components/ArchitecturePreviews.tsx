@@ -10,14 +10,12 @@ export default function ArchitecturePreviews() {
     <section id="architectures" className="py-16 border-b border-border-subtle bg-bg-dark relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">Case Studies</h2>
-            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Featured Client Work</h3>
-          </div>
-          <Link href="/architecture" className="text-xs font-mono text-accent hover:underline hidden md:block">
-            [ View All Case Studies ]
-          </Link>
+        <div className="mb-10">
+          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">Case Studies</h2>
+          <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">The Failure. The Root Cause. The Architecture.</h3>
+          <p className="text-xs font-mono text-text-secondary mt-2">
+            Two infrastructure rebuilds: what broke, why standard tools missed it, and what replaced it.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
