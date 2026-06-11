@@ -1,5 +1,4 @@
 import content from "@/data/content.json";
-import Link from "next/link";
 
 export default function AuditCTA() {
   const { cta } = content;
@@ -23,8 +22,6 @@ export default function AuditCTA() {
           <span>Avg. recovery: 14–30 days</span>
           <span className="text-text-secondary/20">·</span>
           <span>94% post-fix placement rate</span>
-          <span className="text-text-secondary/20">·</span>
-          <span>Discovery call is free. No obligation.</span>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -36,17 +33,11 @@ export default function AuditCTA() {
           >
             Book a Free Discovery Call
           </a>
-          <Link
-            href="/services"
-            className="px-8 py-4 bg-transparent text-text-primary border border-border-subtle font-mono text-xs uppercase tracking-wider hover:bg-surface-hover hover:border-accent/40 transition-colors w-full sm:w-auto"
-          >
-            [ VIEW SERVICES & PRICING ]
-          </Link>
           <a
             href={`mailto:${cta.secondaryEmail}`}
             className="px-8 py-4 bg-surface text-text-primary border border-border-subtle font-medium hover:bg-surface-hover transition-colors w-full sm:w-auto"
           >
-            {cta.secondaryEmail}
+            Email Me Directly
           </a>
         </div>
 
