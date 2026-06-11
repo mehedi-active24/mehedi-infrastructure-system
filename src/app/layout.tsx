@@ -14,8 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mehedi Hasan - Cold Email Deliverability & Infrastructure Engineer",
-  description: "Cold email deliverability specialist for outbound agencies on Instantly and Smartlead. SPF, DKIM, DMARC forensic audit and infrastructure rebuild. 890+ domains recovered.",
+  title: "Mehedi Hasan | Email Deliverability Consultant | Inbox Recovery & Cold Email Infrastructure",
+  description: "Email deliverability consultant helping cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation. 1,235+ domains recovered. Book a free discovery call.",
 };
 
 export default function RootLayout({

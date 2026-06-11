@@ -3,70 +3,70 @@ import { ArrowLeft, Check, Terminal, Mail, ArrowUpRight, HelpCircle } from "luci
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Services // Outbound Infrastructure & Deliverability Systems",
-  description: "Three ways to scale outbound infrastructure with Mehedi Hasan. Forensic audits, high-volume builds, and monthly deliverability oversight.",
+  title: "Services | Email Deliverability Consulting — Mehedi Hasan",
+  description: "Three ways to work with Mehedi Hasan on email deliverability. Forensic audits, full infrastructure builds, and ongoing deliverability oversight for cold email agencies and B2B outbound teams.",
 };
 
 const services = [
   {
     tier: "TIER 01",
-    name: "Infrastructure Forensic Audit",
-    price: "From $400",
-    delivery: "48–72 hours",
-    tag: "ENTRY POINT",
+    name: "Outbound Systems Diagnostic (OSD)",
+    price: "$2,500",
+    delivery: "5 business days",
+    tag: "DIAGNOSTICS",
     description:
-      "A full forensic diagnosis of one to three sending domains. I test DKIM alignment on replies and forwards — not just originating sends. I trace SPF resolution through all forwarding paths. I review DMARC aggregate reports for real authentication failure rates at receiving servers. I track domain reputation trajectory in Google Postmaster Tools over 30–60 days. You receive a written findings report with the specific cause and the specific fix — not a list of records that passed validation.",
+      "A full forensic diagnosis of one to three sending domains. We test DKIM alignment on replies and forwards (not just originating sends). We trace SPF resolution through all forwarding paths. We review DMARC aggregate reports for real authentication failure rates at receiving servers. We track domain reputation trajectory in Google Postmaster Tools over 30 to 60 days. You receive a written findings report with the specific cause and the specific fix, not a list of records that passed validation.",
     includes: [
-      "SPF, DKIM, DMARC forensic realignment",
+      "SPF, DKIM, and DMARC forensic realignment",
       "DKIM tested on replies, forwards, and originating sends",
       "DMARC moved to p=quarantine with RUA/RUF reporting activated",
-      "Blacklist check across Spamhaus, Barracuda, Spamcop, SURBL",
-      "Domain reputation trajectory review (Google Postmaster Tools)",
+      "Blacklist check across Spamhaus, Barracuda, Spamcop, and SURBL",
+      "Domain reputation trajectory review via Google Postmaster Tools",
       "Inbox placement verified post-fix via seed testing",
       "Written findings report with specific cause and fix",
     ],
-    cta: "Start with an Audit",
-    subject: "Infrastructure Audit — [your domain]",
+    cta: "Request Systems Diagnostic",
+    subject: "Systems Diagnostic Inquiry [your domain]",
   },
   {
     tier: "TIER 02",
-    name: "Full Stack Infrastructure Build",
-    price: "$600 – $1,200",
+    name: "Isolated Sender Architecture Build",
+    price: "From $7,500",
     delivery: "Project-based",
-    tag: "BUILD",
+    tag: "SYSTEMS BUILD",
     description:
-      "End-to-end architecture for outbound teams building or rebuilding cold email infrastructure. Domain acquisition strategy, DNS configuration (SPF, DKIM, DMARC, BIMI, rDNS, PTR), multi-inbox platform setup via Instantly or Smartlead, sending architecture designed so warmup and outbound campaigns produce no overlapping timing signatures, domain reputation isolated per cluster. Compatible with Instantly, Smartlead, GoHighLevel, Google Workspace, and custom SMTP stacks.",
+      "End-to-end architecture for outbound teams building or rebuilding cold email infrastructure. Domain acquisition strategy, DNS configuration (SPF, DKIM, DMARC, BIMI, rDNS, PTR), multi-inbox platform setup, sending architecture designed so warmup and outbound campaigns produce no overlapping timing signatures, domain reputation isolated per cluster. Compatible with custom SMTP and private relay networks.",
     includes: [
       "Domain strategy and acquisition (quantity, registrar separation, naming)",
       "Full DNS configuration: SPF, DKIM, DMARC, BIMI, PTR, rDNS",
-      "Multi-inbox platform setup (Instantly / Smartlead / GoHighLevel)",
+      "Multi-inbox platform configuration (Instantly, Smartlead, or custom)",
       "Warmup architecture isolated from outbound campaign timing",
       "Domain reputation isolation per cluster (fleet architecture)",
       "Blacklist delisting if required",
       "Handover documentation with monitoring checklist",
     ],
-    cta: "Discuss a Build",
-    subject: "Infrastructure Build Inquiry",
+    cta: "Discuss Sender Architecture",
+    subject: "Systems Build Inquiry",
   },
   {
     tier: "TIER 03",
-    name: "Monthly Infrastructure Oversight",
-    price: "$750 / month",
-    delivery: "Ongoing",
-    tag: "RETAINER",
+    name: "Enterprise Deliverability Oversight (EDO)",
+    price: "$3,500 / month",
+    delivery: "Ongoing oversight",
+    tag: "MANAGED SERVICE",
     description:
-      "Ongoing monitoring for agencies where outbound is a primary acquisition channel and a two-week deliverability failure has a direct revenue cost. Weekly DMARC aggregate report review, domain reputation trajectory tracking in Google Postmaster Tools, blacklist surveillance across all major RBLs, bounce pattern analysis, warmup integrity checks, and inbox placement spot testing. Infrastructure events flagged at the behavioral level — weeks before reply rates move.",
+      "Ongoing monitoring for agencies where outbound is a primary acquisition channel and a two-week deliverability failure has a direct revenue cost. Weekly DMARC aggregate report review, domain reputation trajectory tracking in Google Postmaster Tools, blacklist surveillance across all major RBLs, bounce pattern analysis, warmup integrity checks, and inbox placement spot testing. Infrastructure events flagged at the behavioral level, weeks before reply rates move.",
     includes: [
       "Weekly DMARC aggregate (RUA) and forensic (RUF) report review",
       "Domain reputation trajectory monitoring (Google Postmaster Tools)",
-      "Blacklist surveillance: Spamhaus, Barracuda, Spamcop, SURBL, all major RBLs",
+      "Blacklist surveillance: Spamhaus, Barracuda, Spamcop, and SURBL",
       "Bounce rate pattern analysis by domain",
       "Warmup integrity checks (timing overlap detection)",
-      "Inbox placement spot testing across Gmail, Outlook, Apple Mail",
+      "Inbox placement spot testing across Gmail, Outlook, and Apple Mail",
       "Monthly written summary with flags and recommendations",
     ],
-    cta: "Start Monthly Oversight",
-    subject: "Monthly Oversight Inquiry",
+    cta: "Request Managed Oversight",
+    subject: "Managed Oversight Inquiry",
   },
 ];
 
@@ -86,7 +86,7 @@ export default function ServicesPage() {
             className="inline-flex items-center gap-2 text-xs font-mono text-text-secondary hover:text-text-primary transition-colors group"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" /> 
-            Back to Operations
+            Back to Home
           </Link>
         </div>
 
@@ -99,10 +99,10 @@ export default function ServicesPage() {
             </h1>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold text-text-primary uppercase tracking-tight">
-            Outbound Infrastructure Consulting
+            Email Deliverability Consulting
           </h2>
           <p className="text-xs sm:text-sm font-mono text-text-secondary max-w-2xl">
-            Three ways to work with Mehedi Hasan. Scope defined before any work begins.
+            Three ways to work with Mehedi Hasan. Scope and deliverables defined before any work begins.
           </p>
         </div>
 

@@ -44,21 +44,23 @@ export default function HeroCommandCenter() {
             
             <div className="space-y-4 pt-2">
               <div className="flex flex-wrap gap-3">
-                <a 
-                  href="#results"
+                <a
+                  href="https://calendly.com/mehedi-active24"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
                 >
-                  See Infrastructure Proof
+                  Book a Free Discovery Call
                 </a>
-                <a 
-                  href="#book"
+                <a
+                  href="/architecture"
                   className="px-5 py-2.5 bg-surface text-text-primary text-xs font-mono uppercase tracking-wider border border-border-subtle hover:bg-surface-hover transition-colors"
                 >
-                  Book a System Audit
+                  See Case Studies
                 </a>
               </div>
               <div>
-                <Link 
+                <Link
                   href="/services"
                   className="inline-flex items-center text-[10px] font-mono text-text-secondary hover:text-accent transition-colors gap-1 uppercase tracking-wider pl-1"
                 >
@@ -84,82 +86,85 @@ export default function HeroCommandCenter() {
                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KPHBhdGggZD0iTTAgNDBMMDAgMEw0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')]" />
             </div>
 
-            {/* Core Portrait Node */}
-            <motion.div 
-              className="relative w-48 h-48 md:w-64 md:h-64 z-10 group"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-              {/* Radial Masked Portrait */}
-              <div 
-                className="absolute inset-0 rounded-full overflow-hidden"
-                style={{ maskImage: 'radial-gradient(circle at center, black 45%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle at center, black 45%, transparent 70%)' }}
+            {/* Tight Relative Container for Portrait + Overlays */}
+            <div className="relative w-48 h-48 md:w-64 md:h-64">
+              {/* Core Portrait Node */}
+              <motion.div 
+                className="w-full h-full z-10 group relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                <Image 
-                  src="/portrait.jpg" 
-                  alt={personal.name}
-                  fill
-                  className="object-cover object-center grayscale-[70%] contrast-125 opacity-80 mix-blend-luminosity"
-                  priority
-                />
-                {/* Cinematic Toning Overlay */}
-                <div className="absolute inset-0 bg-accent mix-blend-overlay opacity-20 pointer-events-none" />
-                {/* Scanline Texture */}
-                <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.1)_2px,rgba(0,0,0,0.1)_4px)] pointer-events-none" />
-              </div>
-              
-              {/* Hover Glow Edge */}
-              <div className="absolute inset-0 rounded-full border border-accent/0 group-hover:border-accent/30 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-700 pointer-events-none" />
-            </motion.div>
+                {/* Radial Masked Portrait */}
+                <div 
+                  className="absolute inset-0 rounded-full overflow-hidden"
+                  style={{ maskImage: 'radial-gradient(circle at center, black 45%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle at center, black 45%, transparent 70%)' }}
+                >
+                  <Image 
+                    src="/portrait.jpg" 
+                    alt={personal.name}
+                    fill
+                    className="object-cover object-center grayscale-[70%] contrast-125 opacity-80 mix-blend-luminosity"
+                    priority
+                  />
+                  {/* Cinematic Toning Overlay */}
+                  <div className="absolute inset-0 bg-accent mix-blend-overlay opacity-20 pointer-events-none" />
+                  {/* Scanline Texture */}
+                  <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.1)_2px,rgba(0,0,0,0.1)_4px)] pointer-events-none" />
+                </div>
+                
+                {/* Hover Glow Edge */}
+                <div className="absolute inset-0 rounded-full border border-accent/0 group-hover:border-accent/30 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-700 pointer-events-none" />
+              </motion.div>
 
-            {/* Layer 2: Technical Overlays (Operator in the Infrastructure) */}
-            <div className="absolute inset-0 pointer-events-none z-20">
-               
-               {/* Telemetry Node 1 (Top Left) */}
-               <motion.div 
-                 className="flex absolute top-4 left-4 sm:top-8 sm:left-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 items-center gap-2"
-                 animate={{ y: [0, -8, 0] }}
-                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-               >
-                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                 <div className="text-[9px] font-mono text-text-secondary uppercase">Node: ACTIVE</div>
-               </motion.div>
+              {/* Layer 2: Technical Overlays (Operator in the Infrastructure) */}
+              <div className="absolute inset-0 pointer-events-none z-20">
+                 
+                 {/* Telemetry Node 1 (Top Left) */}
+                 <motion.div 
+                   className="flex absolute -top-4 -left-4 md:-top-8 md:-left-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 items-center gap-2"
+                   animate={{ y: [0, -8, 0] }}
+                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                 >
+                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                   <div className="text-[9px] font-mono text-text-secondary uppercase">Node: ACTIVE</div>
+                 </motion.div>
 
-               {/* Telemetry Node 2 (Bottom Right) */}
-               <motion.div 
-                 className="flex absolute bottom-8 right-2 sm:bottom-12 sm:right-4 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
-                 animate={{ y: [0, 10, 0] }}
-                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-               >
-                 <div className="text-[8px] font-mono text-text-secondary uppercase">Packet Loss</div>
-                 <div className="text-xs font-mono text-accent font-bold">0.00%</div>
-               </motion.div>
+                 {/* Telemetry Node 2 (Bottom Right) */}
+                 <motion.div 
+                   className="flex absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
+                   animate={{ y: [0, 10, 0] }}
+                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                 >
+                   <div className="text-[8px] font-mono text-text-secondary uppercase">Packet Loss</div>
+                   <div className="text-xs font-mono text-accent font-bold">0.00%</div>
+                 </motion.div>
 
-               {/* Routing Path Overlay */}
-               <div className="hidden md:block absolute top-1/2 right-1/4 w-32 h-px bg-border-subtle overflow-hidden">
-                 <motion.div
-                   className="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"
-                   animate={{ x: ["-100%", "200%"] }}
-                   transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-                 />
-               </div>
-
-               {/* DNS Metric Panel (Bottom Left) */}
-               <motion.div 
-                 className="block absolute bottom-4 left-4 sm:bottom-8 sm:left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
-                 animate={{ y: [0, -5, 0] }}
-                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-               >
-                 <div className="flex items-end gap-3">
-                   <div className="flex flex-col gap-0.5">
-                     <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
-                     <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
-                     <div className="w-8 h-1 bg-border-subtle"><div className="w-3/4 h-full bg-emerald-400" /></div>
-                   </div>
-                   <div className="text-[9px] font-mono text-text-secondary uppercase leading-none">DNS SYNC</div>
+                 {/* Routing Path Overlay */}
+                 <div className="hidden md:block absolute top-1/2 -right-8 w-16 h-px bg-border-subtle overflow-hidden">
+                   <motion.div
+                     className="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"
+                     animate={{ x: ["-100%", "200%"] }}
+                     transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+                   />
                  </div>
-               </motion.div>
 
+                 {/* DNS Metric Panel (Bottom Left) */}
+                 <motion.div 
+                   className="block absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
+                   animate={{ y: [0, -5, 0] }}
+                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                 >
+                   <div className="flex items-end gap-3">
+                     <div className="flex flex-col gap-0.5">
+                       <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
+                       <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
+                       <div className="w-8 h-1 bg-border-subtle"><div className="w-3/4 h-full bg-emerald-400" /></div>
+                     </div>
+                     <div className="text-[9px] font-mono text-text-secondary uppercase leading-none">DNS SYNC</div>
+                   </div>
+                 </motion.div>
+
+              </div>
             </div>
           </div>
 

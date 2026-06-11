@@ -7,13 +7,12 @@ import { Menu, X, Terminal, Activity, Shield } from "lucide-react";
 
 const navItems = [
   { label: "About",         href: "/#about"        },
+  { label: "Services",      href: "/services"      },
   { label: "Case Studies",  href: "/architecture"  },
   { label: "Results",       href: "/#results"      },
-  { label: "Stack",         href: "/toolkit"       },
-  { label: "Services",      href: "/services"      },
-  { label: "Field Reports", href: "/intelligence"  },
-  { label: "Archive",       href: "/logs"          },
-  { label: "Hire Me",       href: "/#book"         },
+  { label: "Insights",      href: "/intelligence"  },
+  { label: "Tools",         href: "/toolkit"       },
+  { label: "Book a Call",   href: "/#book"         },
 ];
 
 export default function HeaderNav() {
@@ -59,7 +58,7 @@ export default function HeaderNav() {
               Mehedi Hasan
             </span>
             <span className="font-mono text-[9px] tracking-widest text-text-secondary/40 uppercase mt-0.5 group-hover:text-text-secondary/70 transition-colors">
-              Outbound Infrastructure Systems
+              Email Deliverability Consultant
             </span>
           </Link>
 
@@ -95,7 +94,7 @@ export default function HeaderNav() {
 
                 {/* Label */}
                 <span className="relative z-10 flex items-center gap-1.5">
-                  {item.label === "Hire Me" && (
+                  {item.label === "Book a Call" && (
                     <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                   )}
                   {item.label}

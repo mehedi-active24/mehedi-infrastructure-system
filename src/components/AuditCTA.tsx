@@ -17,21 +17,21 @@ export default function AuditCTA() {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a 
+          <a
             href={cta.primaryLink}
             className="px-8 py-4 bg-accent text-white font-medium hover:bg-accent/90 transition-colors w-full sm:w-auto"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Book a System Audit
+            Book a Free Discovery Call
           </a>
-          <Link 
+          <Link
             href="/services"
             className="px-8 py-4 bg-transparent text-text-primary border border-border-subtle font-mono text-xs uppercase tracking-wider hover:bg-surface-hover hover:border-accent/40 transition-colors w-full sm:w-auto"
           >
             [ VIEW SERVICES & PRICING ]
           </Link>
-          <a 
+          <a
             href={`mailto:${cta.secondaryEmail}`}
             className="px-8 py-4 bg-surface text-text-primary border border-border-subtle font-medium hover:bg-surface-hover transition-colors w-full sm:w-auto"
           >

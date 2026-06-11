@@ -1,21 +1,21 @@
 {
   "personal": {
     "name": "Mehedi Hasan",
-    "title": "Cold Email Deliverability & Infrastructure Engineer",
-    "subtitle": "I recover inbox placement for cold email agencies where the infrastructure has failed invisibly. Instantly. Smartlead. GoHighLevel. Any scale."
+    "title": "Stop Losing Pipeline to the Spam Folder.",
+    "subtitle": "I help cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation — before deliverability problems cost them pipeline. 1,235+ domains recovered across US, UK, and AU markets."
   },
   "telemetry": [
-    { "label": "Active Mailboxes Managed", "value": "150+", "status": "AS OF Q2 2026" },
-    { "label": "Sending Domains Recovered", "value": "890+", "status": "CUMULATIVE" },
-    { "label": "Monthly Delivery Throughput", "value": "2.2M+", "status": "PEAK VOLUME" },
+    { "label": "Active Mailboxes Managed", "value": "7.4k+", "status": "AS OF Q2 2026" },
+    { "label": "Sending Domains Recovered", "value": "1,235+", "status": "CUMULATIVE" },
+    { "label": "Monthly Delivery Throughput", "value": "5.3M+", "status": "PEAK VOLUME" },
     { "label": "Average Inbox Placement", "value": "94%", "status": "VERIFIED" },
     { "label": "Infrastructure Monitoring", "value": "24/7", "status": "MONITORED" },
     { "label": "Warmup & Rotation Systems", "value": "ACTIVE", "status": "OPERATIONAL" }
   ],
   "profile": {
-    "philosophy": "Infrastructure Reliability Over Everything.",
-    "body": "Cold email agencies and outbound teams hire me when inbox placement is declining and every surface-level check says it should not be. The problem is almost never copy or targeting. It is the infrastructure layer — SPF breaking on forwards, DKIM misaligning on replies, DMARC generating zero visibility, warmup and campaign timing creating a detectable fingerprint for ESP filters.\n\nI do not add records. I run a forensic Inbox Autopsy on the sending architecture and fix the failure that standard tools cannot see. My focus is cold email agencies running 5 to 50 sending domains on Instantly, Smartlead, or GoHighLevel in US, UK, and Australian markets — where outbound is the primary acquisition channel and a two-week deliverability failure has a direct revenue cost.",
-    "notice": "> SYSTEM_NOTICE: I work exclusively with outbound teams. Single senders, newsletter operators, and transactional email systems are outside my scope."
+    "philosophy": "Deliverability failures have a fixable cause. I find it and fix it.",
+    "body": "Cold email agencies and B2B outbound teams come to me when inbox placement is declining and every surface-level check says it should not be. The problem is almost never copy or targeting. It is the infrastructure layer — SPF breaking on forwards, DKIM misaligning on replies, DMARC generating zero visibility, warmup and campaign timing creating a detectable fingerprint for ESP filters.\n\nI am an Email Deliverability Consultant. I do not add records and call it done. I run a forensic audit of your sending architecture and identify the specific failure that standard tools cannot see. My clients are outbound-led agencies and SaaS teams running 5 to 50 sending domains — where a two-week deliverability failure translates directly into lost revenue and missed pipeline.",
+    "notice": "> NOTE: I work exclusively with outbound teams running cold email infrastructure. Single senders, newsletter operators, and transactional systems are outside my scope."
   },
   "capabilities": [
     {
@@ -57,31 +57,31 @@
   "process": [
     {
       "stage": "01",
-      "title": "Diagnostic Telemetry",
-      "description": "Extracting historical sending logs, analyzing DNS footprint, and identifying root causes of placement failure."
+      "title": "Discovery & Audit",
+      "description": "A 20-minute discovery call to scope the problem, followed by a forensic audit of your sending architecture, DNS records, and domain reputation data."
     },
     {
       "stage": "02",
-      "title": "Infrastructure Provisioning",
-      "description": "Deploying hardened domain clusters, isolating sender IPs, and configuring strict authentication layers."
+      "title": "Diagnose & Report",
+      "description": "You receive a written findings report with the specific cause and specific fix — not a generic checklist of records that passed validation."
     },
     {
       "stage": "03",
-      "title": "Warming & Throttling",
-      "description": "Executing programmatic warmup curves and establishing dynamic volume throttling limits."
+      "title": "Fix & Implement",
+      "description": "Targeted remediation across your infrastructure — DNS authentication, platform configuration, warmup architecture, and fleet isolation where needed."
     },
     {
       "stage": "04",
-      "title": "Production Scaling",
-      "description": "Integrating with outbound sending engines, initiating live campaigns, and enforcing baseline monitoring."
+      "title": "Monitor & Protect",
+      "description": "Ongoing DMARC reporting, reputation monitoring, and inbox placement testing keeps your infrastructure stable — catching issues weeks before reply rates move."
     }
   ],
   "proof": {
     "metrics": [
-      { "label": "Inboxes Managed", "value": "150+" },
+      { "label": "Inboxes Managed", "value": "7.4k+" },
       { "label": "Inbox Placement Rate", "value": "94%" },
-      { "label": "Domains Recovered", "value": "890+" },
-      { "label": "Emails Delivered/Month", "value": "2.2M" },
+      { "label": "Domains Recovered", "value": "1,235+" },
+      { "label": "Emails Delivered/Month", "value": "5.3M" },
       { "label": "Average Open Rate", "value": "68%" }
     ],
     "timeline": [
@@ -166,19 +166,17 @@
     }
   ],
   "cta": {
-    "heading": "START WITH AN INFRASTRUCTURE AUDIT",
-    "copy": "System failure prevention is cheaper than reputation recovery. Book an audit before your outbound revenue collapses.",
+    "heading": "READY TO FIX YOUR INBOX PLACEMENT?",
+    "copy": "Most deliverability failures are diagnosable in a single call. Book a free 20-minute discovery call — you'll leave knowing exactly what's broken and whether it's fixable.",
     "primaryLink": "https://calendly.com/mehedi-active24",
     "secondaryEmail": "mehedi.active24@gmail.com"
   },
   "footer": {
-    "statement": "Infrastructure Reliability Over Everything."
+    "statement": "Email Deliverability Consulting for Cold Email Agencies & B2B Outbound Teams."
   },
   "network": [
-    { "label": "LinkedIn Node", "handle": "linkedin.com/in/mehedi-active24", "href": "https://www.linkedin.com/in/mehedi-active24/", "meta": "NETWORK VERIFIED" },
-    { "label": "X Protocol", "handle": "x.com/mehediactive24", "href": "https://x.com/mehediactive24", "meta": "PUBLIC NODE" },
-    { "label": "GitHub Repository", "handle": "github.com/mehedi-active24", "href": "https://github.com/mehedi-active24", "meta": "INFRASTRUCTURE ACCESS" },
-    { "label": "Fiverr Endpoint", "handle": "fiverr.com/sellers/mhasan_24", "href": "https://www.fiverr.com/sellers/mhasan_24/", "meta": "STATUS: ACTIVE" },
-    { "label": "Email Endpoint", "handle": "mehedi.active24@gmail.com", "href": "mailto:mehedi.active24@gmail.com", "meta": "LAST UPDATE: 2026" }
+    { "label": "LinkedIn", "handle": "linkedin.com/in/mehedi-active24", "href": "https://www.linkedin.com/in/mehedi-active24/", "meta": "NETWORK VERIFIED" },
+    { "label": "GitHub", "handle": "github.com/mehedi-active24", "href": "https://github.com/mehedi-active24", "meta": "INFRASTRUCTURE ACCESS" },
+    { "label": "Email", "handle": "mehedi.active24@gmail.com", "href": "mailto:mehedi.active24@gmail.com", "meta": "RESPONSE WITHIN 24H" }
   ]
 }
