@@ -25,8 +25,27 @@ export default function HeroCommandCenter() {
             <p className="text-text-secondary text-sm md:text-base max-w-xl">
               {personal.subtitle}
             </p>
-            
-            <div className="space-y-4 pt-2">
+
+            {/* Evidence bar — sits between claim and ask */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-l-2 border-accent/30 pl-3">
+              <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
+                1,235+ domains recovered
+              </span>
+              <span className="text-text-secondary/20 text-[10px]">·</span>
+              <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
+                14–30 day avg. recovery
+              </span>
+              <span className="text-text-secondary/20 text-[10px]">·</span>
+              <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
+                US · UK · AU
+              </span>
+              <span className="text-text-secondary/20 text-[10px]">·</span>
+              <span className="text-[10px] font-mono text-accent/80 uppercase tracking-wider font-bold">
+                Tests DKIM on replies, not just sends
+              </span>
+            </div>
+
+            <div className="space-y-4">
               <div className="flex flex-wrap gap-3">
                 <a
                   href="https://calendly.com/mehedi-active24"
@@ -51,25 +70,6 @@ export default function HeroCommandCenter() {
                   View services and pricing →
                 </Link>
               </div>
-            </div>
-
-            {/* Above-fold proof bar */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-2 pl-1">
-              <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">
-                1,235+ domains recovered
-              </span>
-              <span className="text-text-secondary/20 text-[10px]">·</span>
-              <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">
-                Avg. recovery 14–30 days
-              </span>
-              <span className="text-text-secondary/20 text-[10px]">·</span>
-              <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">
-                US · UK · AU
-              </span>
-              <span className="text-text-secondary/20 text-[10px]">·</span>
-              <span className="text-[10px] font-mono text-accent/60 uppercase tracking-wider">
-                Tests DKIM on replies, not just sends
-              </span>
             </div>
           </div>
 
