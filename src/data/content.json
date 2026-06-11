@@ -2,7 +2,7 @@
   "personal": {
     "name": "Mehedi Hasan",
     "title": "Every Validator Says Pass. Your Inbox Doesn't Agree.",
-    "subtitle": "I find the deliverability failures that MXToolbox misses: DKIM breaking on reply paths, SPF hitting RFC lookup limits, DMARC generating zero forensic data. Cold email agencies and B2B outbound teams come to me when every validator says pass and inbox placement still drops. 1,235+ domains recovered."
+    "subtitle": "Cold email agencies and B2B outbound teams come to me when every validator says pass and inbox placement still drops. The failures are almost always in the paths standard tools never test: DKIM on replies, SPF on forwards, DMARC with no forensic reporting."
   },
   "telemetry": [
     { "label": "Active Mailboxes Managed", "value": "7.4k+", "status": "AS OF Q2 2026" },
