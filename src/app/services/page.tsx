@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, Check, Terminal, Mail, ArrowUpRight, HelpCircle } from "lucide-react";
 import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
 
 export const metadata = {
   title: "Services | Email Deliverability Consulting — Mehedi Hasan",
@@ -11,7 +12,7 @@ const services = [
   {
     tier: "TIER 01",
     name: "Forensic Deliverability Audit",
-    price: "$2,500",
+    price: "$799",
     delivery: "5 business days",
     tag: "DIAGNOSTICS",
     description:
@@ -31,7 +32,7 @@ const services = [
   {
     tier: "TIER 02",
     name: "Infrastructure Build & Rebuild",
-    price: "From $7,500",
+    price: "From $1,500",
     delivery: "Project-based",
     tag: "SYSTEMS BUILD",
     description:
@@ -51,7 +52,7 @@ const services = [
   {
     tier: "TIER 03",
     name: "Ongoing Deliverability Oversight",
-    price: "$3,500 / month",
+    price: "$750 / month",
     delivery: "Ongoing oversight",
     tag: "MANAGED SERVICE",
     description:
@@ -233,6 +234,8 @@ export default function ServicesPage() {
         </div>
 
       </div>
+
+      <FAQ />
 
       <Footer />
     </main>
