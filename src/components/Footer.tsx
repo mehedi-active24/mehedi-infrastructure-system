@@ -33,7 +33,7 @@ export default function Footer() {
             <ul className="space-y-3 font-mono text-xs">
               <li><Link href="/services" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Services & Pricing</Link></li>
               <li><Link href="/architecture" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Case Studies</Link></li>
-              <li><Link href="/intelligence" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Insights</Link></li>
+              <li><Link href="/logs" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Field Reports</Link></li>
               <li><Link href="/toolkit" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Tools & Stack</Link></li>
               <li><Link href="/#book" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Book a Discovery Call</Link></li>
             </ul>
@@ -65,18 +65,18 @@ export default function Footer() {
 
           {/* Column 3: System Status — Compact Operational Panel */}
           <div className="space-y-4">
-            <h3 className="text-[10px] font-mono text-text-secondary uppercase tracking-widest border-l-2 border-accent pl-2 mb-6">System Status</h3>
+            <h3 className="text-[10px] font-mono text-text-secondary uppercase tracking-widest border-l-2 border-accent pl-2 mb-6">Availability</h3>
             <div className="bg-surface/40 border border-border-subtle p-4 space-y-3 font-mono text-[10px]">
               {([
-                { label: "Infrastructure Reliability", value: "ACTIVE", color: "text-emerald-400" },
-                { label: "Monitoring Coverage", value: "ENABLED", color: "text-emerald-400" },
-                { label: "Outbound Systems", value: "OPERATIONAL", color: "text-emerald-400" },
-                { label: "Reputation Layer", value: "STABLE", color: "text-blue-400" },
+                { label: "Accepting New Clients", value: "Q3 2026", color: "text-emerald-400" },
+                { label: "Discovery Call", value: "Free · 20 Min", color: "text-emerald-400" },
+                { label: "Response Time", value: "Within 24H", color: "text-emerald-400" },
+                { label: "Active Slots", value: "Limited", color: "text-amber-400" },
               ] as { label: string; value: string; color: string }[]).map((item, i) => (
                 <div key={i} className="flex justify-between items-center gap-4 border-b border-border-subtle pb-3 last:border-0 last:pb-0">
                   <span className="text-text-secondary">{item.label}</span>
                   <div className="flex items-center gap-1.5 shrink-0">
-                    <div className={`w-1 h-1 rounded-full ${item.color === "text-emerald-400" ? "bg-emerald-400" : "bg-blue-400"} animate-pulse`} />
+                    <div className={`w-1 h-1 rounded-full ${item.color === "text-emerald-400" ? "bg-emerald-400" : "bg-amber-400"} animate-pulse`} />
                     <span className={item.color}>{item.value}</span>
                   </div>
                 </div>
