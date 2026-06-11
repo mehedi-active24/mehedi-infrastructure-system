@@ -18,7 +18,7 @@ export default function ProactiveScaling() {
     {
       icon: <ShieldCheck className="w-5 h-5 text-accent" />,
       title: "Stable at Any Send Volume.",
-      description: "Domain registration, DNS architecture, and sending patterns are built to match high-volume compliance requirements from the start — no emergency rebuilds when you try to scale."
+      description: "Domain registration, DNS architecture, and sending patterns are built to match high-volume compliance requirements from the start. No emergency rebuilds when you scale."
     }
   ];
 
@@ -39,7 +39,7 @@ export default function ProactiveScaling() {
             Built to Scale Before the Problem
           </h2>
           <p className="text-sm font-mono text-text-secondary leading-relaxed">
-            For cold email agencies and B2B outbound teams scaling from 50k to 500k monthly sends — who want infrastructure that survives growth instead of collapsing under it.
+            For cold email agencies and B2B outbound teams scaling from 50k to 500k monthly sends, who want infrastructure that survives growth instead of collapsing under it.
           </p>
         </div>
 

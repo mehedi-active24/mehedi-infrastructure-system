@@ -10,7 +10,7 @@ const stages = [
     label: "Discovery Call",
     layer: "STEP 01 — FREE",
     description:
-      "A 20-minute call to understand your sending environment, infrastructure setup, and the symptoms you're seeing. You'll leave knowing whether this is an infrastructure problem — and whether I can fix it.",
+      "A 20-minute call to understand your sending environment, infrastructure setup, and the symptoms you're seeing. You'll leave knowing whether this is an infrastructure problem and whether I can fix it.",
     indicators: [
       { key: "DURATION", value: "20 MIN" },
       { key: "COST", value: "FREE" },
@@ -23,7 +23,7 @@ const stages = [
     label: "Forensic Audit",
     layer: "STEP 02 — DIAGNOSIS",
     description:
-      "I test DKIM alignment on replies and forwards — not just originating sends. I trace SPF resolution through all forwarding paths. I review DMARC aggregate reports for real failure rates. You get a written findings report with the specific cause and specific fix.",
+      "I test DKIM alignment on replies and forwards, not just originating sends. I trace SPF resolution through all forwarding paths. I review DMARC aggregate reports for real failure rates. You get a written findings report with the specific cause and specific fix.",
     indicators: [
       { key: "DELIVERY", value: "72 HOURS" },
       { key: "OUTPUT", value: "WRITTEN REPORT" },
@@ -36,7 +36,7 @@ const stages = [
     label: "Fix & Implement",
     layer: "STEP 03 — REMEDIATION",
     description:
-      "Targeted fixes applied across your sending infrastructure — DNS authentication records, platform configuration, warmup scheduling, and fleet architecture where needed. Not a checklist. The actual repair.",
+      "Targeted fixes applied across your sending infrastructure: DNS authentication records, platform configuration, warmup scheduling, and fleet architecture where needed. Not a checklist. The actual repair.",
     indicators: [
       { key: "DNS AUTH", value: "CORRECTED" },
       { key: "PLACEMENT", value: "RECOVERING" },
@@ -93,10 +93,10 @@ export default function BuildProcess() {
           <div>
             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">How I Work</h2>
             <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight leading-tight">
-              What Standard Tools Miss — And How I Find It
+              What Standard Tools Miss. And How I Find It.
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-3 max-w-lg">
-              Every engagement starts with a free 20-minute call. You'll leave knowing whether this is an infrastructure problem, what caused it, and whether it's fixable — before any money changes hands.
+              Every engagement starts with a free 20-minute call. You'll leave knowing whether this is an infrastructure problem, what caused it, and whether it's fixable. No money changes hands until you decide to proceed.
             </p>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">

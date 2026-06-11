@@ -40,7 +40,7 @@ const ecosystem: EcosystemLayer[] = [
     primary: [
       { name: "Amazon SES", why: "Maximum deliverability throughput and cost efficiency when configured with dedicated IP warmups." },
       { name: "Mailgun", why: "Excellent MTA logs and tracking APIs for high-frequency transactional and promotional isolation." },
-      { name: "Postmark", why: "State-of-the-art transactional inbox placement and strict bounce classification metrics." }
+      { name: "Postmark", why: "Precise transactional inbox placement with strict bounce classification metrics." }
     ],
     extended: ["SendGrid", "SocketLabs", "SMTP2GO", "Brevo SMTP", "ZeptoMail", "Postfix MTA"]
   },
@@ -98,7 +98,7 @@ const ecosystem: EcosystemLayer[] = [
     description: "Workflow automation, webhooks, and integrations",
     primary: [
       { name: "n8n", why: "Self-hosted, highly secure visual automation engine for custom outbound data pipelines." },
-      { name: "Make", why: "Robust cloud orchestration for multi-app webhook integrations." },
+      { name: "Make", why: "Cloud orchestration for multi-app webhook integrations." },
       { name: "Custom Webhooks", why: "Ultra-lightweight direct programmatic system triggers." }
     ],
     extended: ["Zapier", "Airtable Automations", "Retool", "Cloud Functions"]

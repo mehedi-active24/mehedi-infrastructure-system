@@ -24,7 +24,7 @@ export default function AuditCTA() {
           <span className="text-text-secondary/20">·</span>
           <span>94% post-fix placement rate</span>
           <span className="text-text-secondary/20">·</span>
-          <span>Discovery call is free — no obligation</span>
+          <span>Discovery call is free. No obligation.</span>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

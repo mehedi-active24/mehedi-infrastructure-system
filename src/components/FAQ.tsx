@@ -7,23 +7,23 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   {
     q: "How long does inbox placement recovery take?",
-    a: "It depends on how far reputation has declined. Based on client recovery cases: mild-to-moderate failures (validators passing but placement dropping) typically recover in 14–21 days once root causes are fixed. Severe cases — active blacklistings or domains past the recovery window — take longer or require domain retirement. I'll give you an honest timeline estimate during the discovery call, not after you've paid.",
+    a: "It depends on how far reputation has declined. Based on client recovery cases: mild-to-moderate failures (validators passing but placement dropping) typically recover in 14–21 days once root causes are fixed. Severe cases (active blacklistings or domains past the recovery window) take longer or require domain retirement. I'll give you an honest timeline estimate during the discovery call, not after you've paid.",
   },
   {
     q: "Will you fix the problem or just tell me what's wrong?",
-    a: "The audit includes the written diagnosis and the specific fix specification. The build and retainer tiers include full implementation. I don't deliver a PDF checklist and walk away — I either fix it or I scope what needs to be done before fixing it. If something falls outside the agreed scope, I'll tell you upfront.",
+    a: "The audit includes the written diagnosis and the specific fix specification. The build and retainer tiers include full implementation. I don't deliver a PDF checklist and walk away. I either fix it or I scope what needs to be done before fixing it. If something falls outside the agreed scope, I'll tell you upfront.",
   },
   {
     q: "Do you work with Instantly, Smartlead, and GoHighLevel?",
-    a: "Yes — all three, plus Google Workspace, Microsoft 365, Maildoso, and custom SMTP stacks. Platform compatibility is assessed during the discovery call. I don't force a tool change unless the platform itself is the root cause of the failure.",
+    a: "Yes. All three, plus Google Workspace, Microsoft 365, Maildoso, and custom SMTP stacks. Platform compatibility is assessed during the discovery call. I don't force a tool change unless the platform itself is the root cause of the failure.",
   },
   {
     q: "What if my domains are already blacklisted?",
-    a: "Blacklist delisting is included in all engagement types. Spamhaus, Barracuda, Spamcop, and SURBL are covered as standard. More complex listings (CBL, SBL) require direct intervention — I'll assess these during the audit and tell you exactly what's required before any work begins.",
+    a: "Blacklist delisting is included in all engagement types. Spamhaus, Barracuda, Spamcop, and SURBL are covered as standard. More complex listings (CBL, SBL) require direct intervention. I'll assess these during the audit and tell you exactly what's required before any work begins.",
   },
   {
     q: "Can you manage deliverability for a multi-client agency?",
-    a: "Yes. Agency command center architecture — managing 25+ client environments simultaneously without cross-contamination — is one of my primary service categories. Each client infrastructure is isolated at the domain, DNS, and sending platform level. If you're managing outbound for multiple clients, the retainer tier is specifically designed for this.",
+    a: "Yes. Agency command center architecture (managing 25+ client environments without cross-contamination) is one of my primary service categories. Each client infrastructure is isolated at the domain, DNS, and sending platform level. If you're managing outbound for multiple clients, the retainer tier is specifically designed for this.",
   },
   {
     q: "How is this different from running my emails through MXToolbox?",

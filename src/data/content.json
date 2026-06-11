@@ -2,7 +2,7 @@
   "personal": {
     "name": "Mehedi Hasan",
     "title": "Every Validator Says Pass. Your Inbox Doesn't Agree.",
-    "subtitle": "I find the deliverability failures that MXToolbox misses — DKIM breaking on reply paths, SPF hitting RFC lookup limits, DMARC generating zero forensic data. Cold email agencies and B2B outbound teams come to me when every validator says pass and inbox placement still drops. 1,235+ domains recovered."
+    "subtitle": "I find the deliverability failures that MXToolbox misses: DKIM breaking on reply paths, SPF hitting RFC lookup limits, DMARC generating zero forensic data. Cold email agencies and B2B outbound teams come to me when every validator says pass and inbox placement still drops. 1,235+ domains recovered."
   },
   "telemetry": [
     { "label": "Active Mailboxes Managed", "value": "7.4k+", "status": "AS OF Q2 2026" },
@@ -14,7 +14,7 @@
   ],
   "profile": {
     "philosophy": "Most deliverability tools check that your records exist. I check whether they work on replies, forwards, and forwarded-to-spam paths. That is where most failures actually happen.",
-    "body": "Cold email agencies and B2B outbound teams come to me when inbox placement is declining and every surface-level check says it should not be. The problem is almost never copy or targeting. It is the infrastructure layer — SPF breaking on forwards, DKIM misaligning on replies, DMARC generating zero visibility, warmup and campaign timing creating a detectable fingerprint for ESP filters.\n\nI am an Email Deliverability Consultant. I do not add records and call it done. I run a forensic audit of your sending architecture and identify the specific failure that standard tools cannot see. My clients are outbound-led agencies and SaaS teams running 5 to 50 sending domains — where a two-week deliverability failure translates directly into lost revenue and missed pipeline.",
+    "body": "Cold email agencies and B2B outbound teams come to me when inbox placement is declining and every surface-level check says it should not be. The problem is almost never copy or targeting. It is the infrastructure layer: SPF breaking on forwards, DKIM misaligning on replies, DMARC generating zero visibility, warmup and campaign timing creating a detectable fingerprint for ESP filters.\n\nI am an Email Deliverability Consultant. I do not add records and call it done. I run a forensic audit of your sending architecture and identify the specific failure that standard tools cannot see. My clients are outbound-led agencies and SaaS teams running 5 to 50 sending domains, where a two-week deliverability failure translates directly into lost revenue and missed pipeline.",
     "notice": "> NOTE: I work exclusively with outbound teams running cold email infrastructure. Single senders, newsletter operators, and transactional systems are outside my scope."
   },
   "capabilities": [
@@ -63,17 +63,17 @@
     {
       "stage": "02",
       "title": "Diagnose & Report",
-      "description": "You receive a written findings report with the specific cause and specific fix — not a generic checklist of records that passed validation."
+      "description": "You receive a written findings report with the specific cause and specific fix. Not a generic checklist of records that passed validation."
     },
     {
       "stage": "03",
       "title": "Fix & Implement",
-      "description": "Targeted remediation across your infrastructure — DNS authentication, platform configuration, warmup architecture, and fleet isolation where needed."
+      "description": "Targeted remediation across your infrastructure: DNS authentication, platform configuration, warmup architecture, and fleet isolation where needed."
     },
     {
       "stage": "04",
       "title": "Monitor & Protect",
-      "description": "Ongoing DMARC reporting, reputation monitoring, and inbox placement testing keeps your infrastructure stable — catching issues weeks before reply rates move."
+      "description": "Ongoing DMARC reporting, reputation monitoring, and inbox placement testing keeps your infrastructure stable, catching issues weeks before reply rates move."
     }
   ],
   "proof": {

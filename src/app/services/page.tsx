@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowLeft, Check, Terminal, Mail, ArrowUpRight, HelpCircle } from "lucide-react";
+import { ArrowLeft, Terminal, Mail, ArrowUpRight, HelpCircle, Calendar } from "lucide-react";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 
 export const metadata = {
-  title: "Services | Email Deliverability Consulting — Mehedi Hasan",
+  title: "Services | Email Deliverability Consulting | Mehedi Hasan",
   description: "Three ways to work with Mehedi Hasan on email deliverability. Forensic audits, full infrastructure builds, and ongoing deliverability oversight for cold email agencies and B2B outbound teams.",
 };
 
@@ -139,7 +139,7 @@ export default function ServicesPage() {
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono">
                     <span className="text-2xl font-bold text-text-primary">{svc.price}</span>
                     <span className="text-[10px] text-text-secondary/60 uppercase">
-                      // DEL: {svc.delivery}
+                      Delivery: {svc.delivery}
                     </span>
                   </div>
                 </div>
@@ -168,17 +168,26 @@ export default function ServicesPage() {
 
               </div>
 
-              {/* Action Button */}
-              <div className="mt-8 pt-4 border-t border-border-subtle/30 relative z-10">
+              {/* Action Buttons */}
+              <div className="mt-8 pt-4 border-t border-border-subtle/30 relative z-10 space-y-2">
                 <a
-                  href={`mailto:mehedi.active24@gmail.com?subject=${encodeURIComponent(svc.subject)}`}
-                  className="flex items-center justify-between w-full px-4 py-3 bg-bg-dark border border-border-subtle text-xs font-mono uppercase tracking-wider text-text-primary hover:border-accent hover:text-accent hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-200"
+                  href="https://calendly.com/mehedi-active24"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between w-full px-4 py-3 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-all duration-200"
                 >
                   <span className="flex items-center gap-2">
-                    <Mail className="w-3.5 h-3.5" />
-                    {svc.cta}
+                    <Calendar className="w-3.5 h-3.5" />
+                    {svc.cta}: Book a Call
                   </span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href={`mailto:mehedi.active24@gmail.com?subject=${encodeURIComponent(svc.subject)}`}
+                  className="flex items-center justify-center w-full px-4 py-2 text-[10px] font-mono text-text-secondary/50 hover:text-text-secondary transition-colors uppercase tracking-wider gap-2"
+                >
+                  <Mail className="w-3 h-3" />
+                  or send an email instead
                 </a>
               </div>
 
@@ -208,6 +217,10 @@ export default function ServicesPage() {
 
             <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
               Send three data points: number of active domains and inboxes, reply rate 6–8 weeks ago versus today, and whether a warmup tool runs alongside active campaigns. I will tell you within 24 hours whether this is an infrastructure problem and which engagement type fits.
+            </p>
+
+            <p className="text-xs font-mono text-text-secondary/50 border-l-2 border-accent/30 pl-3">
+              If the discovery call does not surface a diagnosable infrastructure problem, you owe nothing. No retainer, no fee, no follow-up pitch.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row gap-3">

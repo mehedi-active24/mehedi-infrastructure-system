@@ -8,7 +8,7 @@ const questions = [
   {
     id: "placement",
     question: "What is your current inbox placement rate?",
-    hint: "Check GlockApps or your sending platform's inbox % — not open rate.",
+    hint: "Check GlockApps or your sending platform's inbox %. Open rate is not inbox placement.",
     options: [
       { label: "Below 40%", value: 40, risk: "CRITICAL" },
       { label: "40–70%", value: 25, risk: "HIGH" },
@@ -19,12 +19,12 @@ const questions = [
   {
     id: "validator",
     question: "What tools have you used to diagnose the problem so far?",
-    hint: "Surface validators (MXToolbox, Mail-Tester) check records exist — not whether they work on replies.",
+    hint: "Surface validators (MXToolbox, Mail-Tester) check that records exist. They do not test whether they work on replies.",
     options: [
       { label: "Only MXToolbox / Mail-Tester", value: 25, risk: "HIGH" },
       { label: "Google Postmaster Tools", value: 12, risk: "WARNING" },
       { label: "GlockApps seed testing", value: 5, risk: "LOW" },
-      { label: "Nothing yet — just noticed the problem", value: 35, risk: "CRITICAL" },
+      { label: "Nothing yet. Just noticed the problem", value: 35, risk: "CRITICAL" },
     ],
   },
   {
@@ -46,7 +46,7 @@ const questions = [
       { label: "It has always been low", value: 20, risk: "HIGH" },
       { label: "It worked, then dropped 2–4 weeks ago", value: 30, risk: "CRITICAL" },
       { label: "It has been declining slowly for months", value: 22, risk: "HIGH" },
-      { label: "Working fine right now — doing pre-emptive check", value: 0, risk: "NOMINAL" },
+      { label: "Working fine now. Running pre-emptive check", value: 0, risk: "NOMINAL" },
     ],
   },
   {
@@ -80,9 +80,9 @@ function getResult(score: number): Result {
       score,
       headline: "Active Infrastructure Failure",
       diagnosis:
-        "Your signals indicate an active, compounding deliverability failure. The gap between what your validators show and what your inbox receives is widening. Failures at this severity level get harder to recover the longer they run — domain reputation decay is non-linear.",
+        "Your signals indicate an active, compounding deliverability failure. The gap between what your validators show and what your inbox receives is widening. Failures at this severity level get harder to recover the longer they run. Domain reputation decay is non-linear.",
       recommendation:
-        "A 20-minute forensic call will identify the specific failure mode. You'll leave knowing the root cause, whether it's fixable, and what it would take — before any money changes hands.",
+        "A 20-minute forensic call will identify the specific failure mode. You'll leave knowing the root cause, whether it's fixable, and what it would take. No money changes hands until you decide to proceed.",
       cta: "calendly",
     };
   }
@@ -92,7 +92,7 @@ function getResult(score: number): Result {
       score,
       headline: "Infrastructure Drift Detected",
       diagnosis:
-        "Your infrastructure shows signs of progressive degradation — the kind that does not produce obvious alerts until it is already material. Standard validators will continue to show green while placement quietly declines. A forensic audit typically surfaces 2–4 specific failure points at this stage.",
+        "Your infrastructure shows signs of progressive degradation. The kind that does not produce obvious alerts until it is already material. Standard validators will continue to show green while placement quietly declines. A forensic audit typically surfaces 2–4 specific failure points at this stage.",
       recommendation:
         "Send 3 data points (platform, sending volume, and a DMARC XML sample) and I'll respond with a preliminary diagnosis within 24 hours.",
       cta: "email",
@@ -106,7 +106,7 @@ function getResult(score: number): Result {
       diagnosis:
         "No active failure, but your configuration has patterns that create risk as volume scales. Infrastructure that tests clean at 10k/month frequently develops alignment failures at 100k/month. The right time to find these is before they become critical.",
       recommendation:
-        "A pre-emptive infrastructure review will identify the specific points that are likely to break under load — before they affect live campaigns.",
+        "A pre-emptive infrastructure review will identify the specific points that are likely to break under load, before they affect live campaigns.",
       cta: "email",
     };
   }
@@ -115,7 +115,7 @@ function getResult(score: number): Result {
     score,
     headline: "No Active Failure Signals",
     diagnosis:
-      "Your current configuration appears stable. The risk at this level is warmup drift — reputation decay that occurs silently when a domain has no background warmup signal to offset cold outbound activity.",
+      "Your current configuration appears stable. The risk at this level is warmup drift: reputation decay that occurs silently when a domain has no background warmup signal to offset cold outbound activity.",
     recommendation:
       "Read the field report on warmup drift for the specific monitoring protocol that prevents passive reputation decay.",
     cta: "email",
@@ -259,10 +259,10 @@ export default function DeliverabilityTriage() {
               >
                 <div className="max-w-xl">
                   <p className="text-sm font-mono text-text-secondary leading-relaxed mb-3">
-                    Most deliverability problems are diagnosable — but standard validators check the wrong thing. They verify your records exist. They do not test whether they hold on replies, forwards, or forwarded-to-spam paths.
+                    Most deliverability problems are diagnosable. Standard validators check the wrong thing. They verify your records exist. They do not test whether they hold on replies, forwards, or forwarded-to-spam paths.
                   </p>
                   <p className="text-sm font-mono text-text-secondary leading-relaxed mb-8">
-                    This triage identifies whether your infrastructure has active failure signals — and which failure mode to investigate first.
+                    This triage identifies whether your infrastructure has active failure signals, and which failure mode to investigate first.
                   </p>
                   <div className="grid grid-cols-3 gap-3 mb-8">
                     {[
@@ -415,7 +415,7 @@ export default function DeliverabilityTriage() {
                       className="flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
                     >
                       <Calendar className="w-3.5 h-3.5" />
-                      Book Free Discovery Call — 20 Minutes
+                      Book Free Discovery Call (20 Min)
                     </a>
                   ) : (
                     <a
@@ -436,7 +436,7 @@ export default function DeliverabilityTriage() {
                 </div>
 
                 <p className="mt-4 text-[10px] font-mono text-text-secondary/30">
-                  This triage uses infrastructure risk signals — not inbox placement validation. For a forensic diagnosis, book a call or send 3 data points via email.
+                  This triage uses infrastructure risk signals, not inbox placement validation. For a forensic diagnosis, book a call or send 3 data points via email.
                 </p>
               </motion.div>
             )}

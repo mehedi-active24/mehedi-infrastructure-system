@@ -109,7 +109,7 @@
     "category": "Complete Ecosystem",
     "status": "ACTIVE",
     "tools": ["Clay", "Instantly", "HubSpot", "Make.com"],
-    "overview": "An end-to-end operational pipeline connecting data enrichment, outbound execution, and CRM routing into a single seamless loop.",
+    "overview": "An end-to-end operational pipeline connecting data enrichment, outbound execution, and CRM routing into a single closed loop.",
     "flow": [
       { "step": "Lead Gen", "detail": "Apollo/Ocean" },
       { "step": "Enrichment", "detail": "Clay Waterfall" },

@@ -19,7 +19,7 @@ const checks = [
     description:
       "Count the total DNS lookups in your SPF chain, including all nested includes. RFC 7208 hard limit is 10. Most infrastructure with 2+ sending platforms exceeds this silently.",
     free: true,
-    how: "Use kitterman.com/spf/validate.html — it counts lookups and flags PermError before live delivery does.",
+    how: "Use kitterman.com/spf/validate.html. It counts lookups and flags PermError before live delivery does.",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const checks = [
     id: 4,
     title: "DKIM alignment on forwarded messages",
     description:
-      "Forwarded email is rewritten differently than replied email. Many configurations that pass on replies still fail on forwards — a common path for spam filter evaluation.",
+      "Forwarded email is rewritten differently than replied email. Many configurations that pass on replies still fail on forwards. This is a common path for spam filter evaluation.",
     free: false,
     how: "Forward a sent message to a second Gmail → Show original → check dkim= result.",
   },
@@ -41,7 +41,7 @@ const checks = [
     id: 5,
     title: "Postmaster Tools complaint rate trend",
     description:
-      "Check the 30-day trend line in Google Postmaster Tools — not just the current number. A rising trend from 0.04% to 0.08% is a warning sign even if both numbers are below threshold.",
+      "Check the 30-day trend line in Google Postmaster Tools, not just the current number. A rising trend from 0.04% to 0.08% is a warning sign even if both numbers are below threshold.",
     free: false,
     how: "Postmaster Tools → Spam Rate → switch from 7-day to 30-day view. Directional trend matters more than point-in-time.",
   },
@@ -175,7 +175,7 @@ export default function FreeChecklist() {
                     Get checks 4–9 with full "how to test" walkthroughs
                   </p>
                   <p className="text-xs font-mono text-text-secondary">
-                    Email to receive the complete list — no signup form, just a direct reply.
+                    Email to receive the complete list. No signup form, just a direct reply.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 shrink-0">
