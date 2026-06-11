@@ -5,26 +5,32 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Inbox placement dropped to 31% and MXToolbox showed everything passing. We had no idea where to start. Mehedi found the problem within 48 hours and had 10 of our 12 domains recovering in 18 days. We had spent three weeks trying to fix it ourselves.",
+    quote: "We were running 12 Instantly domains. Placement dropped to 31% overnight. MXToolbox showed everything passing — SPF, DKIM, DMARC all green. We spent three weeks changing copy, reducing volume, re-warming. Nothing moved. Mehedi found the actual problem within 48 hours. It was a DKIM alignment issue on reply paths that no tool we used even tested for. 10 of 12 domains were recovering inside 18 days.",
     author: "Agency Owner",
-    company: "B2B Lead Gen Agency",
-    market: "US Market",
-    metric: "31% → 68% placement",
-    timeline: "18 days",
+    company: "8-person B2B Lead Gen Agency",
+    market: "United States",
+    platform: "Instantly",
+    volume: "~180k sends/month",
+    metric: "31% → 68% inbox placement",
+    timeline: "18 days to recovery",
   },
   {
-    quote: "We were at 500k sends per month and almost everything was landing in Junk on Outlook. We had no idea why. Mehedi rebuilt the sending architecture and got us back to normal volume in 21 days. The root cause was something I would never have found on my own.",
+    quote: "500,000 sends per month, almost all of it routing to Junk on Outlook. Our Smartlead dashboard showed good open rates because Gmail was still working — we didn't realize Outlook was the problem until we ran a seed test. Mehedi identified the issue in the first call. It was our Return-Path domain misalignment breaking SPF for Microsoft 365 specifically. He rebuilt the sending architecture and we were back to full volume in 21 days. I would not have found this on my own.",
     author: "Founder",
-    company: "Cold Email Agency",
-    market: "AU Market",
-    metric: "500k/mo restored",
+    company: "15-person Cold Email Agency",
+    market: "Australia",
+    platform: "Smartlead + custom SMTP",
+    volume: "500k/month",
+    metric: "Full Outlook delivery restored",
     timeline: "21 days",
   },
   {
-    quote: "Our Google Postmaster score was dropping every week and nothing flagged on any of the standard tools. Mehedi found what was actually causing it — things I didn't know to check — and got our bounce rate from 4.2% down to 0.7% in 30 days.",
+    quote: "Google Postmaster showed our domain reputation dropping every week for two months. Bounce rate was up to 4.2%. We checked every tool — MXToolbox, Mail-Tester, our Instantly reports. Nothing flagged. Mehedi found a spam trap segment in our Clay-sourced list that was driving complaint signals we could not see because we had no ruf= on our DMARC record. Bounce rate went from 4.2% to 0.7% in 30 days after the list purge and DMARC forensic reporting was turned on.",
     author: "Head of Growth",
     company: "Recruiting Outreach Team",
-    market: "UK Market",
+    market: "United Kingdom",
+    platform: "Instantly + Clay",
+    volume: "~60k sends/month",
     metric: "4.2% → 0.7% bounce rate",
     timeline: "30 days",
   },
@@ -67,13 +73,19 @@ export default function Testimonials() {
 
               <div className="mt-6 pt-4 border-t border-border-subtle space-y-3">
                 {/* Result metrics */}
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-2">
                   <div className="bg-emerald-400/5 border border-emerald-400/20 px-2 py-1">
                     <span className="text-[9px] font-mono text-emerald-400 uppercase">{t.metric}</span>
                   </div>
                   <div className="bg-accent/5 border border-accent/20 px-2 py-1">
                     <span className="text-[9px] font-mono text-accent uppercase">{t.timeline}</span>
                   </div>
+                </div>
+
+                {/* Context */}
+                <div className="grid grid-cols-2 gap-1.5 text-[9px] font-mono text-text-secondary/50 uppercase">
+                  <span>Platform: {t.platform}</span>
+                  <span>Vol: {t.volume}</span>
                 </div>
 
                 {/* Author */}
