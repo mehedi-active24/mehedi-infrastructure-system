@@ -7,18 +7,18 @@ export default function ProactiveScaling() {
   const pillars = [
     {
       icon: <Server className="w-5 h-5 text-accent" />,
-      title: "Pre-Emptive Subnet Rotation",
-      description: "Instead of reacting when an IP is burned, we deploy segmented, multi-tenant IP clusters with automated sender throttling. Your volume scales seamlessly while risk is completely isolated."
+      title: "Volume Grows. Reputation Stays Clean.",
+      description: "Instead of reacting when a domain burns, I architect segmented sender clusters with isolated risk from day one. Your send volume scales without reputation events cascading across the fleet."
     },
     {
       icon: <Cpu className="w-5 h-5 text-accent" />,
-      title: "Continuous Telemetry Loops",
-      description: "We establish active feedback loops and DNS monitoring scripts that detect minor reputation drift on sub-domains before any major spam filter or blocklist triggers."
+      title: "Problems Caught Before Reply Rates Drop.",
+      description: "I establish active DMARC feedback loops and reputation monitoring that detect drift on individual domains weeks before any spam filter triggers or bounce rate moves."
     },
     {
       icon: <ShieldCheck className="w-5 h-5 text-accent" />,
-      title: "RFC-Compliant Scale Maps",
-      description: "We architect registration, domain, and DNS patterns matching high-volume enterprise compliance guidelines, ensuring your domain cluster remains 100% stable under high scale."
+      title: "Stable at Any Send Volume.",
+      description: "Domain registration, DNS architecture, and sending patterns are built to match high-volume compliance requirements from the start — no emergency rebuilds when you try to scale."
     }
   ];
 
@@ -33,13 +33,13 @@ export default function ProactiveScaling() {
         <div className="max-w-3xl mb-12">
           <div className="flex items-center gap-2 text-[10px] font-mono text-accent border border-accent/20 bg-accent/5 px-2.5 py-1 w-fit mb-3">
             <TrendingUp className="w-3.5 h-3.5" />
-            PROACTIVE SYSTEMS SCALING // PRE-EMPTIVE ARCHITECTURE
+            WHAT GOOD INFRASTRUCTURE DELIVERS
           </div>
           <h2 className="text-3xl font-bold text-text-primary uppercase tracking-tight mb-3">
-            Pre-Emptive Systems Scaling
+            Built to Scale Before the Problem
           </h2>
           <p className="text-sm font-mono text-text-secondary leading-relaxed">
-            For outbound-led agencies and SaaS teams scaling from 50k to 500k monthly sends who want to architect their sending infrastructure right the first time.
+            For cold email agencies and B2B outbound teams scaling from 50k to 500k monthly sends — who want infrastructure that survives growth instead of collapsing under it.
           </p>
         </div>
 

@@ -7,65 +7,65 @@ const stages = [
   {
     id: "01",
     icon: Search,
-    label: "Diagnostic Telemetry",
-    layer: "ANALYSIS LAYER",
+    label: "Discovery Call",
+    layer: "STEP 01 — FREE",
     description:
-      "Extracting historical sending signals, analyzing DNS footprint integrity, identifying placement degradation patterns, and isolating root-cause infrastructure failures.",
+      "A 20-minute call to understand your sending environment, infrastructure setup, and the symptoms you're seeing. You'll leave knowing whether this is an infrastructure problem — and whether I can fix it.",
     indicators: [
-      { key: "STATUS", value: "ANALYZING" },
-      { key: "SIGNAL TRACE", value: "ACTIVE" },
+      { key: "DURATION", value: "20 MIN" },
+      { key: "COST", value: "FREE" },
     ],
     color: "blue",
   },
   {
     id: "02",
     icon: Server,
-    label: "Infrastructure Provisioning",
-    layer: "DEPLOYMENT LAYER",
+    label: "Forensic Audit",
+    layer: "STEP 02 — DIAGNOSIS",
     description:
-      "Hardened domain clusters deployed with isolated sender environments, authentication enforcement layers, routing integrity controls, and reputation segmentation systems.",
+      "I test DKIM alignment on replies and forwards — not just originating sends. I trace SPF resolution through all forwarding paths. I review DMARC aggregate reports for real failure rates. You get a written findings report with the specific cause and specific fix.",
     indicators: [
-      { key: "DNS STATUS", value: "VERIFIED" },
-      { key: "AUTH LAYER", value: "ENFORCED" },
+      { key: "DELIVERY", value: "72 HOURS" },
+      { key: "OUTPUT", value: "WRITTEN REPORT" },
     ],
     color: "violet",
   },
   {
     id: "03",
     icon: Gauge,
-    label: "Warmup & Throttling Systems",
-    layer: "WARMUP LAYER",
+    label: "Fix & Implement",
+    layer: "STEP 03 — REMEDIATION",
     description:
-      "Programmatic warmup sequencing established with adaptive sending thresholds, behavioral pacing logic, and dynamic provider throttling controls.",
+      "Targeted fixes applied across your sending infrastructure — DNS authentication records, platform configuration, warmup scheduling, and fleet architecture where needed. Not a checklist. The actual repair.",
     indicators: [
-      { key: "WARMUP STATE", value: "ACTIVE" },
-      { key: "THROTTLE CONTROL", value: "MONITORED" },
+      { key: "DNS AUTH", value: "CORRECTED" },
+      { key: "PLACEMENT", value: "RECOVERING" },
     ],
     color: "amber",
   },
   {
     id: "04",
     icon: Zap,
-    label: "Production Scaling",
-    layer: "OPERATIONS LAYER",
+    label: "Verify & Hand Off",
+    layer: "STEP 04 — CONFIRMATION",
     description:
-      "Outbound systems integrated with live sending engines, rotating infrastructure pools, suppression controls, and real-time telemetry monitoring layers.",
+      "Inbox placement confirmed via seed testing across Gmail, Outlook, and Apple Mail before handoff. You receive a monitoring checklist and documented changes so your team knows what was done and why.",
     indicators: [
-      { key: "DEPLOYMENT", value: "LIVE" },
-      { key: "ROTATION STATE", value: "OPERATIONAL" },
+      { key: "PLACEMENT TEST", value: "PASSED" },
+      { key: "DOCS", value: "DELIVERED" },
     ],
     color: "emerald",
   },
   {
     id: "05",
     icon: Activity,
-    label: "Reputation Monitoring & Recovery",
-    layer: "TELEMETRY LAYER",
+    label: "Ongoing Monitoring",
+    layer: "STEP 05 — OPTIONAL RETAINER",
     description:
-      "Continuous telemetry analysis tracking complaint escalation, blacklist exposure, inbox degradation, engagement decay, and adaptive infrastructure remediation workflows.",
+      "For agencies where outbound is the primary acquisition channel. Weekly DMARC report review, reputation tracking, blacklist surveillance, and inbox spot testing. Issues caught weeks before reply rates move.",
     indicators: [
-      { key: "MONITORING", value: "ACTIVE" },
-      { key: "RECOVERY SYSTEMS", value: "ENABLED" },
+      { key: "MONITORING", value: "WEEKLY" },
+      { key: "RESPONSE TIME", value: "24H" },
     ],
     color: "emerald",
   },
@@ -91,12 +91,12 @@ export default function BuildProcess() {
         {/* Section Header */}
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Deployment Layer</h2>
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">How I Work</h2>
             <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight leading-tight">
-              Infrastructure Deployment<br />Methodology
+              The Consulting Process
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-3 max-w-lg">
-              Operational deployment lifecycle engineered for deliverability stability, infrastructure resilience, and scalable outbound throughput.
+              From first call to fixed infrastructure. Every engagement starts with a free discovery call — no obligation, no pitch.
             </p>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">
@@ -211,7 +211,7 @@ export default function BuildProcess() {
 
           {/* Pipeline footer */}
           <div className="mt-8 ml-0 md:ml-20 pt-6 border-t border-border-subtle flex items-center justify-between text-[10px] font-mono text-text-secondary/30 uppercase tracking-widest">
-            <span>Deployment Methodology // Continuous Lifecycle</span>
+            <span>Consulting Process // Discovery to Ongoing Protection</span>
             <div className="flex items-center gap-2">
               <motion.div className="w-1 h-1 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
               All Stages Operational

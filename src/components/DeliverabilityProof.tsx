@@ -6,7 +6,7 @@ import { Activity, CheckCircle } from "lucide-react";
 
 const telemetry = [
   {
-    value: "150+",
+    value: "7.4k+",
     label: "Active Mailbox Infrastructure",
     meta: "AS OF Q2 2026",
     status: "emerald",
@@ -20,14 +20,14 @@ const telemetry = [
     bar: 94,
   },
   {
-    value: "890+",
+    value: "1,235+",
     label: "Sending Domains Recovered",
     meta: "CUMULATIVE",
     status: "blue",
     bar: 72,
   },
   {
-    value: "2.2M+",
+    value: "5.3M+",
     label: "Monthly Delivery Throughput",
     meta: "PEAK VOLUME",
     status: "emerald",
@@ -101,10 +101,10 @@ export default function DeliverabilityProof() {
         <div>
           <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Observability Layer</h2>
-              <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Deliverability Telemetry</h3>
+              <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Verified Results</h2>
+              <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Proof of Work</h3>
               <p className="text-xs font-mono text-text-secondary mt-2">
-                Operational infrastructure metrics monitored across live outbound delivery environments.
+                Live metrics across active client infrastructure. Updated Q2 2026.
               </p>
             </div>
             <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">
@@ -177,10 +177,10 @@ export default function DeliverabilityProof() {
         <div>
           <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Remediation Archive</h2>
-              <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Infrastructure Recovery Logs</h3>
+              <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Client Recovery Cases</h2>
+              <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Real Deliverability Failures. Real Fixes.</h3>
               <p className="text-xs font-mono text-text-secondary mt-2">
-                Forensic case archive — cold email agencies and outbound teams, US/UK/AU markets.
+                Cold email agencies and B2B outbound teams — US, UK, and AU markets.
               </p>
             </div>
           </div>
