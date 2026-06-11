@@ -126,7 +126,7 @@ export default function HeroCommandCenter() {
                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                  >
                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                   <div className="text-[9px] font-mono text-text-secondary uppercase">Node: ACTIVE</div>
+                   <div className="text-[9px] font-mono text-text-secondary uppercase">Inbox: Verified</div>
                  </motion.div>
 
                  {/* Telemetry Node 2 (Bottom Right) */}
@@ -135,8 +135,8 @@ export default function HeroCommandCenter() {
                    animate={{ y: [0, 10, 0] }}
                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                  >
-                   <div className="text-[8px] font-mono text-text-secondary uppercase">Packet Loss</div>
-                   <div className="text-xs font-mono text-accent font-bold">0.00%</div>
+                   <div className="text-[8px] font-mono text-text-secondary uppercase">Avg. Placement</div>
+                   <div className="text-xs font-mono text-accent font-bold">94%</div>
                  </motion.div>
 
                  {/* Routing Path Overlay */}
@@ -160,7 +160,7 @@ export default function HeroCommandCenter() {
                        <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
                        <div className="w-8 h-1 bg-border-subtle"><div className="w-3/4 h-full bg-emerald-400" /></div>
                      </div>
-                     <div className="text-[9px] font-mono text-text-secondary uppercase leading-none">DNS SYNC</div>
+                     <div className="text-[9px] font-mono text-text-secondary uppercase leading-none">Auth Valid</div>
                    </div>
                  </motion.div>
 
@@ -173,10 +173,10 @@ export default function HeroCommandCenter() {
         {/* Outbound Infrastructure Scale — Telemetry Panel */}
         <div className="border border-border-subtle bg-surface/30">
           <div className="px-6 py-3 border-b border-border-subtle flex items-center justify-between">
-            <span className="text-[10px] font-mono text-text-secondary uppercase tracking-widest">Outbound Infrastructure Scale</span>
+            <span className="text-[10px] font-mono text-text-secondary uppercase tracking-widest">Deliverability Performance</span>
             <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              INFRASTRUCTURE VERIFIED
+              CLIENT-VERIFIED RESULTS
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border-subtle">

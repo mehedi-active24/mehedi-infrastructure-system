@@ -41,7 +41,7 @@ export default function Testimonials() {
             What Clients Say
           </h3>
           <p className="text-xs font-mono text-text-secondary mt-2">
-            Real outcomes from real engagements. Details anonymised at client request.
+            Real outcomes from real engagements.
           </p>
         </div>
 

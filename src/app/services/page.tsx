@@ -10,12 +10,12 @@ export const metadata = {
 const services = [
   {
     tier: "TIER 01",
-    name: "Outbound Systems Diagnostic (OSD)",
+    name: "Forensic Deliverability Audit",
     price: "$2,500",
     delivery: "5 business days",
     tag: "DIAGNOSTICS",
     description:
-      "A full forensic diagnosis of one to three sending domains. We test DKIM alignment on replies and forwards (not just originating sends). We trace SPF resolution through all forwarding paths. We review DMARC aggregate reports for real authentication failure rates at receiving servers. We track domain reputation trajectory in Google Postmaster Tools over 30 to 60 days. You receive a written findings report with the specific cause and the specific fix, not a list of records that passed validation.",
+      "A full forensic diagnosis of one to three sending domains. I test DKIM alignment on replies and forwards (not just originating sends). I trace SPF resolution through all forwarding paths. I review DMARC aggregate reports for real authentication failure rates at receiving servers. I track domain reputation trajectory in Google Postmaster Tools over 30 to 60 days. You receive a written findings report with the specific cause and the specific fix, not a list of records that passed validation.",
     includes: [
       "SPF, DKIM, and DMARC forensic realignment",
       "DKIM tested on replies, forwards, and originating sends",
@@ -25,12 +25,12 @@ const services = [
       "Inbox placement verified post-fix via seed testing",
       "Written findings report with specific cause and fix",
     ],
-    cta: "Request Systems Diagnostic",
-    subject: "Systems Diagnostic Inquiry [your domain]",
+    cta: "Get the Audit",
+    subject: "Forensic Audit Inquiry [your domain]",
   },
   {
     tier: "TIER 02",
-    name: "Isolated Sender Architecture Build",
+    name: "Infrastructure Build & Rebuild",
     price: "From $7,500",
     delivery: "Project-based",
     tag: "SYSTEMS BUILD",
@@ -45,12 +45,12 @@ const services = [
       "Blacklist delisting if required",
       "Handover documentation with monitoring checklist",
     ],
-    cta: "Discuss Sender Architecture",
-    subject: "Systems Build Inquiry",
+    cta: "Discuss the Build",
+    subject: "Infrastructure Build Inquiry",
   },
   {
     tier: "TIER 03",
-    name: "Enterprise Deliverability Oversight (EDO)",
+    name: "Ongoing Deliverability Oversight",
     price: "$3,500 / month",
     delivery: "Ongoing oversight",
     tag: "MANAGED SERVICE",
@@ -65,8 +65,8 @@ const services = [
       "Inbox placement spot testing across Gmail, Outlook, and Apple Mail",
       "Monthly written summary with flags and recommendations",
     ],
-    cta: "Request Managed Oversight",
-    subject: "Managed Oversight Inquiry",
+    cta: "Start Oversight",
+    subject: "Ongoing Oversight Inquiry",
   },
 ];
 
@@ -151,7 +151,7 @@ export default function ServicesPage() {
                 {/* Features Included List */}
                 <div className="space-y-2.5 pt-2 border-t border-border-subtle/50">
                   <div className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest font-bold">
-                    SYSTEM SCOPE INCLUDED
+                    WHAT'S INCLUDED
                   </div>
                   <ul className="space-y-2">
                     {svc.includes.map((inc, i) => (
@@ -188,10 +188,6 @@ export default function ServicesPage() {
         {/* Diagnostic / Diagnostic Assistance Panel */}
         <div className="border border-border-subtle bg-surface/10 p-6 sm:p-8 relative overflow-hidden group hover:border-accent/30 transition-all duration-300">
           
-          {/* Subtle decoration terminal elements */}
-          <div className="absolute top-0 right-0 p-3 text-[9px] font-mono text-text-secondary/20 hidden md:block">
-            NODE: DIAGNOSTIC_DESK // ID: 89f2a
-          </div>
           
           <div className="max-w-3xl space-y-6 relative z-10">
             
@@ -213,9 +209,18 @@ export default function ServicesPage() {
               Send three data points: number of active domains and inboxes, reply rate 6–8 weeks ago versus today, and whether a warmup tool runs alongside active campaigns. I will tell you within 24 hours whether this is an infrastructure problem and which engagement type fits.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col sm:flex-row gap-3">
               <a
-                href="mailto:mehedi.active24@gmail.com?subject=Infrastructure%20Diagnostic"
+                href="https://calendly.com/mehedi-active24"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-5 py-3.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-all duration-300"
+              >
+                <span>Book a Free Discovery Call</span>
+                <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+              </a>
+              <a
+                href="mailto:mehedi.active24@gmail.com?subject=Deliverability%20Diagnostic"
                 className="inline-flex items-center gap-3 px-5 py-3.5 bg-bg-dark border border-border-subtle hover:border-accent text-xs font-mono uppercase tracking-wider text-text-primary hover:text-accent hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] transition-all duration-300"
               >
                 <Terminal className="w-4 h-4 text-accent" />

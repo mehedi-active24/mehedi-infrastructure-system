@@ -9,8 +9,8 @@
     { "label": "Sending Domains Recovered", "value": "1,235+", "status": "CUMULATIVE" },
     { "label": "Monthly Delivery Throughput", "value": "5.3M+", "status": "PEAK VOLUME" },
     { "label": "Average Inbox Placement", "value": "94%", "status": "VERIFIED" },
-    { "label": "Infrastructure Monitoring", "value": "24/7", "status": "MONITORED" },
-    { "label": "Warmup & Rotation Systems", "value": "ACTIVE", "status": "OPERATIONAL" }
+    { "label": "Avg. Recovery Timeline", "value": "14–30 days", "status": "VERIFIED" },
+    { "label": "Markets Served", "value": "US / UK / AU", "status": "ACTIVE" }
   ],
   "profile": {
     "philosophy": "Deliverability failures have a fixable cause. I find it and fix it.",
@@ -82,7 +82,7 @@
       { "label": "Inbox Placement Rate", "value": "94%" },
       { "label": "Domains Recovered", "value": "1,235+" },
       { "label": "Emails Delivered/Month", "value": "5.3M" },
-      { "label": "Average Open Rate", "value": "68%" }
+      { "label": "Avg. Recovery Timeline", "value": "14–30 days" }
     ],
     "timeline": [
       {
