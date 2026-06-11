@@ -140,7 +140,7 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
           <div>
             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Tools & Stack</h2>
             <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
-              {condensed ? "Tools I Work With" : "Full Tools & Stack"}
+              {condensed ? "What I Use to Find and Fix It" : "Full Diagnostic and Build Stack"}
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-2">
               The platforms and tools I use to diagnose deliverability problems and build outbound infrastructure.
