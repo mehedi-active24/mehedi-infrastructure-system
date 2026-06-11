@@ -6,6 +6,10 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
+    q: "How is this different from running my emails through MXToolbox?",
+    a: "MXToolbox tells you whether records exist and whether they pass format validation. It does not test DKIM alignment on replies and forwards, trace SPF resolution through forwarding paths, review DMARC aggregate reports for real failure rates at receiving servers, or track domain reputation trajectory over time. The failures that cause most deliverability problems all happen in the places MXToolbox doesn't look.",
+  },
+  {
     q: "How long does inbox placement recovery take?",
     a: "It depends on how far reputation has declined. Based on client recovery cases: mild-to-moderate failures (validators passing but placement dropping) typically recover in 14–21 days once root causes are fixed. Severe cases (active blacklistings or domains past the recovery window) take longer or require domain retirement. I'll give you an honest timeline estimate during the discovery call, not after you've paid.",
   },
@@ -25,10 +29,6 @@ const faqs = [
     q: "Can you manage deliverability for a multi-client agency?",
     a: "Yes. Agency command center architecture (managing 25+ client environments without cross-contamination) is one of my primary service categories. Each client infrastructure is isolated at the domain, DNS, and sending platform level. If you're managing outbound for multiple clients, the retainer tier is specifically designed for this.",
   },
-  {
-    q: "How is this different from running my emails through MXToolbox?",
-    a: "MXToolbox tells you whether records exist and whether they pass format validation. It does not test DKIM alignment on replies and forwards, trace SPF resolution through forwarding paths, review DMARC aggregate reports for real failure rates at receiving servers, or track domain reputation trajectory over time. The failures that cause most deliverability problems all happen in the places MXToolbox doesn't look.",
-  },
 ];
 
 export default function FAQ() {
@@ -39,9 +39,9 @@ export default function FAQ() {
       <div className="container mx-auto px-6 max-w-7xl">
 
         <div className="mb-12">
-          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Common Questions</h2>
+          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Before You Book</h2>
           <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
-            Frequently Asked Questions
+            Questions That Come Up Before the Discovery Call
           </h3>
           <p className="text-xs font-mono text-text-secondary mt-2 max-w-lg">
             If your question isn&apos;t here, send me the 3 data points on the services page and I&apos;ll diagnose it within 24 hours.
