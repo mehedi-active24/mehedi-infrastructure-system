@@ -177,7 +177,7 @@ export default function HeaderNav() {
                           </span>
                         </div>
                         <span className="text-accent opacity-0 group-hover:opacity-100 text-[10px] font-mono transition-all transform translate-x-1 group-hover:translate-x-0">
-                          NODE_IN // →
+                          →
                         </span>
                       </Link>
                     </motion.div>
