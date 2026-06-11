@@ -107,6 +107,17 @@ export default function ServicesPage() {
           </p>
         </div>
 
+        {/* Proof bar — trust signal before pricing */}
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-l-2 border-accent/30 pl-4 py-1">
+          <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">1,235+ domains recovered</span>
+          <span className="text-text-secondary/20 text-[10px]">·</span>
+          <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">Avg. recovery: 14–30 days</span>
+          <span className="text-text-secondary/20 text-[10px]">·</span>
+          <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">94% post-fix placement rate</span>
+          <span className="text-text-secondary/20 text-[10px]">·</span>
+          <span className="text-[10px] font-mono text-accent/70 uppercase tracking-wider font-bold">Discovery call is free</span>
+        </div>
+
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {services.map((svc) => (
