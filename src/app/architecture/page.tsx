@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Network, Server, Shield, Database, Activity } from "lucide-react";
 import Footer from "@/components/Footer";
 
-export default function MasterSystemsMap() {
+export default function CaseStudiesPage() {
   return (
     <main className="min-h-screen bg-bg-dark text-text-primary selection:bg-accent/30 relative overflow-hidden">
       
@@ -15,17 +15,17 @@ export default function MasterSystemsMap() {
         <header className="mb-16 pb-8 border-b border-border-subtle flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <Link href="/" className="inline-flex items-center gap-2 text-xs font-mono text-text-secondary hover:text-text-primary transition-colors mb-6">
-              <ArrowLeft className="w-3 h-3" /> Back to Operations
+              <ArrowLeft className="w-3 h-3" /> Back to Home
             </Link>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight uppercase mb-2">Master Systems Map</h1>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight uppercase mb-2">Client Case Studies</h1>
             <p className="text-text-secondary font-mono text-sm max-w-xl">
               <Network className="w-4 h-4 inline mr-2 text-accent" />
-              Network topology overview of all active and standby outbound infrastructure ecosystems.
+              Infrastructure recovery cases and outbound systems built for cold email agencies and B2B outbound teams.
             </p>
           </div>
           <div className="flex gap-4">
              <div className="bg-surface border border-border-subtle px-4 py-2 text-xs font-mono text-center">
-               <div className="text-text-secondary mb-1">TOTAL SYSTEMS</div>
+               <div className="text-text-secondary mb-1">TOTAL CASES</div>
                <div className="text-accent text-lg">{architectures.length}</div>
              </div>
           </div>
@@ -49,7 +49,7 @@ export default function MasterSystemsMap() {
                    <Server className="w-5 h-5" />}
                 </div>
                 <div className="text-[10px] font-mono border border-border-subtle px-2 py-1 bg-bg-dark text-text-secondary">
-                  NODE: {arch.slug.substring(0,8).toUpperCase()}
+                  {arch.category.toUpperCase()}
                 </div>
               </div>
 

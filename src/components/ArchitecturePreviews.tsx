@@ -12,11 +12,11 @@ export default function ArchitecturePreviews() {
         
         <div className="flex items-end justify-between mb-10">
           <div>
-            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">Systems Library</h2>
-            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Featured Infrastructure Architectures</h3>
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">Case Studies</h2>
+            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Featured Client Work</h3>
           </div>
           <Link href="/architecture" className="text-xs font-mono text-accent hover:underline hidden md:block">
-            [ View Master Systems Map ]
+            [ View All Case Studies ]
           </Link>
         </div>
 
@@ -76,7 +76,7 @@ export default function ArchitecturePreviews() {
             href="/architecture" 
             className="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline uppercase tracking-widest"
           >
-            [ VIEW FULL ARCHITECTURE ARCHIVES → ]
+            [ VIEW ALL CASE STUDIES → ]
           </Link>
         </div>
 

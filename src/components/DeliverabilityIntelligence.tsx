@@ -86,10 +86,10 @@ export default function DeliverabilityIntelligence() {
         {/* Header */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Operational Layer</h2>
-            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Deliverability Intelligence</h3>
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Expertise Areas</h2>
+            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Deliverability Expertise</h3>
             <p className="text-xs font-mono text-text-secondary mt-2">
-              Deliverability monitoring frameworks, reputation management structures, and dynamic throttling controls.
+              The three core areas where I diagnose and fix deliverability failures.
             </p>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">

@@ -29,14 +29,14 @@ export default function InsightsLog({ condensed = true }: { condensed?: boolean 
         
         {/* Section Header */}
         <div className="mb-10">
-          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Intelligence Layer</h2>
+          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Insights</h2>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
-                {condensed ? "Featured Operational Logs" : "Deliverability Intelligence Archive"}
+                {condensed ? "Featured Insights" : "Deliverability Insights Archive"}
               </h3>
               <p className="text-xs font-mono text-text-secondary mt-2">
-                Operational field reports from live outbound infrastructure environments.
+                Breakdowns of real deliverability failures, root causes, and fixes.
               </p>
             </div>
             <div className="flex items-center gap-3 text-[10px] font-mono text-text-secondary/60 shrink-0">
@@ -127,7 +127,7 @@ export default function InsightsLog({ condensed = true }: { condensed?: boolean 
                 href="/logs"
                 className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest font-bold"
               >
-                [ VIEW ALL INTELLIGENCE LOGS → ]
+                [ VIEW ALL INSIGHTS → ]
               </Link>
             </div>
           ) : (
@@ -136,7 +136,7 @@ export default function InsightsLog({ condensed = true }: { condensed?: boolean 
                 onClick={() => setShowAll(!showAll)}
                 className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest"
               >
-                {showAll ? "[ COLLAPSE INTELLIGENCE ARCHIVE ]" : "[ DISCLOSE FULL INTELLIGENCE ARCHIVE ]"}
+                {showAll ? "[ COLLAPSE ARCHIVE ]" : "[ SHOW ALL INSIGHTS ]"}
               </button>
             </div>
           )}

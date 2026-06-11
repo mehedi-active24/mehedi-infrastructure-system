@@ -13,7 +13,7 @@ const modules = [
     icon: Network,
     size: "large",
     title: "Multi-Domain Sending Pools",
-    label: "TOPOLOGY LAYER",
+    label: "SENDER POOL DESIGN",
     desc: "Architecting decentralized sender networks with segmented domain clusters, isolated reputation layers, and scalable throughput management.",
     meta: "Domain Isolation · Throughput Segmentation · Risk Distribution",
     pulse: "emerald",
@@ -23,7 +23,7 @@ const modules = [
     icon: ShieldAlert,
     size: "normal",
     title: "Reputation Recovery Systems",
-    label: "REMEDIATION LAYER",
+    label: "REPUTATION RECOVERY",
     desc: "Forensic remediation of degraded sender reputation, blacklist escalation events, and inbox placement collapse.",
     meta: "Blacklist Recovery · Forensic Diagnostics · Inbox Restoration",
     pulse: "amber",
@@ -33,7 +33,7 @@ const modules = [
     icon: Lock,
     size: "normal",
     title: "DNS Authentication Hardening",
-    label: "AUTH LAYER",
+    label: "DNS AUTHENTICATION",
     desc: "Strict SPF, DKIM, DMARC, ARC, reverse DNS, and BIMI alignment engineered for provider compliance and authentication integrity.",
     meta: "SPF · DKIM · DMARC · ARC · rDNS · BIMI",
     pulse: "blue",
@@ -43,7 +43,7 @@ const modules = [
     icon: RefreshCw,
     size: "normal",
     title: "Sending Rotation Architecture",
-    label: "ROTATION LAYER",
+    label: "IP & DOMAIN ROTATION",
     desc: "Algorithmic IP and domain rotation systems designed to distribute sending risk and reduce provider throttling exposure.",
     meta: "Rotation Logic · Throttle Avoidance · Risk Segmentation",
     pulse: "violet",
@@ -53,7 +53,7 @@ const modules = [
     icon: ServerCrash,
     size: "normal",
     title: "Blocklist Recovery Operations",
-    label: "OPERATIONS LAYER",
+    label: "BLACKLIST REMOVAL",
     desc: "Escalation handling, forensic diagnostics, and reputation restoration across major anti-spam intelligence networks.",
     meta: "Spamhaus · Barracuda · SORBS · URIports",
     pulse: "red",
@@ -63,7 +63,7 @@ const modules = [
     icon: Box,
     size: "large",
     title: "Mailbox Infrastructure Orchestration",
-    label: "PROVISIONING LAYER",
+    label: "INBOX PROVISIONING",
     desc: "Automated provisioning workflows for scalable workspace deployment, routing alignment, sender isolation, and mailbox lifecycle management.",
     meta: "Workspace Provisioning · Lifecycle Management · Routing Alignment · Sender Isolation",
     pulse: "emerald",
@@ -73,7 +73,7 @@ const modules = [
     icon: Activity,
     size: "normal",
     title: "Inbox Placement Telemetry",
-    label: "MONITORING LAYER",
+    label: "PLACEMENT MONITORING",
     desc: "Live deliverability monitoring systems tracking spam trap exposure, bounce patterns, complaint rates, and inbox flow degradation.",
     meta: "Seed Testing · Bounce Classification · Complaint Rate",
     pulse: "blue",
@@ -83,7 +83,7 @@ const modules = [
     icon: BarChart2,
     size: "normal",
     title: "Reputation Telemetry Systems",
-    label: "TELEMETRY LAYER",
+    label: "REPUTATION TRACKING",
     desc: "Continuous monitoring of sender health, engagement signals, complaint thresholds, and infrastructure degradation patterns.",
     meta: "Postmaster · SNDS · Engagement Signals · Drift Detection",
     pulse: "accent",
@@ -93,7 +93,7 @@ const modules = [
     icon: Clock,
     size: "normal",
     title: "Cold Domain Aging Systems",
-    label: "WARMUP LAYER",
+    label: "DOMAIN WARMUP",
     desc: "Engineered domain aging protocols establishing progressive trust signals before production sending begins.",
     meta: "Warmup Curves · Aging Schedules · Trust Establishment",
     pulse: "emerald",
@@ -103,7 +103,7 @@ const modules = [
     icon: Filter,
     size: "normal",
     title: "Adaptive Sending Threshold Logic",
-    label: "THROTTLE LAYER",
+    label: "SEND VELOCITY",
     desc: "Dynamic sending velocity calibration responding to real-time provider signals, reputation scoring, and infrastructure load.",
     meta: "Velocity Control · Provider Compliance · Dynamic Throttling",
     pulse: "amber",
@@ -134,17 +134,17 @@ export default function CapabilitiesGrid() {
         {/* Section Header */}
         <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Architecture Layer</h2>
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Service Areas</h2>
             <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight leading-tight">
-              Infrastructure Systems<br />Architecture
+              Deliverability Problems<br />I Fix
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-3 max-w-lg">
-              Operational systems engineered for scalable outbound delivery, reputation stability, and infrastructure resilience.
+              Every service area maps to a deliverability failure category. These are the problems I diagnose and fix.
             </p>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">
             <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-            10 SYSTEMS MODULES ACTIVE
+            10 SERVICE AREAS
           </div>
         </div>
 
@@ -221,7 +221,7 @@ export default function CapabilitiesGrid() {
             onClick={() => setShowAll(!showAll)}
             className="text-[10px] font-mono text-accent hover:underline uppercase tracking-widest cursor-pointer border border-border-subtle bg-bg-dark px-4 py-2.5"
           >
-            {showAll ? "[ COLLAPSE CAPABILITIES MATRIX ]" : "[ DISCLOSE FULL CAPABILITIES MATRIX ]"}
+            {showAll ? "[ SHOW LESS ]" : "[ SHOW ALL ]"}
           </button>
         </div>
 

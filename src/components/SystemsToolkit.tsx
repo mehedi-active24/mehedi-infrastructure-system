@@ -138,17 +138,17 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
         {/* Header */}
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Ecosystem Layer</h2>
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Tools & Stack</h2>
             <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
-              {condensed ? "Opinionated Systems Toolkit" : "Hardened Outbound Ecosystem Map"}
+              {condensed ? "Tools I Work With" : "Full Tools & Stack"}
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-2">
-              Highly prioritized system stacks chosen for enterprise reliability and proactive scaling security.
+              The platforms and tools I use to diagnose deliverability problems and build outbound infrastructure.
             </p>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-accent border border-accent/20 bg-accent/5 px-3 py-1.5 shrink-0">
             <Layers className="w-3.5 h-3.5" />
-            {displayedLayers.length} OPERATIONAL LAYERS ACTIVE
+            {displayedLayers.length} TOOL CATEGORIES
           </div>
         </div>
 
@@ -169,7 +169,7 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4 pb-4 border-b border-border-subtle/50">
                   <div>
                     <span className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest block mb-1">
-                      {layer.layer} // {layer.id.toUpperCase()}_LAYER
+                      {layer.layer}
                     </span>
                     <h4 className="text-base font-mono font-bold text-text-primary group-hover:text-accent transition-colors">
                       {layer.label}
@@ -183,7 +183,7 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
                 {/* Primary Stack List */}
                 <div className="space-y-3">
                   <div className="text-[9px] font-mono text-accent/80 uppercase tracking-wider mb-2">
-                    [ PRIMARY DEPLOYMENT STACK — DEFAULT CONFIG ]
+                    [ PRIMARY STACK ]
                   </div>
                   <div className="grid gap-3 md:grid-cols-1">
                     {layer.primary.map((tool, j) => (
@@ -208,8 +208,8 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
                     >
                       {isExpanded ? <ChevronUp className="w-3 h-3 text-accent" /> : <ChevronDown className="w-3 h-3" />}
                       {isExpanded
-                        ? `[ HIDE COMPATIBILITY NODE ]`
-                        : `[ DISCLOSE EXTENDED SYSTEM COMPATIBILITY (+${layer.extended.length} PLATFORMS) ]`}
+                        ? `[ Hide extended tools ]`
+                        : `[ +${layer.extended.length} more platforms ]`}
                     </button>
 
                     <AnimatePresence initial={false}>
@@ -251,12 +251,12 @@ export default function SystemsToolkit({ condensed = true }: { condensed?: boole
               href="/toolkit" 
               className="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline uppercase tracking-widest"
             >
-              [ VIEW FULL OUTBOUND ECOSYSTEM → ]
+              [ VIEW FULL TOOLS & STACK → ]
             </Link>
           </div>
         ) : (
           <div className="mt-8 pt-6 border-t border-border-subtle flex items-center justify-between text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest">
-            <span>Infrastructure Ecosystem // v2026.4</span>
+            <span>Tools & Stack // Complete Reference</span>
             <div className="flex items-center gap-2">
               <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
               ALL SYSTEMS OPERATIONAL
