@@ -32,7 +32,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
       <nav className="border-b border-border-subtle bg-bg-dark/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
           <Link href="/logs" className="inline-flex items-center gap-2 text-xs font-mono text-text-secondary hover:text-text-primary transition-colors">
-            <ArrowLeft className="w-3 h-3" /> Intelligence Archive
+            <ArrowLeft className="w-3 h-3" /> Insights Archive
           </Link>
           <div className="flex items-center gap-3">
             <span className={`text-[9px] font-mono px-2 py-1 border ${severityColor[article.severity] || ""}`}>

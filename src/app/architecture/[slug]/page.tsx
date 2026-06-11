@@ -27,7 +27,7 @@ export default async function ArchitecturePage({ params }: { params: Promise<{ s
       <header className="border-b border-border-subtle bg-surface/50 pt-24 pb-12 px-6">
         <div className="max-w-5xl mx-auto">
           <Link href="/architecture" className="inline-flex items-center gap-2 text-xs font-mono text-text-secondary hover:text-text-primary transition-colors mb-8">
-             <ArrowLeft className="w-3 h-3" /> Back to Master Map
+             <ArrowLeft className="w-3 h-3" /> Back to Case Studies
           </Link>
           
           <div className="flex items-center gap-3 mb-4">
