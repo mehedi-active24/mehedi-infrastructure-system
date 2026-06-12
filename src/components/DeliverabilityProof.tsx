@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Activity, CheckCircle } from "lucide-react";
 import PostmasterAuditVisual from "@/components/PostmasterAuditVisual";
+import AuthHeaderForensics from "@/components/AuthHeaderForensics";
 
 const telemetry = [
   {
@@ -70,6 +71,14 @@ const recoveryLogs = [
     failure: "Domain burnout during volume scaling. Sustained 500k/month sends collapsing to Junk across Microsoft 365 targets.\n\nRoot Cause Identified:\n- All 50 sending domains registered under the same registrar account with shared billing. Microsoft Defender clustering all 50 as a single sender identity\n- SPF lookup count at 14 across primary domains (RFC 7208 hard limit is 10), causing PermError on strict receivers and silent delivery failures without bounce codes\n- No domain reputation isolation. One domain reputation event cascading across the entire fleet",
     intervention: "Domain registrar accounts separated across 3 entities. SPF records rebuilt to 4 DNS lookups maximum using IP4 directives. Fleet architecture redesigned with reputation isolation per cluster: 10-domain clusters, no shared ASN or DNS provider across clusters.",
     result: "Sustained 500k/month delivery restored without reputation drift. Microsoft 365 SCL scores reduced from 5-6 to 1-2 across fleet. [TIMELINE: 21 DAYS]",
+    severity: "HIGH",
+  },
+  {
+    id: "04",
+    env: "E-Commerce / GoHighLevel + Google Workspace",
+    failure: "DMARC failing silently on all outbound. Inbox placement declining with no visible cause. All validator tools — MXToolbox, mail-tester, in-platform checks — reporting authentication as healthy.\n\nRoot Cause Identified:\n• GoHighLevel routing outbound through Google Workspace SMTP relay. Google's relay signs DKIM with shopsilvermerch-com.20251104.gappssmtp.com — a relay-specific subdomain, not the client's From domain\n• From domain: shopsilvermerch.com. DKIM signing domain: gappssmtp.com subdomain. These do not match\n• DMARC alignment check requires DKIM signing domain to match From domain. Mismatch causes silent DMARC failure — no bounce code, no validator flag\n• SPF: NONE — Google relay IPs not included in the domain's SPF record. Separate unlisted relay path",
+    intervention: "Custom sending domain configured inside GoHighLevel, authenticated directly on shopsilvermerch.com. DKIM now signs with the client domain — not Google's relay subdomain. SPF record updated to include Google's outbound SMTP IP ranges. DMARC alignment achieved on both SPF and DKIM paths.",
+    result: "SPF: PASS. DKIM: PASS (shopsilvermerch.com — correctly aligned). DMARC: PASS. Verified via Gmail Show Original header inspection. Standard validators had reported green throughout — the failure was only visible in raw message headers. [VERIFIED: APR 2026]",
     severity: "HIGH",
   },
   {
@@ -183,6 +192,18 @@ export default function DeliverabilityProof() {
             </p>
           </div>
           <PostmasterAuditVisual />
+        </div>
+
+        {/* ── AUTH HEADER FORENSICS ── */}
+        <div>
+          <div className="mb-6">
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Authentication Forensics</h2>
+            <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">What Standard Validators Miss</h3>
+            <p className="text-xs font-mono text-text-secondary mt-2 max-w-xl">
+              Real email headers from a GoHighLevel + Google Workspace audit. DKIM showed PASS on every tool. DMARC was failing silently. The failure was only visible in raw message headers.
+            </p>
+          </div>
+          <AuthHeaderForensics />
         </div>
 
         {/* ── SECTION 2: INFRASTRUCTURE RECOVERY LOGS ── */}

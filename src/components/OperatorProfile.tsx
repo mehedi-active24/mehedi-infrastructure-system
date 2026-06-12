@@ -99,6 +99,16 @@ export default function OperatorProfile() {
                   </span>
                 ))}
               </div>
+
+              {/* Newsletter proof */}
+              <div className="border-t border-border-subtle pt-5 mt-2">
+                <p className="text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest mb-2">Proof by example</p>
+                <p className="text-sm text-text-secondary leading-relaxed">
+                  I run my own email newsletter.{" "}
+                  <span className="text-text-primary font-mono">9,460 subscribers · 62% open rate.</span>{" "}
+                  The same infrastructure principles I apply to client engagements run on my own domain. The infrastructure that gets client emails delivered gets mine delivered too.
+                </p>
+              </div>
             </div>
 
           </div>
