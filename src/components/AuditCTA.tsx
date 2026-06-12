@@ -7,11 +7,11 @@ export default function AuditCTA() {
     <section id="book" className="py-20 border-b border-border-subtle bg-bg-dark text-center">
       <div className="container mx-auto px-6 max-w-3xl">
         
-        <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4 uppercase tracking-tight">
+        <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4 uppercase tracking-tight leading-tight">
           {cta.heading}
         </h2>
-        
-        <p className="text-text-secondary text-base md:text-lg mb-8 max-w-xl mx-auto">
+
+        <p className="text-text-secondary text-base md:text-lg mb-8 max-w-lg mx-auto">
           {cta.copy}
         </p>
 

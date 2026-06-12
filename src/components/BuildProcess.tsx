@@ -92,7 +92,7 @@ export default function BuildProcess() {
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">How I Work</h2>
-            <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight leading-tight">
+            <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">
               What Standard Tools Miss. And How I Find It.
             </h3>
             <p className="text-xs font-mono text-text-secondary mt-3 max-w-lg">

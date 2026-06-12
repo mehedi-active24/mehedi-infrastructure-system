@@ -102,7 +102,7 @@ export default function DeliverabilityProof() {
           <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Verified Results</h2>
-              <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Proof of Work</h3>
+              <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">Proof of Work</h3>
               <p className="text-xs font-mono text-text-secondary mt-2">
                 Live metrics across active client infrastructure. Updated Q2 2026.
               </p>
@@ -178,7 +178,7 @@ export default function DeliverabilityProof() {
           <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Client Recovery Cases</h2>
-              <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">Real Deliverability Failures. Real Fixes.</h3>
+              <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">Real Deliverability Failures. Real Fixes.</h3>
               <p className="text-xs font-mono text-text-secondary mt-2">
                 Cold email agencies and B2B outbound teams. US, UK, and AU markets.
               </p>
@@ -192,9 +192,9 @@ export default function DeliverabilityProof() {
             <div className="hidden md:grid grid-cols-12 bg-surface/50 border-b border-border-subtle px-5 py-2.5 gap-4 text-[9px] font-mono text-text-secondary uppercase tracking-widest">
               <div className="col-span-1">Ref</div>
               <div className="col-span-2">Environment</div>
-              <div className="col-span-3">🔴 Problem</div>
-              <div className="col-span-4">🛠️ Action</div>
-              <div className="col-span-2">🟢 Result</div>
+              <div className="col-span-3 text-red-400/60">Problem</div>
+              <div className="col-span-4 text-accent/60">Action Taken</div>
+              <div className="col-span-2 text-emerald-400/60">Result</div>
             </div>
 
             {/* Rows */}
@@ -227,19 +227,19 @@ export default function DeliverabilityProof() {
 
                   {/* Failure State */}
                   <div className="md:col-span-3">
-                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">🔴 Problem</div>
+                    <div className="text-[8px] font-mono text-red-400/50 uppercase mb-0.5 md:hidden">Problem</div>
                     <span className="text-xs text-text-secondary leading-relaxed block whitespace-pre-line">{log.failure}</span>
                   </div>
 
                   {/* Intervention */}
                   <div className="md:col-span-4">
-                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">🛠️ Action</div>
+                    <div className="text-[8px] font-mono text-accent/50 uppercase mb-0.5 md:hidden">Action Taken</div>
                     <span className="text-xs text-text-secondary leading-relaxed block">{log.intervention}</span>
                   </div>
 
                   {/* Result */}
                   <div className="md:col-span-2">
-                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase mb-0.5 md:hidden">🟢 Result</div>
+                    <div className="text-[8px] font-mono text-emerald-400/50 uppercase mb-0.5 md:hidden">Result</div>
                     <div className="flex items-start gap-1.5">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
                       <span className="text-xs text-emerald-400 font-mono leading-tight">{log.result}</span>

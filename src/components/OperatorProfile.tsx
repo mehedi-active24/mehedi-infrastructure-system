@@ -4,14 +4,14 @@ export default function OperatorProfile() {
   const { profile } = content;
 
   return (
-    <section id="about" className="py-16 border-b border-border-subtle bg-bg-dark">
+    <section id="about" className="py-20 border-b border-border-subtle bg-bg-dark">
       <div className="container mx-auto px-6 max-w-7xl">
         
         <div className="grid md:grid-cols-12 gap-12">
           
           <div className="md:col-span-4">
              <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">What Standard Audits Miss</h2>
-             <h3 className="text-xl font-bold text-text-primary">{profile.philosophy}</h3>
+             <h3 className="text-2xl font-bold text-text-primary leading-tight">{profile.philosophy}</h3>
           </div>
 
           <div className="md:col-span-8 space-y-8">

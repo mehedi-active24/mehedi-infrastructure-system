@@ -43,7 +43,7 @@ export default function Testimonials() {
 
         <div className="mb-12">
           <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Client Recovery Logs</h2>
-          <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
+          <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">
             The Failure. The Diagnosis. The Number.
           </h3>
           <p className="text-xs font-mono text-text-secondary mt-2">

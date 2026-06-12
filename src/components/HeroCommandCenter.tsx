@@ -17,7 +17,7 @@ export default function HeroCommandCenter() {
           <div className="space-y-6 pt-4">
             <div>
               <h2 className="text-text-secondary text-sm font-mono mb-2 uppercase tracking-wider">{personal.name}</h2>
-              <h1 className="text-3xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight uppercase">
+              <h1 className="text-4xl md:text-6xl font-bold text-text-primary tracking-tight leading-[1.05] uppercase">
                 {personal.title}
               </h1>
             </div>
