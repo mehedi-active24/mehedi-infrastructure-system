@@ -13,6 +13,7 @@ const testimonials = [
     volume: "~180k sends/month",
     metric: "31% → 68% inbox placement",
     timeline: "18 days to recovery",
+    avatarColor: "bg-blue-500/20 border-blue-400/30 text-blue-400",
   },
   {
     quote: "500k sends/month, almost all routing to Junk on Outlook — while our dashboard showed good open rates because Gmail was still working. Mehedi found the Return-Path misalignment on the first call. Full delivery restored in 21 days. I would not have found this on my own.",
@@ -23,6 +24,7 @@ const testimonials = [
     volume: "500k/month",
     metric: "Full Outlook delivery restored",
     timeline: "21 days",
+    avatarColor: "bg-violet-500/20 border-violet-400/30 text-violet-400",
   },
   {
     quote: "Reputation dropping for two months. Every tool said we were clean. Mehedi found a spam trap segment driving complaint signals we couldn't see — no forensic DMARC reporting meant no visibility. Bounce rate: 4.2% to 0.7% in 30 days.",
@@ -33,6 +35,18 @@ const testimonials = [
     volume: "~60k sends/month",
     metric: "4.2% → 0.7% bounce rate",
     timeline: "30 days",
+    avatarColor: "bg-emerald-500/20 border-emerald-400/30 text-emerald-400",
+  },
+  {
+    quote: "Our Salesloft sequences had 22% open rate on Gmail contacts but near-zero on Outlook. Mehedi found the DMARC forensic gap in two hours. Three weeks later: Outlook inbox placement up from 31% to 79%. Nobody on our team would have found this.",
+    author: "R.A.",
+    company: "6-person SaaS Sales Team",
+    market: "United Kingdom",
+    platform: "Salesloft + Google Workspace",
+    volume: "~35k sends/month",
+    metric: "31% → 79% Outlook placement",
+    timeline: "21 days",
+    avatarColor: "bg-amber-500/20 border-amber-400/30 text-amber-400",
   },
 ];
 
@@ -51,7 +65,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
@@ -88,10 +102,15 @@ export default function Testimonials() {
                   <span>Vol: {t.volume}</span>
                 </div>
 
-                {/* Author */}
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-xs font-mono font-bold text-text-primary">{t.author}</span>
-                  <span className="text-[10px] font-mono text-text-secondary/60">{t.company} · {t.market}</span>
+                {/* Author with avatar initial */}
+                <div className="flex items-center gap-3">
+                  <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 text-xs font-mono font-bold ${t.avatarColor}`}>
+                    {t.author.charAt(0)}
+                  </div>
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-xs font-mono font-bold text-text-primary">{t.author}</span>
+                    <span className="text-[10px] font-mono text-text-secondary/60">{t.company} · {t.market}</span>
+                  </div>
                 </div>
               </div>
             </motion.div>

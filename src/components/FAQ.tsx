@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -44,7 +45,7 @@ export default function FAQ() {
             Questions That Come Up Before the Discovery Call
           </h3>
           <p className="text-xs font-mono text-text-secondary mt-2 max-w-lg">
-            If your question isn&apos;t here, send me the 3 data points on the services page and I&apos;ll diagnose it within 24 hours.
+            If your question isn&apos;t here, send me the 3 data points on <Link href="/services" className="text-accent hover:underline">the services page</Link> and I&apos;ll diagnose it within 24 hours.
           </p>
         </div>
 

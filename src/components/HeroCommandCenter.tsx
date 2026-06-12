@@ -119,29 +119,8 @@ export default function HeroCommandCenter() {
                 <div className="absolute inset-0 rounded-full border border-accent/0 group-hover:border-accent/30 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-700 pointer-events-none" />
               </motion.div>
 
-              {/* Layer 2: Technical Overlays (Operator in the Infrastructure) */}
+              {/* Layer 2: Routing signal line only */}
               <div className="absolute inset-0 pointer-events-none z-20">
-                 
-                 {/* Telemetry Node 1 (Top Left) */}
-                 <motion.div 
-                   className="flex absolute -top-4 -left-4 md:-top-8 md:-left-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 items-center gap-2"
-                   animate={{ y: [0, -8, 0] }}
-                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                 >
-                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                   <div className="text-[9px] font-mono text-text-secondary uppercase">Inbox: Verified</div>
-                 </motion.div>
-
-                 {/* Telemetry Node 2 (Bottom Right) */}
-                 <motion.div 
-                   className="flex absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2 flex flex-col gap-1"
-                   animate={{ y: [0, 10, 0] }}
-                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                 >
-                   <div className="text-[8px] font-mono text-text-secondary uppercase">Avg. Placement</div>
-                   <div className="text-xs font-mono text-accent font-bold">94%</div>
-                 </motion.div>
-
                  {/* Routing Path Overlay */}
                  <div className="hidden md:block absolute top-1/2 -right-8 w-16 h-px bg-border-subtle overflow-hidden">
                    <motion.div
@@ -150,23 +129,6 @@ export default function HeroCommandCenter() {
                      transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
                    />
                  </div>
-
-                 {/* DNS Metric Panel (Bottom Left) */}
-                 <motion.div 
-                   className="block absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 bg-bg-dark/80 backdrop-blur-sm border border-border-subtle p-2"
-                   animate={{ y: [0, -5, 0] }}
-                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                 >
-                   <div className="flex items-end gap-3">
-                     <div className="flex flex-col gap-0.5">
-                       <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
-                       <div className="w-8 h-1 bg-border-subtle"><div className="w-full h-full bg-emerald-400" /></div>
-                       <div className="w-8 h-1 bg-border-subtle"><div className="w-3/4 h-full bg-emerald-400" /></div>
-                     </div>
-                     <div className="text-[9px] font-mono text-text-secondary uppercase leading-none">Auth Valid</div>
-                   </div>
-                 </motion.div>
-
               </div>
             </div>
           </div>

@@ -2,12 +2,12 @@
 
 @theme {
   --color-bg-dark: #0d0f12;
-  --color-surface: #111418;
-  --color-surface-hover: #1a1e24;
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-surface: #161a22;
+  --color-surface-hover: #1e2330;
+  --color-border-subtle: rgba(255, 255, 255, 0.09);
   --color-text-primary: rgba(255, 255, 255, 0.96);
   --color-text-secondary: rgba(255, 255, 255, 0.62);
-  --color-accent: #3b82f6;
+  --color-accent: #4f46e5;
   
   --font-sans: var(--font-inter), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
@@ -42,6 +42,6 @@ body {
 }
 
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3);
+  background-color: rgba(79, 70, 229, 0.3);
   color: #fff;
 }

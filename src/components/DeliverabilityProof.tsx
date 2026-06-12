@@ -6,16 +6,16 @@ import { Activity, CheckCircle } from "lucide-react";
 
 const telemetry = [
   {
-    value: "7.4k+",
-    label: "Active Mailbox Infrastructure",
-    meta: "AS OF Q2 2026",
+    value: "31+",
+    label: "Agencies & Teams Recovered",
+    meta: "Q1-Q2 2026",
     status: "emerald",
     bar: 88,
   },
   {
     value: "94%",
     label: "Average Inbox Placement",
-    meta: "VERIFIED",
+    meta: "POST-FIX VERIFIED",
     status: "emerald",
     bar: 94,
   },
@@ -27,9 +27,9 @@ const telemetry = [
     bar: 72,
   },
   {
-    value: "5.3M+",
-    label: "Monthly Delivery Throughput",
-    meta: "PEAK VOLUME",
+    value: "14 Days",
+    label: "Avg. Time to Root Cause",
+    meta: "FORENSIC AUDIT",
     status: "emerald",
     bar: 82,
   },
@@ -41,9 +41,9 @@ const telemetry = [
     bar: 97,
   },
   {
-    value: "24/7",
-    label: "Infrastructure Monitoring",
-    meta: "MONITORED",
+    value: "100%",
+    label: "Audits Where Root Cause Was Tool-Invisible",
+    meta: "STANDARD VALIDATORS MISSED IT",
     status: "accent",
     bar: 100,
   },
@@ -251,7 +251,7 @@ export default function DeliverabilityProof() {
 
             {/* Table Footer */}
             <div className="px-5 py-3 bg-surface/20 flex justify-between items-center text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest border-t border-border-subtle">
-              <span>Recovery Archive // {recoveryLogs.length} Events Logged</span>
+              <span>Client Recovery Archive · Full Documentation Available</span>
               <div className="flex items-center gap-2">
                 <motion.div className="w-1 h-1 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
                 All Environments Stabilized

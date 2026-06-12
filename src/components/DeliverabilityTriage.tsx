@@ -195,7 +195,7 @@ export default function DeliverabilityTriage() {
           <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Free Diagnostic Tool</h2>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
+              <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight">
                 Domain Deliverability Triage
               </h3>
               <p className="text-xs font-mono text-text-secondary mt-2 max-w-lg">

@@ -12,7 +12,7 @@ export default function ArchitecturePreviews() {
         
         <div className="mb-10">
           <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-2">Case Studies</h2>
-          <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">The Failure. The Root Cause. The Architecture.</h3>
+          <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight">The Failure. The Root Cause. The Architecture.</h3>
           <p className="text-xs font-mono text-text-secondary mt-2">
             Two infrastructure rebuilds: what broke, why standard tools missed it, and what replaced it.
           </p>
