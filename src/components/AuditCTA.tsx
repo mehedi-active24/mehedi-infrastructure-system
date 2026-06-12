@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import content from "@/data/content.json";
 
 export default function AuditCTA() {
@@ -12,7 +15,19 @@ export default function AuditCTA() {
         </span>
       </div>
       <div className="container mx-auto px-6 max-w-3xl relative z-10">
-        
+
+        {/* Availability signal */}
+        <div className="inline-flex items-center gap-2 mb-6 border border-emerald-400/20 bg-emerald-400/5 px-4 py-2">
+          <motion.div
+            className="w-1.5 h-1.5 rounded-full bg-emerald-400"
+            animate={{ opacity: [1, 0.3, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">
+            Now accepting new clients · July 2026
+          </span>
+        </div>
+
         <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4 uppercase tracking-tight leading-tight">
           {cta.heading}
         </h2>
@@ -23,11 +38,13 @@ export default function AuditCTA() {
 
         {/* Proof bar */}
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-10 text-[10px] font-mono text-text-secondary/40 uppercase tracking-wider">
-          <span>3 completed case breakdowns available</span>
+          <span>4 documented case recoveries</span>
           <span className="text-text-secondary/20">·</span>
-          <span>Avg. recovery: 14–30 days</span>
+          <span>31+ agencies recovered</span>
           <span className="text-text-secondary/20">·</span>
           <span>94% post-fix placement rate</span>
+          <span className="text-text-secondary/20">·</span>
+          <span>14-day avg. to root cause</span>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

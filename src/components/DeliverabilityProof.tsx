@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Activity, CheckCircle } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Activity, CheckCircle, ChevronDown } from "lucide-react";
 import PostmasterAuditVisual from "@/components/PostmasterAuditVisual";
 import AuthHeaderForensics from "@/components/AuthHeaderForensics";
 
@@ -60,6 +61,7 @@ const recoveryLogs = [
   {
     id: "01",
     env: "B2B Cold Email Agency",
+    quickResult: "31% → 68% inbox placement · 10/12 domains recovered · 18 days",
     failure: "Silent inbox placement collapse. 31% placement over 90 days. All validators passing. All blacklists clean.\n\nRoot Cause Identified:\n• Warmup service running on identical timing schedule as active outbound campaigns. ESPs flagging combined pattern as automated bulk traffic\n• DKIM passing format validation but breaking on replies and forwards (the sends that generate engagement signals with receiving servers)\n• DMARC at p=none with no RUA reporting. Zero visibility into authentication failures at receiving servers",
     intervention: "Warmup schedule isolated from outbound cadences. DKIM realigned across all message paths including reply and forward paths. DMARC enforced to p=quarantine with active RUA and RUF forensic reporting. Domain reputation isolated per sending domain.",
     result: "Inbox placement recovered from 31% to 68% by day 18. 10 of 12 domains recovered. 2 domains had exceeded the reputation recovery window and were retired. [TIMELINE: 18 DAYS]",
@@ -68,25 +70,28 @@ const recoveryLogs = [
   {
     id: "02",
     env: "B2B Agency (50 Domains)",
+    quickResult: "500k/month delivery restored · M365 SCL 5-6 → 1-2 · 21 days",
     failure: "Domain burnout during volume scaling. Sustained 500k/month sends collapsing to Junk across Microsoft 365 targets.\n\nRoot Cause Identified:\n- All 50 sending domains registered under the same registrar account with shared billing. Microsoft Defender clustering all 50 as a single sender identity\n- SPF lookup count at 14 across primary domains (RFC 7208 hard limit is 10), causing PermError on strict receivers and silent delivery failures without bounce codes\n- No domain reputation isolation. One domain reputation event cascading across the entire fleet",
     intervention: "Domain registrar accounts separated across 3 entities. SPF records rebuilt to 4 DNS lookups maximum using IP4 directives. Fleet architecture redesigned with reputation isolation per cluster: 10-domain clusters, no shared ASN or DNS provider across clusters.",
     result: "Sustained 500k/month delivery restored without reputation drift. Microsoft 365 SCL scores reduced from 5-6 to 1-2 across fleet. [TIMELINE: 21 DAYS]",
     severity: "HIGH",
   },
   {
-    id: "04",
-    env: "E-Commerce / GoHighLevel + Google Workspace",
-    failure: "DMARC failing silently on all outbound. Inbox placement declining with no visible cause. All validator tools — MXToolbox, mail-tester, in-platform checks — reporting authentication as healthy.\n\nRoot Cause Identified:\n• GoHighLevel routing outbound through Google Workspace SMTP relay. Google's relay signs DKIM with shopsilvermerch-com.20251104.gappssmtp.com — a relay-specific subdomain, not the client's From domain\n• From domain: shopsilvermerch.com. DKIM signing domain: gappssmtp.com subdomain. These do not match\n• DMARC alignment check requires DKIM signing domain to match From domain. Mismatch causes silent DMARC failure — no bounce code, no validator flag\n• SPF: NONE — Google relay IPs not included in the domain's SPF record. Separate unlisted relay path",
-    intervention: "Custom sending domain configured inside GoHighLevel, authenticated directly on shopsilvermerch.com. DKIM now signs with the client domain — not Google's relay subdomain. SPF record updated to include Google's outbound SMTP IP ranges. DMARC alignment achieved on both SPF and DKIM paths.",
-    result: "SPF: PASS. DKIM: PASS (shopsilvermerch.com — correctly aligned). DMARC: PASS. Verified via Gmail Show Original header inspection. Standard validators had reported green throughout — the failure was only visible in raw message headers. [VERIFIED: APR 2026]",
-    severity: "HIGH",
-  },
-  {
     id: "03",
     env: "Recruiting Outreach",
+    quickResult: "4.2% → 0.7% bounce rate · Google reputation: High tier · 30 days",
     failure: "Google Sender Compliance failure. Bounce rate elevated to 4.2%. Gmail rejection rate rising week-over-week despite clean MXToolbox results.\n\nRoot Cause Identified:\n- DMARC enforcement absent: p=none with no aggregate reporting. Google's bulk sender requirements (effective Feb 2024) require p=quarantine for senders above 5k/day\n- Bounce classification undifferentiated: hard and soft bounces treated identically, accelerating list decay into reputation damage\n- No PTR record on sending IP. Reverse DNS mismatch flagged by Gmail's inbound authentication layer",
     intervention: "DMARC enforced to p=quarantine with active RUA reporting. PTR records configured with reverse DNS matching the sending hostname. Bounce classification separated by error code: 5xx hard bounces suppressed permanently, 4xx soft bounces retried with adaptive throttle tuning.",
     result: "Bounce rate reduced from 4.2% to 0.7% within 30 days. Google Postmaster domain reputation recovered to High tier. Google Sender Compliance requirements met in full. [TIMELINE: 30 DAYS]",
+    severity: "HIGH",
+  },
+  {
+    id: "04",
+    env: "E-Commerce / GoHighLevel + Google Workspace",
+    quickResult: "SPF + DKIM + DMARC: PASS · Validator-invisible failure resolved · Apr 2026",
+    failure: "DMARC failing silently on all outbound. Inbox placement declining with no visible cause. All validator tools — MXToolbox, mail-tester, in-platform checks — reporting authentication as healthy.\n\nRoot Cause Identified:\n• GoHighLevel routing outbound through Google Workspace SMTP relay. Google's relay signs DKIM with shopsilvermerch-com.20251104.gappssmtp.com — a relay-specific subdomain, not the client's From domain\n• From domain: shopsilvermerch.com. DKIM signing domain: gappssmtp.com subdomain. These do not match\n• DMARC alignment check requires DKIM signing domain to match From domain. Mismatch causes silent DMARC failure — no bounce code, no validator flag\n• SPF: NONE — Google relay IPs not included in the domain's SPF record. Separate unlisted relay path",
+    intervention: "Custom sending domain configured inside GoHighLevel, authenticated directly on shopsilvermerch.com. DKIM now signs with the client domain — not Google's relay subdomain. SPF record updated to include Google's outbound SMTP IP ranges. DMARC alignment achieved on both SPF and DKIM paths.",
+    result: "SPF: PASS. DKIM: PASS (shopsilvermerch.com — correctly aligned). DMARC: PASS. Verified via Gmail Show Original header inspection. Standard validators had reported green throughout — the failure was only visible in raw message headers. [VERIFIED: APR 2026]",
     severity: "HIGH",
   },
 ];
@@ -97,6 +102,7 @@ const severityColors: Record<string, string> = {
 };
 
 export default function DeliverabilityProof() {
+  const [openId, setOpenId] = useState<string | null>("01");
 
   return (
     <section id="results" className="py-16 border-b border-border-subtle bg-surface/10 relative overflow-hidden">
@@ -218,72 +224,84 @@ export default function DeliverabilityProof() {
             </div>
           </div>
 
-          {/* Recovery Log Table */}
-          <div className="border border-border-subtle bg-bg-dark">
+          {/* Recovery Log Accordion */}
+          <div className="border border-border-subtle bg-bg-dark divide-y divide-border-subtle">
 
-            {/* Table Header (Desktop only) */}
-            <div className="hidden md:grid grid-cols-12 bg-surface/50 border-b border-border-subtle px-5 py-2.5 gap-4 text-[9px] font-mono text-text-secondary uppercase tracking-widest">
-              <div className="col-span-1">Ref</div>
-              <div className="col-span-2">Environment</div>
-              <div className="col-span-3 text-red-400/60">Problem</div>
-              <div className="col-span-4 text-accent/60">Action Taken</div>
-              <div className="col-span-2 text-emerald-400/60">Result</div>
+            {/* Header row */}
+            <div className="hidden md:flex bg-surface/50 px-5 py-2.5 text-[9px] font-mono text-text-secondary/50 uppercase tracking-widest">
+              <span className="w-20 shrink-0">Ref</span>
+              <span className="flex-1">Environment · Key Result</span>
+              <span className="w-8 shrink-0" />
             </div>
 
-            {/* Rows */}
-            <div className="divide-y divide-border-subtle">
-              {recoveryLogs.map((log, i) => (
-                <motion.div
-                  key={log.id}
-                  initial={{ opacity: 0, x: -8 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
-                  className="group grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 px-5 py-5 hover:bg-surface/50 transition-colors relative"
+            {recoveryLogs.map((log, i) => (
+              <motion.div
+                key={log.id}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.07 }}
+              >
+                {/* Collapsed header — always visible */}
+                <button
+                  onClick={() => setOpenId(openId === log.id ? null : log.id)}
+                  className="w-full text-left px-5 py-4 flex items-center gap-4 hover:bg-surface/40 transition-colors group"
                 >
-                  {/* Left hover accent (Desktop only) */}
-                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent/0 group-hover:bg-accent transition-colors hidden md:block" />
-
-                  {/* Ref */}
-                  <div className="md:col-span-1 flex items-start gap-2 border-b border-border-subtle/50 md:border-0 pb-1.5 md:pb-0">
-                    <span className="text-[9px] font-mono text-accent">[ REF: {log.id} ]</span>
-                  </div>
-
-                  {/* Environment */}
-                  <div className="md:col-span-2 space-y-1">
-                    <div className="text-[8px] font-mono text-text-secondary/40 uppercase md:hidden">Environment</div>
-                    <span className="text-xs font-mono font-bold text-text-primary block">{log.env}</span>
-                    <span className={`inline-block text-[8px] font-mono px-1.5 py-0.5 border ${severityColors[log.severity]}`}>
-                      {log.severity}
-                    </span>
-                  </div>
-
-                  {/* Failure State */}
-                  <div className="md:col-span-3">
-                    <div className="text-[8px] font-mono text-red-400/50 uppercase mb-0.5 md:hidden">Problem</div>
-                    <span className="text-xs text-text-secondary leading-relaxed block whitespace-pre-line">{log.failure}</span>
-                  </div>
-
-                  {/* Intervention */}
-                  <div className="md:col-span-4">
-                    <div className="text-[8px] font-mono text-accent/50 uppercase mb-0.5 md:hidden">Action Taken</div>
-                    <span className="text-xs text-text-secondary leading-relaxed block">{log.intervention}</span>
-                  </div>
-
-                  {/* Result */}
-                  <div className="md:col-span-2">
-                    <div className="text-[8px] font-mono text-emerald-400/50 uppercase mb-0.5 md:hidden">Result</div>
-                    <div className="flex items-start gap-1.5">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
-                      <span className="text-xs text-emerald-400 font-mono leading-tight">{log.result}</span>
+                  <span className="text-[9px] font-mono text-accent shrink-0 w-14">[ {log.id} ]</span>
+                  <div className="flex-1 min-w-0 space-y-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-xs font-mono font-bold text-text-primary group-hover:text-accent transition-colors">{log.env}</span>
+                      <span className={`text-[8px] font-mono px-1.5 py-0.5 border ${severityColors[log.severity]}`}>{log.severity}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" />
+                      <span className="text-[10px] font-mono text-emerald-400">{log.quickResult}</span>
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                  <ChevronDown
+                    className={`w-4 h-4 text-text-secondary/30 shrink-0 transition-transform duration-300 ${openId === log.id ? "rotate-180" : ""}`}
+                  />
+                </button>
 
-            {/* Table Footer */}
-            <div className="px-5 py-3 bg-surface/20 flex justify-between items-center text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest border-t border-border-subtle">
+                {/* Expanded diagnostic detail */}
+                <AnimatePresence>
+                  {openId === log.id && (
+                    <motion.div
+                      key={`detail-${log.id}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-6 pt-1 grid md:grid-cols-3 gap-6 bg-surface/20 border-t border-border-subtle/50">
+                        {/* Failure */}
+                        <div>
+                          <div className="text-[8px] font-mono text-red-400/60 uppercase tracking-widest mb-2">Failure State</div>
+                          <p className="text-xs text-text-secondary leading-relaxed whitespace-pre-line">{log.failure}</p>
+                        </div>
+                        {/* Intervention */}
+                        <div>
+                          <div className="text-[8px] font-mono text-accent/60 uppercase tracking-widest mb-2">Action Taken</div>
+                          <p className="text-xs text-text-secondary leading-relaxed">{log.intervention}</p>
+                        </div>
+                        {/* Result */}
+                        <div>
+                          <div className="text-[8px] font-mono text-emerald-400/60 uppercase tracking-widest mb-2">Result</div>
+                          <div className="flex items-start gap-1.5">
+                            <CheckCircle className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                            <span className="text-xs text-emerald-400 font-mono leading-relaxed">{log.result}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+
+            {/* Footer */}
+            <div className="px-5 py-3 bg-surface/20 flex justify-between items-center text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest">
               <span>Client Recovery Archive · Full Documentation Available</span>
               <div className="flex items-center gap-2">
                 <motion.div className="w-1 h-1 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />

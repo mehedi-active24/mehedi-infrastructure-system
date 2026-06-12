@@ -26,26 +26,26 @@ export default function HeroCommandCenter() {
               {personal.subtitle}
             </p>
 
-            {/* Evidence bar — sits between claim and ask */}
+            {/* Evidence bar */}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-l-2 border-accent/30 pl-3">
-              <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
-                1,235+ domains recovered
+              <span className="text-[10px] font-mono text-text-secondary/80 uppercase tracking-wider font-semibold">
+                31+ agencies recovered
               </span>
               <span className="text-text-secondary/20 text-[10px]">·</span>
               <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
-                14–30 day avg. recovery
+                94% post-fix placement
               </span>
               <span className="text-text-secondary/20 text-[10px]">·</span>
               <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
-                US · UK · AU
+                14-day avg. to root cause
               </span>
               <span className="text-text-secondary/20 text-[10px]">·</span>
               <span className="text-[10px] font-mono text-accent/80 uppercase tracking-wider font-bold">
-                Tests DKIM on replies, not just sends
+                Reads headers validators never check
               </span>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex flex-wrap gap-3">
                 <a
                   href="https://calendly.com/mehedi-active24"
@@ -62,13 +62,35 @@ export default function HeroCommandCenter() {
                   See Case Studies
                 </a>
               </div>
-              <div>
+
+              {/* Availability signal */}
+              <div className="flex items-center gap-2 pl-1">
+                <motion.div
+                  className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"
+                  animate={{ opacity: [1, 0.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <span className="text-[10px] font-mono text-emerald-400/70 uppercase tracking-wider">
+                  Now accepting new clients · July 2026
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4 pl-1">
                 <Link
                   href="/services"
-                  className="inline-flex items-center text-[10px] font-mono text-text-secondary hover:text-accent transition-colors gap-1 uppercase tracking-wider pl-1"
+                  className="inline-flex items-center text-[10px] font-mono text-text-secondary hover:text-accent transition-colors gap-1 uppercase tracking-wider"
                 >
                   View services and pricing →
                 </Link>
+                <span className="text-text-secondary/20 text-[10px]">·</span>
+                <a
+                  href="https://www.linkedin.com/in/mehedi-active24/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[10px] font-mono text-text-secondary hover:text-accent transition-colors gap-1 uppercase tracking-wider"
+                >
+                  LinkedIn →
+                </a>
               </div>
             </div>
           </div>
