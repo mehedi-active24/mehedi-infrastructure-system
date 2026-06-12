@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Activity, CheckCircle } from "lucide-react";
+import PostmasterAuditVisual from "@/components/PostmasterAuditVisual";
 
 const telemetry = [
   {
@@ -171,6 +171,18 @@ export default function DeliverabilityProof() {
               })}
             </div>
           </div>
+        </div>
+
+        {/* ── POSTMASTER AUDIT VISUAL ── */}
+        <div>
+          <div className="mb-6">
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Forensic Monitoring</h2>
+            <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">What I Actually Read During an Audit</h3>
+            <p className="text-xs font-mono text-text-secondary mt-2 max-w-xl">
+              Google Postmaster tracks domain reputation at the receiving end — the signal that validators like MXToolbox never check. This is the first dashboard I open on every engagement.
+            </p>
+          </div>
+          <PostmasterAuditVisual />
         </div>
 
         {/* ── SECTION 2: INFRASTRUCTURE RECOVERY LOGS ── */}
