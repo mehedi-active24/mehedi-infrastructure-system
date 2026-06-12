@@ -24,7 +24,7 @@ export default function NeoScienceArchitecture() {
   );
 
   return (
-    <div className="min-h-screen bg-bg-dark text-text-primary p-4 md:p-8 font-sans overflow-x-auto selection:bg-accent/30">
+    <div className="bg-bg-dark text-text-primary p-4 md:p-8 font-sans overflow-x-auto selection:bg-accent/30">
       <div className="min-w-[1400px] max-w-[1800px] mx-auto">
         
         {/* Header */}
