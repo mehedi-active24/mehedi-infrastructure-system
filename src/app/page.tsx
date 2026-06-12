@@ -18,14 +18,14 @@ export default function Home() {
       <HeroCommandCenter />
       {/* 2. Differentiator */}
       <OperatorProfile />
-      {/* 3. Proof — convince before asking them to understand the process */}
-      <DeliverabilityProof />
-      {/* 4. Social proof */}
-      <Testimonials />
-      {/* 5. How it works */}
-      <BuildProcess />
-      {/* 6. Self-qualify — "is this your situation?" after proof has been established */}
+      {/* 3. Self-qualify — lead-gen product, high on page to capture intent early */}
       <DeliverabilityTriage />
+      {/* 4. Proof — convince before asking them to understand the process */}
+      <DeliverabilityProof />
+      {/* 5. Social proof */}
+      <Testimonials />
+      {/* 6. How it works */}
+      <BuildProcess />
       {/* 7. Deep proof for readers who want case-level detail */}
       <ArchitecturePreviews />
       {/* 8. Lead magnet */}

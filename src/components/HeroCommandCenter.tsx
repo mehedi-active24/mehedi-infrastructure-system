@@ -77,10 +77,17 @@ export default function HeroCommandCenter() {
 
               <div className="flex items-center gap-4 pl-1">
                 <Link
+                  href="/#triage"
+                  className="inline-flex items-center text-[10px] font-mono text-emerald-400/80 hover:text-emerald-400 transition-colors gap-1 uppercase tracking-wider"
+                >
+                  Free inbox diagnostic →
+                </Link>
+                <span className="text-text-secondary/20 text-[10px]">·</span>
+                <Link
                   href="/services"
                   className="inline-flex items-center text-[10px] font-mono text-text-secondary hover:text-accent transition-colors gap-1 uppercase tracking-wider"
                 >
-                  View services and pricing →
+                  Pricing →
                 </Link>
                 <span className="text-text-secondary/20 text-[10px]">·</span>
                 <a

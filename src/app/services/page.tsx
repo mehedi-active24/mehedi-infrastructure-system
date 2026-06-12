@@ -109,9 +109,9 @@ export default function ServicesPage() {
 
         {/* Proof bar — trust signal before pricing */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-l-2 border-accent/30 pl-4 py-1">
-          <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">1,235+ domains recovered</span>
+          <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">31+ agencies recovered</span>
           <span className="text-text-secondary/20 text-[10px]">·</span>
-          <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">Avg. recovery: 14–30 days</span>
+          <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">Median recovery: 18 days</span>
           <span className="text-text-secondary/20 text-[10px]">·</span>
           <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">94% post-fix placement rate</span>
           <span className="text-text-secondary/20 text-[10px]">·</span>
