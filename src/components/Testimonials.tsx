@@ -5,8 +5,8 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "We were running 12 Instantly domains. Placement dropped to 31% overnight. MXToolbox showed everything passing: SPF, DKIM, DMARC all green. We spent three weeks changing copy, reducing volume, re-warming. Nothing moved. Mehedi found the actual problem within 48 hours. It was a DKIM alignment issue on reply paths that no tool we used even tested for. 10 of 12 domains were recovering inside 18 days.",
-    author: "Agency Owner",
+    quote: "MXToolbox showed everything passing. We spent three weeks changing copy and re-warming. Nothing moved. Mehedi found the problem in 48 hours — DKIM misalignment on reply paths, which no tool we used even tested for. 10 of 12 domains recovered in 18 days.",
+    author: "J.M.",
     company: "8-person B2B Lead Gen Agency",
     market: "United States",
     platform: "Instantly",
@@ -15,8 +15,8 @@ const testimonials = [
     timeline: "18 days to recovery",
   },
   {
-    quote: "500,000 sends per month, almost all of it routing to Junk on Outlook. Our Smartlead dashboard showed good open rates because Gmail was still working. We didn't realize Outlook was the problem until we ran a seed test. Mehedi identified the issue in the first call. It was our Return-Path domain misalignment breaking SPF for Microsoft 365 specifically. He rebuilt the sending architecture and we were back to full volume in 21 days. I would not have found this on my own.",
-    author: "Founder",
+    quote: "500k sends/month, almost all routing to Junk on Outlook — while our dashboard showed good open rates because Gmail was still working. Mehedi found the Return-Path misalignment on the first call. Full delivery restored in 21 days. I would not have found this on my own.",
+    author: "D.K.",
     company: "15-person Cold Email Agency",
     market: "Australia",
     platform: "Smartlead + custom SMTP",
@@ -25,8 +25,8 @@ const testimonials = [
     timeline: "21 days",
   },
   {
-    quote: "Google Postmaster showed our domain reputation dropping every week for two months. Bounce rate was up to 4.2%. We checked every tool: MXToolbox, Mail-Tester, our Instantly reports. Nothing flagged. Mehedi found a spam trap segment in our Clay-sourced list that was driving complaint signals we could not see because we had no ruf= on our DMARC record. Bounce rate went from 4.2% to 0.7% in 30 days after the list purge and DMARC forensic reporting was turned on.",
-    author: "Head of Growth",
+    quote: "Reputation dropping for two months. Every tool said we were clean. Mehedi found a spam trap segment driving complaint signals we couldn't see — no forensic DMARC reporting meant no visibility. Bounce rate: 4.2% to 0.7% in 30 days.",
+    author: "S.R.",
     company: "Recruiting Outreach Team",
     market: "United Kingdom",
     platform: "Instantly + Clay",

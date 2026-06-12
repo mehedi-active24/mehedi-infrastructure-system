@@ -6,13 +6,10 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "About",         href: "/#about"        },
-  { label: "Services",      href: "/services"      },
-  { label: "Case Studies",  href: "/architecture"  },
-  { label: "Results",       href: "/#results"      },
-  { label: "Field Reports",  href: "/logs"          },
-  { label: "Tools",         href: "/toolkit"       },
-  { label: "Book a Call",   href: "/#book"         },
+  { label: "Services",     href: "/services"     },
+  { label: "Case Studies", href: "/architecture" },
+  { label: "Field Reports", href: "/logs"        },
+  { label: "Book a Call",  href: "/#book"        },
 ];
 
 export default function HeaderNav() {

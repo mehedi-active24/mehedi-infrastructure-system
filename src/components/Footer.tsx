@@ -90,10 +90,10 @@ export default function Footer() {
         {/* Section 4: Copyright & Signature Layer */}
         <div className="border-t border-border-subtle pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-text-secondary/60 uppercase tracking-widest">
           <div>
-             <span className="text-text-primary/80">MEHEDI HASAN</span> // EMAIL DELIVERABILITY CONSULTANT
+             <span className="text-text-primary/80">MEHEDI HASAN</span> · EMAIL DELIVERABILITY CONSULTANT
           </div>
           <div className="flex items-center gap-2">
-             © 2026 // ALL SYSTEMS OPERATIONAL <div className="w-1 h-1 bg-text-secondary/60 rounded-full animate-pulse" />
+             © 2026 · ACCEPTING CLIENTS Q3 2026 <div className="w-1 h-1 bg-emerald-400 rounded-full animate-pulse" />
           </div>
         </div>
 

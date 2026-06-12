@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Lock, Mail } from "lucide-react";
+import { Check, Lock, Mail, ArrowRight } from "lucide-react";
 
 const checks = [
   {
@@ -81,9 +81,22 @@ const checks = [
 
 export default function FreeChecklist() {
   const [revealed, setRevealed] = useState(false);
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const freeChecks = checks.filter((c) => c.free);
   const lockedChecks = checks.filter((c) => !c.free);
   const displayChecks = revealed ? checks : freeChecks;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    const subject = encodeURIComponent("Full Deliverability Checklist Request");
+    const body = encodeURIComponent(
+      `Hi Mehedi,\n\nPlease send me the full 9-point deliverability checklist.\n\nReply to: ${email}\n\nThanks`
+    );
+    window.open(`mailto:mehedi.active24@gmail.com?subject=${subject}&body=${body}`, "_blank");
+    setSubmitted(true);
+  };
 
   return (
     <section id="checklist" className="py-16 border-b border-border-subtle bg-bg-dark">
@@ -94,7 +107,7 @@ export default function FreeChecklist() {
           <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Free Resource</h2>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h3 className="text-2xl font-bold text-text-primary uppercase tracking-tight">
+              <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">
                 The 9 Deliverability Checks MXToolbox Skips
               </h3>
               <p className="text-xs font-mono text-text-secondary mt-2 max-w-lg">
@@ -169,31 +182,47 @@ export default function FreeChecklist() {
           {/* Unlock footer */}
           {!revealed && (
             <div className="border-t border-border-subtle p-6 bg-surface/20">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm font-bold text-text-primary mb-1">
-                    Get checks 4–9 with full "how to test" walkthroughs
-                  </p>
-                  <p className="text-xs font-mono text-text-secondary">
-                    Email to receive the complete list. No signup form, just a direct reply.
-                  </p>
+              {submitted ? (
+                <div className="flex items-center gap-3 text-emerald-400">
+                  <Check className="w-4 h-4 shrink-0" />
+                  <p className="text-sm font-mono">Request sent — check your email app and hit send. Full list arriving shortly.</p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-2 shrink-0">
-                  <a
-                    href="mailto:mehedi.active24@gmail.com?subject=Full%20Deliverability%20Checklist&body=Please%20send%20me%20the%20full%209-point%20deliverability%20checklist."
-                    className="flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors whitespace-nowrap"
-                  >
-                    <Mail className="w-3 h-3" />
-                    Email for Full List
-                  </a>
+              ) : (
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-sm font-bold text-text-primary mb-1">
+                      Get checks 4–9 with full "how to test" walkthroughs
+                    </p>
+                    <p className="text-xs font-mono text-text-secondary">
+                      Enter your email — I'll send the complete list directly. No list, no pitch.
+                    </p>
+                  </div>
+                  <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@youragency.com"
+                      className="flex-1 bg-bg-dark border border-border-subtle px-4 py-2.5 text-xs font-mono text-text-primary placeholder:text-text-secondary/30 focus:outline-none focus:border-accent/50 transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      className="flex items-center justify-center gap-2 px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors whitespace-nowrap shrink-0"
+                    >
+                      <Mail className="w-3 h-3" />
+                      Get Full List
+                      <ArrowRight className="w-3 h-3" />
+                    </button>
+                  </form>
                   <button
                     onClick={() => setRevealed(true)}
-                    className="flex items-center gap-2 px-5 py-2.5 border border-border-subtle text-text-secondary text-xs font-mono uppercase tracking-wider hover:border-accent/30 hover:text-text-primary transition-colors whitespace-nowrap"
+                    className="text-[10px] font-mono text-text-secondary/40 hover:text-text-secondary transition-colors uppercase tracking-wider"
                   >
-                    Preview All 9 →
+                    Or preview all 9 here →
                   </button>
                 </div>
-              </div>
+              )}
             </div>
           )}
         </div>

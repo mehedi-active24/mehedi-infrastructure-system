@@ -6,7 +6,7 @@ import content from "@/data/content.json";
 import Link from "next/link";
 
 export default function HeroCommandCenter() {
-  const { personal, telemetry } = content;
+  const { personal } = content;
 
   return (
     <section className="pt-28 pb-16 border-b border-border-subtle bg-bg-dark">
@@ -171,41 +171,6 @@ export default function HeroCommandCenter() {
             </div>
           </div>
 
-        </div>
-
-        {/* Outbound Infrastructure Scale — Telemetry Panel */}
-        <div className="border border-border-subtle bg-surface/30">
-          <div className="px-6 py-3 border-b border-border-subtle flex items-center justify-between">
-            <span className="text-[10px] font-mono text-text-secondary uppercase tracking-widest">Deliverability Performance</span>
-            <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              CLIENT-VERIFIED RESULTS
-            </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border-subtle">
-            {telemetry.map((metric, idx) => (
-              <div key={idx} className="bg-bg-dark p-4 flex flex-col gap-2 group hover:bg-surface transition-colors relative overflow-hidden">
-                {/* Subtle bar graph background */}
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
-                  <span className="text-[8px] font-mono px-1.5 py-0.5 border shrink-0 text-text-secondary border-border-subtle">
-                    {metric.status}
-                  </span>
-                </div>
-                <span className="text-2xl font-mono font-bold text-text-primary tracking-tight group-hover:text-accent transition-colors">{metric.value}</span>
-                {/* Micro graph line */}
-                <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
-                  <motion.div
-                    className="h-full bg-accent/40"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${60 + (idx * 7)}%` }}
-                    transition={{ duration: 1.5, delay: idx * 0.1, ease: 'easeOut' }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
       </div>

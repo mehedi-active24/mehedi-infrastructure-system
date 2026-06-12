@@ -2,7 +2,7 @@
   "personal": {
     "name": "Mehedi Hasan",
     "title": "Every Validator Says Pass. Your Inbox Doesn't Agree.",
-    "subtitle": "Cold email agencies and B2B outbound teams come to me when every validator says pass and inbox placement still drops. The failures are almost always in the paths standard tools never test: DKIM on replies, SPF on forwards, DMARC with no forensic reporting."
+    "subtitle": "Cold email agencies and B2B outbound teams come to me when every validator says pass and inbox placement still drops."
   },
   "telemetry": [
     { "label": "Active Mailboxes Managed", "value": "7.4k+", "status": "AS OF Q2 2026" },
@@ -15,7 +15,7 @@
   "profile": {
     "philosophy": "Most deliverability tools check that your records exist. I check whether they work on replies, forwards, and forwarded-to-spam paths. That is where most failures actually happen.",
     "body": "Cold email agencies and B2B outbound teams come to me when inbox placement is declining and every surface-level check says it should not be. The problem is almost never copy or targeting. It is the infrastructure layer: SPF breaking on forwards, DKIM misaligning on replies, DMARC generating zero visibility, warmup and campaign timing creating a detectable fingerprint for ESP filters.\n\nI do not add records and call it done. I run a forensic audit of your sending architecture and identify the specific failure that standard tools cannot see. My clients are outbound-led agencies and SaaS teams running 5 to 50 sending domains, where a two-week deliverability failure translates directly into lost revenue and missed pipeline.",
-    "notice": "> NOTE: I work exclusively with outbound teams running cold email infrastructure. Single senders, newsletter operators, and transactional systems are outside my scope."
+    "notice": "NOTE: I work exclusively with outbound teams running cold email infrastructure. Single senders, newsletter operators, and transactional systems are outside my scope."
   },
   "capabilities": [
     {
@@ -146,22 +146,22 @@
   "insights": [
     {
       "title": "The Anatomy of a Spam Trap Hit",
-      "date": "2023-11-12",
+      "date": "2025-11-08",
       "link": "#"
     },
     {
       "title": "Rebuilding a Burned 400-Mailbox Infrastructure",
-      "date": "2024-01-05",
+      "date": "2026-01-14",
       "link": "#"
     },
     {
       "title": "Why SPF Misalignment Breaks Gmail Placement",
-      "date": "2024-02-18",
+      "date": "2026-03-22",
       "link": "#"
     },
     {
       "title": "Gmail Complaint Loops and Domain Decay",
-      "date": "2024-04-30",
+      "date": "2026-05-09",
       "link": "#"
     }
   ],

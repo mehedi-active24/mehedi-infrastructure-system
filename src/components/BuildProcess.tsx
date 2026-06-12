@@ -101,7 +101,7 @@ export default function BuildProcess() {
           </div>
           <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">
             <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-            PIPELINE OPERATIONAL
+            Currently Accepting Clients
           </div>
         </div>
 
@@ -211,7 +211,7 @@ export default function BuildProcess() {
 
           {/* Pipeline footer */}
           <div className="mt-8 ml-0 md:ml-20 pt-6 border-t border-border-subtle flex items-center justify-between text-[10px] font-mono text-text-secondary/30 uppercase tracking-widest">
-            <span>Consulting Process // Discovery to Ongoing Protection</span>
+            <span>Consulting Process · Discovery to Ongoing Protection</span>
             <div className="flex items-center gap-2">
               <motion.div className="w-1 h-1 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
               All Stages Operational
