@@ -37,7 +37,7 @@ export default function HeroCommandCenter() {
               </span>
               <span className="text-text-secondary/20 text-[10px]">·</span>
               <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
-                14-day avg. to root cause
+                3-day avg. to root cause
               </span>
               <span className="text-text-secondary/20 text-[10px]">·</span>
               <span className="text-[10px] font-mono text-accent/80 uppercase tracking-wider font-bold">
@@ -71,7 +71,7 @@ export default function HeroCommandCenter() {
                   transition={{ duration: 2, repeat: Infinity }}
                 />
                 <span className="text-[10px] font-mono text-emerald-400/70 uppercase tracking-wider">
-                  Now accepting new clients · July 2026
+                  Now accepting new clients ·
                 </span>
               </div>
 

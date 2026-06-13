@@ -29,7 +29,7 @@ const telemetry = [
     bar: 78,
   },
   {
-    value: "14 Days",
+    value: "3 Days",
     label: "Avg. Time to Root Cause",
     meta: "Forensic header + DNS audit",
     status: "emerald",

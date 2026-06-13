@@ -24,7 +24,7 @@ export default function AuditCTA() {
             transition={{ duration: 2, repeat: Infinity }}
           />
           <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">
-            Now accepting new clients · July 2026
+            Now accepting new clients ·
           </span>
         </div>
 
@@ -44,7 +44,7 @@ export default function AuditCTA() {
           <span className="text-text-secondary/20">·</span>
           <span>94% post-fix placement rate</span>
           <span className="text-text-secondary/20">·</span>
-          <span>14-day avg. to root cause</span>
+          <span>3-day avg. to root cause</span>
         </div>
 
         {/* Pricing clarity — qualification bar */}
