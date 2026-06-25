@@ -43,8 +43,7 @@ export default function HeaderNav() {
             : "bg-bg-dark/80 backdrop-blur-sm border-b border-transparent py-4"
         }`}
       >
-        {/* Faint scanline texture */}
-        <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_3px,rgba(255,255,255,0.005)_3px,rgba(255,255,255,0.005)_4px)] pointer-events-none" />
+
 
         <div className="container mx-auto px-6 max-w-7xl relative flex items-center justify-between">
 

@@ -80,12 +80,7 @@ export default async function ArchitecturePage({ params }: { params: Promise<{ s
            
            <div className="border border-border-subtle bg-surface">
              {arch.slug === 'neo-science-outreach' ? (
-               <div className="relative">
-                 <div className="absolute top-2 left-2 bg-bg-dark/80 backdrop-blur border border-border-subtle px-3 py-1 text-[10px] font-mono text-accent z-50">
-                   BESPOKE DIAGRAM RENDERER ACTIVE
-                 </div>
-                 <NeoScienceArchitecture />
-               </div>
+               <NeoScienceArchitecture />
              ) : (
                <DynamicTopologyVisualizer tools={arch.tools} flow={arch.flow} />
              )}

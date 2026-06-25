@@ -94,7 +94,6 @@ export default function ServicesPage() {
         {/* Page Header */}
         <div className="border-l-2 border-accent pl-5 space-y-2">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <h1 className="text-sm font-mono text-text-secondary uppercase tracking-widest leading-none">
               SERVICES // ENGAGEMENT TYPES
             </h1>
@@ -121,22 +120,15 @@ export default function ServicesPage() {
           {services.map((svc) => (
             <div
               key={svc.tier}
-              className="border border-border-subtle bg-surface/30 p-6 flex flex-col justify-between hover:border-accent/40 transition-all duration-300 relative group overflow-hidden"
+              className="border border-border-subtle bg-surface/30 p-6 flex flex-col justify-between hover:border-accent/40 transition-all duration-300"
             >
-              {/* Scanline card overlay */}
-              <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_4px,rgba(255,255,255,0.003)_4px,rgba(255,255,255,0.003)_5px)] pointer-events-none" />
               
               <div className="space-y-6 relative z-10">
                 
                 {/* Card Header Tag */}
-                <div className="flex items-center justify-between border-b border-border-subtle pb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono text-accent bg-accent/5 border border-accent/15 px-2 py-0.5 uppercase tracking-wider">
-                      {svc.tag}
-                    </span>
-                  </div>
-                  <span className="text-xs font-mono text-text-secondary/40 font-bold uppercase">
-                    {svc.tier}
+                <div className="border-b border-border-subtle pb-4">
+                  <span className="text-[10px] font-mono text-accent/70 uppercase tracking-wider">
+                    {svc.tag}
                   </span>
                 </div>
 

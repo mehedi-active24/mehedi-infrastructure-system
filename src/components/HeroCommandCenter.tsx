@@ -26,24 +26,6 @@ export default function HeroCommandCenter() {
               {personal.subtitle}
             </p>
 
-            {/* Evidence bar */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-l-2 border-accent/30 pl-3">
-              <span className="text-[10px] font-mono text-text-secondary/80 uppercase tracking-wider font-semibold">
-                31+ agencies recovered
-              </span>
-              <span className="text-text-secondary/20 text-[10px]">·</span>
-              <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
-                94% post-fix placement
-              </span>
-              <span className="text-text-secondary/20 text-[10px]">·</span>
-              <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">
-                3-day avg. to root cause
-              </span>
-              <span className="text-text-secondary/20 text-[10px]">·</span>
-              <span className="text-[10px] font-mono text-accent/80 uppercase tracking-wider font-bold">
-                Reads headers validators never check
-              </span>
-            </div>
 
             <div className="space-y-3">
               <div className="flex flex-wrap gap-3">
@@ -87,39 +69,21 @@ export default function HeroCommandCenter() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                {/* Radial Masked Portrait */}
-                <div 
-                  className="absolute inset-0 rounded-full overflow-hidden"
-                  style={{ maskImage: 'radial-gradient(circle at center, black 45%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle at center, black 45%, transparent 70%)' }}
-                >
+                {/* Portrait */}
+                <div className="absolute inset-0 rounded-full overflow-hidden">
                   <Image 
                     src="/portrait.jpg" 
                     alt={personal.name}
                     fill
-                    className="object-cover object-center grayscale-[70%] contrast-125 opacity-80 mix-blend-luminosity"
+                    className="object-cover object-center"
                     priority
                   />
-                  {/* Cinematic Toning Overlay */}
-                  <div className="absolute inset-0 bg-accent mix-blend-overlay opacity-20 pointer-events-none" />
-                  {/* Scanline Texture */}
-                  <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.1)_2px,rgba(0,0,0,0.1)_4px)] pointer-events-none" />
                 </div>
                 
                 {/* Hover Glow Edge */}
                 <div className="absolute inset-0 rounded-full border border-accent/0 group-hover:border-accent/30 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-700 pointer-events-none" />
               </motion.div>
 
-              {/* Layer 2: Routing signal line only */}
-              <div className="absolute inset-0 pointer-events-none z-20">
-                 {/* Routing Path Overlay */}
-                 <div className="hidden md:block absolute top-1/2 -right-8 w-16 h-px bg-border-subtle overflow-hidden">
-                   <motion.div
-                     className="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"
-                     animate={{ x: ["-100%", "200%"] }}
-                     transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-                   />
-                 </div>
-              </div>
             </div>
           </div>
 

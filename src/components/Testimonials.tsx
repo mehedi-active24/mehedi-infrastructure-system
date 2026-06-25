@@ -77,11 +77,8 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="group border border-border-subtle bg-bg-dark p-6 hover:border-accent/30 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
+              className="border border-border-subtle bg-bg-dark p-6 hover:border-accent/30 transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Top accent line on hover */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/40 transition-colors" />
-
               <div className="space-y-4">
                 <Quote className="w-5 h-5 text-accent/40" />
                 <p className="text-sm text-text-secondary leading-relaxed">
@@ -89,32 +86,10 @@ export default function Testimonials() {
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-border-subtle space-y-3">
-                {/* Result metrics */}
-                <div className="flex flex-wrap gap-2">
-                  <div className="bg-emerald-400/5 border border-emerald-400/20 px-2 py-1">
-                    <span className="text-[9px] font-mono text-emerald-400 uppercase">{t.metric}</span>
-                  </div>
-                  <div className="bg-accent/5 border border-accent/20 px-2 py-1">
-                    <span className="text-[9px] font-mono text-accent uppercase">{t.timeline}</span>
-                  </div>
-                </div>
-
-                {/* Context */}
-                <div className="grid grid-cols-2 gap-1.5 text-[9px] font-mono text-text-secondary/50 uppercase">
-                  <span>Platform: {t.platform}</span>
-                  <span>Vol: {t.volume}</span>
-                </div>
-
-                {/* Identity — role + company + market */}
-                <div className="flex items-center gap-3">
-                  <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 text-xs font-mono font-bold ${t.avatarColor}`}>
-                    {t.avatarInitial}
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-xs font-mono font-bold text-text-primary">{t.role}</span>
-                    <span className="text-[10px] font-mono text-text-secondary/60">{t.company} · {t.market}</span>
-                  </div>
+              <div className="mt-6 pt-4 border-t border-border-subtle">
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-xs font-mono font-bold text-text-primary">{t.role} · {t.company}</span>
+                  <span className="text-[10px] font-mono text-text-secondary/50">{t.metric} · {t.timeline}</span>
                 </div>
               </div>
             </motion.div>
