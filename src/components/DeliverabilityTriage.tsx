@@ -409,7 +409,7 @@ export default function DeliverabilityTriage() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <div className="flex items-center justify-center gap-2 px-6 py-3 bg-accent/10 border border-accent/30 text-accent text-xs font-mono uppercase tracking-wider">
                     <Calendar className="w-3.5 h-3.5" />
-                    {result.cta === "calendly" ? "Contact via Upwork to Book a Call" : "Contact via Upwork for Full Diagnosis"}
+                    {result.cta === "calendly" ? "Contact via Upwork" : "Contact via Upwork"}
                   </div>
                   <button
                     onClick={handleReset}
@@ -421,7 +421,7 @@ export default function DeliverabilityTriage() {
                 </div>
 
                 <p className="mt-4 text-[10px] font-mono text-text-secondary/30">
-                  This triage uses infrastructure risk signals, not inbox placement validation. For a forensic diagnosis, book a call or send 3 data points via email.
+                  This triage uses infrastructure risk signals, not inbox placement validation. For a forensic diagnosis, message via Upwork with 3 data points.
                 </p>
               </motion.div>
             )}

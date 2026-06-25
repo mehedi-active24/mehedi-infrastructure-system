@@ -9,7 +9,6 @@ const navItems = [
   { label: "Services",     href: "/services"     },
   { label: "Case Studies", href: "/architecture" },
   { label: "Field Reports", href: "/logs"        },
-  { label: "Book a Call",  href: "/#book"        },
 ];
 
 export default function HeaderNav() {
@@ -91,9 +90,6 @@ export default function HeaderNav() {
 
                 {/* Label */}
                 <span className="relative z-10 flex items-center gap-1.5">
-                  {item.label === "Book a Call" && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                  )}
                   {item.label}
                 </span>
               </Link>

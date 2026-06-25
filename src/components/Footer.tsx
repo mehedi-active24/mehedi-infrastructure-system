@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Section 3: Navigation — 3 curated columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-8 mb-20">
 
           {/* Column 1: Navigation */}
           <div className="space-y-4">
@@ -38,27 +38,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: Connect — Terminal Endpoint Nodes */}
-          <div className="space-y-4">
-            <h3 className="text-[10px] font-mono text-text-secondary uppercase tracking-widest border-l-2 border-accent pl-2 mb-6">Connect</h3>
-            <ul className="space-y-3 font-mono text-xs">
-              {([
-                { label: "GitHub", handle: "github.com/mehedi-active24", href: "https://github.com/mehedi-active24" },
-              ] as { label: string; handle: string; href: string }[]).map((node, i) => (
-                <li key={i}>
-                  <a
-                    href={node.href}
-                    target={node.href.startsWith("mailto") ? undefined : "_blank"}
-                    rel={node.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                    className="group flex flex-col sm:flex-row sm:items-center hover:pl-1 transition-all duration-200 gap-1 sm:gap-0"
-                  >
-                    <span className="text-[9px] text-text-secondary/40 uppercase tracking-wider group-hover:text-accent transition-colors sm:w-24 shrink-0">[ {node.label.replace(" Node", "").replace(" Repository", "").replace(" Protocol", "").replace(" Endpoint", "")} ]</span>
-                    <span className="text-[11px] text-text-secondary group-hover:text-text-primary transition-colors truncate">{node.handle}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+
 
 
 

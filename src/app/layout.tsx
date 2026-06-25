@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Mehedi Hasan | Email Deliverability Consultant | Inbox Recovery & Cold Email Infrastructure",
-  description: "Email deliverability consultant helping cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation. 1,235+ domains recovered. Book a free discovery call.",
+  description: "Email deliverability consultant helping cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation. 4 documented case recoveries. Inbox placement specialists for cold email agencies.",
   openGraph: {
     title: "Mehedi Hasan · Email Deliverability Consultant",
     description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 1,235+ domains recovered. Free 20-minute discovery call.",
