@@ -25,17 +25,16 @@ export default function Footer() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Section 3: Navigation — 3 curated columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
 
           {/* Column 1: Navigation */}
           <div className="space-y-4">
             <h3 className="text-[10px] font-mono text-text-secondary uppercase tracking-widest border-l-2 border-accent pl-2 mb-6">Navigation</h3>
             <ul className="space-y-3 font-mono text-xs">
-              <li><Link href="/services" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Services & Pricing</Link></li>
+              <li><Link href="/services" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Services</Link></li>
               <li><Link href="/architecture" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Case Studies</Link></li>
               <li><Link href="/logs" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Field Reports</Link></li>
               <li><Link href="/toolkit" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Tools & Stack</Link></li>
-              <li><Link href="/#book" className="text-text-secondary hover:text-text-primary hover:pl-2 transition-all group flex items-center gap-2"><span className="opacity-0 group-hover:opacity-100 text-accent transition-opacity">&gt;</span>Book a Discovery Call</Link></li>
             </ul>
           </div>
 
@@ -44,9 +43,7 @@ export default function Footer() {
             <h3 className="text-[10px] font-mono text-text-secondary uppercase tracking-widest border-l-2 border-accent pl-2 mb-6">Connect</h3>
             <ul className="space-y-3 font-mono text-xs">
               {([
-                { label: "LinkedIn", handle: "linkedin.com/in/mehedi-active24", href: "https://www.linkedin.com/in/mehedi-active24/" },
                 { label: "GitHub", handle: "github.com/mehedi-active24", href: "https://github.com/mehedi-active24" },
-                { label: "Email", handle: "mehedi.active24@gmail.com", href: "mailto:mehedi.active24@gmail.com" },
               ] as { label: string; handle: string; href: string }[]).map((node, i) => (
                 <li key={i}>
                   <a
@@ -63,26 +60,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: System Status — Compact Operational Panel */}
-          <div className="space-y-4">
-            <h3 className="text-[10px] font-mono text-text-secondary uppercase tracking-widest border-l-2 border-accent pl-2 mb-6">Availability</h3>
-            <div className="bg-surface/40 border border-border-subtle p-4 space-y-3 font-mono text-[10px]">
-              {([
-                { label: "Accepting New Clients", value: "Q3 2026", color: "text-emerald-400" },
-                { label: "Discovery Call", value: "Free · 20 Min", color: "text-emerald-400" },
-                { label: "Response Time", value: "Within 24H", color: "text-emerald-400" },
-                { label: "Active Slots", value: "Limited", color: "text-amber-400" },
-              ] as { label: string; value: string; color: string }[]).map((item, i) => (
-                <div key={i} className="flex justify-between items-center gap-4 border-b border-border-subtle pb-3 last:border-0 last:pb-0">
-                  <span className="text-text-secondary">{item.label}</span>
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <div className={`w-1 h-1 rounded-full ${item.color === "text-emerald-400" ? "bg-emerald-400" : "bg-amber-400"} animate-pulse`} />
-                    <span className={item.color}>{item.value}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+
 
         </div>
 
@@ -93,7 +71,7 @@ export default function Footer() {
              <span className="text-text-primary/80">MEHEDI HASAN</span> · EMAIL DELIVERABILITY CONSULTANT
           </div>
           <div className="flex items-center gap-2">
-             © 2026 · ACCEPTING CLIENTS Q3 2026 <div className="w-1 h-1 bg-emerald-400 rounded-full animate-pulse" />
+             © 2026
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Terminal, Mail, ArrowUpRight, HelpCircle, Calendar } from "lucide-react";
+import { ArrowLeft, Terminal, ArrowUpRight, HelpCircle, Calendar } from "lucide-react";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 
@@ -12,7 +12,7 @@ const services = [
   {
     tier: "TIER 01",
     name: "Forensic Deliverability Audit",
-    price: "$799",
+    price: "",
     delivery: "5 business days",
     tag: "DIAGNOSTICS",
     description:
@@ -32,7 +32,7 @@ const services = [
   {
     tier: "TIER 02",
     name: "Infrastructure Build & Rebuild",
-    price: "From $1,500",
+    price: "",
     delivery: "Project-based",
     tag: "SYSTEMS BUILD",
     description:
@@ -52,7 +52,7 @@ const services = [
   {
     tier: "TIER 03",
     name: "Ongoing Deliverability Oversight",
-    price: "$750 / month",
+    price: "",
     delivery: "Ongoing oversight",
     tag: "MANAGED SERVICE",
     description:
@@ -114,8 +114,6 @@ export default function ServicesPage() {
           <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">Median recovery: 18 days</span>
           <span className="text-text-secondary/20 text-[10px]">·</span>
           <span className="text-[10px] font-mono text-text-secondary/50 uppercase tracking-wider">94% post-fix placement rate</span>
-          <span className="text-text-secondary/20 text-[10px]">·</span>
-          <span className="text-[10px] font-mono text-accent/70 uppercase tracking-wider font-bold">Discovery call is free</span>
         </div>
 
         {/* Service Cards Grid */}
@@ -148,7 +146,6 @@ export default function ServicesPage() {
                     {svc.name}
                   </h3>
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono">
-                    <span className="text-2xl font-bold text-text-primary">{svc.price}</span>
                     <span className="text-[10px] text-text-secondary/60 uppercase">
                       Delivery: {svc.delivery}
                     </span>
@@ -180,26 +177,14 @@ export default function ServicesPage() {
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-8 pt-4 border-t border-border-subtle/30 relative z-10 space-y-2">
-                <a
-                  href="https://calendly.com/mehedi-active24"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between w-full px-4 py-3 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-all duration-200"
-                >
+              <div className="mt-8 pt-4 border-t border-border-subtle/30 relative z-10">
+                <div className="flex items-center justify-between w-full px-4 py-3 bg-accent/10 border border-accent/30 text-accent text-xs font-mono uppercase tracking-wider">
                   <span className="flex items-center gap-2">
                     <Calendar className="w-3.5 h-3.5" />
-                    {svc.cta}: Book a Call
+                    {svc.cta}: Message via Upwork
                   </span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href={`mailto:mehedi.active24@gmail.com?subject=${encodeURIComponent(svc.subject)}`}
-                  className="flex items-center justify-center w-full px-4 py-2 text-[10px] font-mono text-text-secondary/50 hover:text-text-secondary transition-colors uppercase tracking-wider gap-2"
-                >
-                  <Mail className="w-3 h-3" />
-                  or send an email instead
-                </a>
+                </div>
               </div>
 
             </div>
@@ -234,24 +219,12 @@ export default function ServicesPage() {
               If the discovery call does not surface a diagnosable infrastructure problem, you owe nothing. No retainer, no fee, no follow-up pitch.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              <a
-                href="https://calendly.com/mehedi-active24"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-5 py-3.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-all duration-300"
-              >
-                <span>Book a Free Discovery Call</span>
+            <div className="pt-2">
+              <div className="inline-flex items-center gap-3 px-5 py-3.5 bg-accent/10 border border-accent/30 text-accent text-xs font-mono uppercase tracking-wider">
+                <Terminal className="w-4 h-4" />
+                <span>Message via Upwork to Discuss</span>
                 <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
-              </a>
-              <a
-                href="mailto:mehedi.active24@gmail.com?subject=Deliverability%20Diagnostic"
-                className="inline-flex items-center gap-3 px-5 py-3.5 bg-bg-dark border border-border-subtle hover:border-accent text-xs font-mono uppercase tracking-wider text-text-primary hover:text-accent hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] transition-all duration-300"
-              >
-                <Terminal className="w-4 h-4 text-accent" />
-                <span>Send the 3 data points</span>
-                <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
-              </a>
+              </div>
             </div>
 
           </div>

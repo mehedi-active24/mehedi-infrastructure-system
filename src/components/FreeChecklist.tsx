@@ -90,11 +90,6 @@ export default function FreeChecklist() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) return;
-    const subject = encodeURIComponent("Full Deliverability Checklist Request");
-    const body = encodeURIComponent(
-      `Hi Mehedi,\n\nPlease send me the full 9-point deliverability checklist.\n\nReply to: ${email}\n\nThanks`
-    );
-    window.open(`mailto:mehedi.active24@gmail.com?subject=${subject}&body=${body}`, "_blank");
     setSubmitted(true);
   };
 
@@ -185,7 +180,7 @@ export default function FreeChecklist() {
               {submitted ? (
                 <div className="flex items-center gap-3 text-emerald-400">
                   <Check className="w-4 h-4 shrink-0" />
-                  <p className="text-sm font-mono">Request sent — check your email app and hit send. Full list arriving shortly.</p>
+                  <p className="text-sm font-mono">Noted — reach out via Upwork and I'll send you the full list directly.</p>
                 </div>
               ) : (
                 <div className="space-y-4">

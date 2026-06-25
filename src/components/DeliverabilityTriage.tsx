@@ -407,25 +407,10 @@ export default function DeliverabilityTriage() {
 
                 {/* CTA */}
                 <div className="flex flex-col sm:flex-row gap-3">
-                  {result.cta === "calendly" ? (
-                    <a
-                      href="https://calendly.com/mehedi-active24"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
-                    >
-                      <Calendar className="w-3.5 h-3.5" />
-                      Book Free Discovery Call (20 Min)
-                    </a>
-                  ) : (
-                    <a
-                      href={`mailto:mehedi.active24@gmail.com?subject=Deliverability%20Triage%20Result%3A%20${encodeURIComponent(result.level)}&body=My%20triage%20result%3A%20${encodeURIComponent(result.headline)}%20(Score%3A%20${result.score}%2F130).%20Please%20send%20the%20full%20diagnosis.`}
-                      className="flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
-                    >
-                      <Mail className="w-3.5 h-3.5" />
-                      Get Full Written Diagnosis
-                    </a>
-                  )}
+                  <div className="flex items-center justify-center gap-2 px-6 py-3 bg-accent/10 border border-accent/30 text-accent text-xs font-mono uppercase tracking-wider">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {result.cta === "calendly" ? "Contact via Upwork to Book a Call" : "Contact via Upwork for Full Diagnosis"}
+                  </div>
                   <button
                     onClick={handleReset}
                     className="flex items-center justify-center gap-2 px-6 py-3 border border-border-subtle text-text-secondary text-xs font-mono uppercase tracking-wider hover:border-accent/30 hover:text-text-primary transition-colors"

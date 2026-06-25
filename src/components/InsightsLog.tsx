@@ -142,19 +142,7 @@ export default function InsightsLog({ condensed = true }: { condensed?: boolean 
           )}
         </div>
 
-        {/* Email subscribe */}
-        <div className="mt-8 border border-border-subtle bg-surface/20 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <p className="text-xs font-mono font-bold text-text-primary uppercase tracking-wider">Get new field reports when they publish</p>
-            <p className="text-[11px] font-mono text-text-secondary mt-1">One email per report. No newsletter. Unsubscribe any time.</p>
-          </div>
-          <a
-            href="mailto:mehedi.active24@gmail.com?subject=Subscribe%20to%20Field%20Reports&body=Please%20add%20me%20to%20your%20field%20report%20list."
-            className="shrink-0 px-4 py-2.5 bg-accent text-white text-[10px] font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors whitespace-nowrap"
-          >
-            Get Field Reports →
-          </a>
-        </div>
+
 
       </div>
     </section>

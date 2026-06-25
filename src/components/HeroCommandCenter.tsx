@@ -48,55 +48,16 @@ export default function HeroCommandCenter() {
             <div className="space-y-3">
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="https://calendly.com/mehedi-active24"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/architecture"
                   className="px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
                 >
-                  Book a Free Discovery Call
+                  View Case Studies
                 </a>
                 <a
-                  href="/architecture"
+                  href="/#triage"
                   className="px-5 py-2.5 bg-surface text-text-primary text-xs font-mono uppercase tracking-wider border border-border-subtle hover:bg-surface-hover transition-colors"
                 >
-                  See Case Studies
-                </a>
-              </div>
-
-              {/* Availability signal */}
-              <div className="flex items-center gap-2 pl-1">
-                <motion.div
-                  className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"
-                  animate={{ opacity: [1, 0.3, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                <span className="text-[10px] font-mono text-emerald-400/70 uppercase tracking-wider">
-                  Now accepting new clients ·
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4 pl-1">
-                <Link
-                  href="/#triage"
-                  className="inline-flex items-center text-[10px] font-mono text-emerald-400/80 hover:text-emerald-400 transition-colors gap-1 uppercase tracking-wider"
-                >
-                  Free inbox diagnostic →
-                </Link>
-                <span className="text-text-secondary/20 text-[10px]">·</span>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center text-[10px] font-mono text-text-secondary hover:text-accent transition-colors gap-1 uppercase tracking-wider"
-                >
-                  Pricing →
-                </Link>
-                <span className="text-text-secondary/20 text-[10px]">·</span>
-                <a
-                  href="https://www.linkedin.com/in/mehedi-active24/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-[10px] font-mono text-text-secondary hover:text-accent transition-colors gap-1 uppercase tracking-wider"
-                >
-                  LinkedIn →
+                  Free Inbox Diagnostic
                 </a>
               </div>
             </div>

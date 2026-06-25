@@ -42,9 +42,7 @@ const jsonLd = {
   "jobTitle": "Email Deliverability Consultant",
   "description": "Email deliverability consultant specialising in inbox recovery, cold email infrastructure, and authentication forensics for cold email agencies and B2B outbound teams.",
   "url": "https://mehedi-active24.vercel.app",
-  "email": "mehedi.active24@gmail.com",
   "sameAs": [
-    "https://www.linkedin.com/in/mehedi-active24/",
     "https://github.com/mehedi-active24"
   ],
   "knowsAbout": [

@@ -5,12 +5,36 @@
     "subtitle": "Cold email agencies and B2B outbound teams come to me when every validator says pass and inbox placement still drops."
   },
   "telemetry": [
-    { "label": "Active Mailboxes Managed", "value": "7.4k+", "status": "AS OF Q2 2026" },
-    { "label": "Sending Domains Recovered", "value": "1,235+", "status": "CUMULATIVE" },
-    { "label": "Monthly Delivery Throughput", "value": "5.3M+", "status": "PEAK VOLUME" },
-    { "label": "Average Inbox Placement", "value": "94%", "status": "VERIFIED" },
-    { "label": "Avg. Recovery Timeline", "value": "14–30 days", "status": "VERIFIED" },
-    { "label": "Markets Served", "value": "US / UK / AU", "status": "ACTIVE" }
+    {
+      "label": "Active Mailboxes Managed",
+      "value": "7.4k+",
+      "status": "AS OF Q2 2026"
+    },
+    {
+      "label": "Sending Domains Recovered",
+      "value": "1,235+",
+      "status": "CUMULATIVE"
+    },
+    {
+      "label": "Monthly Delivery Throughput",
+      "value": "5.3M+",
+      "status": "PEAK VOLUME"
+    },
+    {
+      "label": "Average Inbox Placement",
+      "value": "94%",
+      "status": "VERIFIED"
+    },
+    {
+      "label": "Avg. Recovery Timeline",
+      "value": "14\u201330 days",
+      "status": "VERIFIED"
+    },
+    {
+      "label": "Markets Served",
+      "value": "US / UK / AU",
+      "status": "ACTIVE"
+    }
   ],
   "profile": {
     "philosophy": "Most deliverability tools check that your records exist. I check whether they work on replies, forwards, and forwarded-to-spam paths. That is where most failures actually happen.",
@@ -78,11 +102,26 @@
   ],
   "proof": {
     "metrics": [
-      { "label": "Inboxes Managed", "value": "7.4k+" },
-      { "label": "Inbox Placement Rate", "value": "94%" },
-      { "label": "Domains Recovered", "value": "1,235+" },
-      { "label": "Emails Delivered/Month", "value": "5.3M" },
-      { "label": "Avg. Recovery Timeline", "value": "14–30 days" }
+      {
+        "label": "Inboxes Managed",
+        "value": "7.4k+"
+      },
+      {
+        "label": "Inbox Placement Rate",
+        "value": "94%"
+      },
+      {
+        "label": "Domains Recovered",
+        "value": "1,235+"
+      },
+      {
+        "label": "Emails Delivered/Month",
+        "value": "5.3M"
+      },
+      {
+        "label": "Avg. Recovery Timeline",
+        "value": "14\u201330 days"
+      }
     ],
     "timeline": [
       {
@@ -111,7 +150,12 @@
       "initialFailure": "Volume-induced domain burnout. Client attempted to scale from 50k to 250k monthly sends using a single Google Workspace tenant, resulting in global throttling and critical blacklist placement.",
       "rootCause": "Lack of domain rotation, identical IP reputation clustering, and missing DMARC quarantine enforcement.",
       "infrastructureActions": "Decommissioned burned infrastructure. Provisioned a 20-domain rotating cluster across separate tenants. Implemented strict SPF/DKIM alignment and custom warmup algorithms.",
-      "stack": ["Smartlead", "Google Workspace", "Cloudflare", "Postmaster"],
+      "stack": [
+        "Smartlead",
+        "Google Workspace",
+        "Cloudflare",
+        "Postmaster"
+      ],
       "outcome": "Restored 94%+ inbox placement and successfully scaled to 300k monthly volume without triggering spam traps."
     },
     {
@@ -119,18 +163,53 @@
       "initialFailure": "Operational and transactional emails landing in spam due to outbound marketing activities originating from the root corporate domain.",
       "rootCause": "Shared IP/Domain reputation contamination between marketing automation and transactional systems.",
       "infrastructureActions": "Architected a subdomain isolation strategy. Migrated all cold outbound to dedicated secondary domains with independent MX records. Hardened root domain DMARC to p=reject.",
-      "stack": ["Mailgun", "Instantly", "AWS Route 53", "DMARCian"],
+      "stack": [
+        "Mailgun",
+        "Instantly",
+        "AWS Route 53",
+        "DMARCian"
+      ],
       "outcome": "100% isolation achieved. Transactional delivery restored to 99.9% while outbound marketing continued unimpeded on parallel infrastructure."
     }
   ],
   "toolkit": {
-    "Sending Engines": ["Smartlead", "Instantly", "Mailshake"],
-    "SMTP Providers": ["Mailgun", "SendGrid", "Amazon SES"],
-    "Workspace": ["Google Workspace", "Microsoft 365", "Maildoso"],
-    "DNS": ["Cloudflare", "AWS Route 53", "Namecheap"],
-    "Monitoring": ["Postmaster Tools", "GlockApps", "MXToolbox", "Spamhaus"],
-    "Data": ["Apollo", "Clay", "MillionVerifier", "Scrubby"],
-    "Automation": ["n8n", "Make", "Custom Webhooks"]
+    "Sending Engines": [
+      "Smartlead",
+      "Instantly",
+      "Mailshake"
+    ],
+    "SMTP Providers": [
+      "Mailgun",
+      "SendGrid",
+      "Amazon SES"
+    ],
+    "Workspace": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Maildoso"
+    ],
+    "DNS": [
+      "Cloudflare",
+      "AWS Route 53",
+      "Namecheap"
+    ],
+    "Monitoring": [
+      "Postmaster Tools",
+      "GlockApps",
+      "MXToolbox",
+      "Spamhaus"
+    ],
+    "Data": [
+      "Apollo",
+      "Clay",
+      "MillionVerifier",
+      "Scrubby"
+    ],
+    "Automation": [
+      "n8n",
+      "Make",
+      "Custom Webhooks"
+    ]
   },
   "intelligence": [
     "SPF Flattening",
@@ -168,15 +247,18 @@
   "cta": {
     "heading": "Every Week You Wait, Your Domain Reputation Gets Harder to Recover.",
     "copy": "Most deliverability failures are diagnosable in a single 20-minute call. You'll leave knowing the specific cause, whether it's fixable, and what it would take. No pitch. No obligation.",
-    "primaryLink": "https://calendly.com/mehedi-active24",
-    "secondaryEmail": "mehedi.active24@gmail.com"
+    "primaryLink": "#",
+    "secondaryEmail": ""
   },
   "footer": {
     "statement": "Email Deliverability Consulting for Cold Email Agencies & B2B Outbound Teams."
   },
   "network": [
-    { "label": "LinkedIn", "handle": "linkedin.com/in/mehedi-active24", "href": "https://www.linkedin.com/in/mehedi-active24/", "meta": "NETWORK VERIFIED" },
-    { "label": "GitHub", "handle": "github.com/mehedi-active24", "href": "https://github.com/mehedi-active24", "meta": "INFRASTRUCTURE ACCESS" },
-    { "label": "Email", "handle": "mehedi.active24@gmail.com", "href": "mailto:mehedi.active24@gmail.com", "meta": "RESPONSE WITHIN 24H" }
+    {
+      "label": "GitHub",
+      "handle": "github.com/mehedi-active24",
+      "href": "https://github.com/mehedi-active24",
+      "meta": "INFRASTRUCTURE ACCESS"
+    }
   ]
 }

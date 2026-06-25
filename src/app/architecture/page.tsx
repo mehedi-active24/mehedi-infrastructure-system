@@ -77,20 +77,7 @@ export default function CaseStudiesPage() {
         </div>
 
         {/* CTA row */}
-        <div className="mt-16 pt-10 border-t border-border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div>
-            <p className="text-sm font-bold text-text-primary uppercase tracking-tight">Seen a failure that looks like yours?</p>
-            <p className="text-xs font-mono text-text-secondary mt-1">Most are diagnosable in a single 20-minute call. It&apos;s free.</p>
-          </div>
-          <a
-            href="https://calendly.com/mehedi-active24"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 px-6 py-3 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors whitespace-nowrap"
-          >
-            Book a Free Discovery Call →
-          </a>
-        </div>
+
 
       </div>
       <Footer />
