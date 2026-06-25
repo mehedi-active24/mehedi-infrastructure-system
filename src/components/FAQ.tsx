@@ -40,12 +40,12 @@ export default function FAQ() {
       <div className="container mx-auto px-6 max-w-7xl">
 
         <div className="mb-12">
-          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Before You Book</h2>
+          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Common Questions</h2>
           <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">
             Questions That Come Up Before the Discovery Call
           </h3>
           <p className="text-xs font-mono text-text-secondary mt-2 max-w-lg">
-            If your question isn&apos;t here, send me the 3 data points on <Link href="/services" className="text-accent hover:underline">the services page</Link> and I&apos;ll diagnose it within 24 hours.
+            If your question isn't here, send your question via Upwork and I'll respond within 24 hours.
           </p>
         </div>
 

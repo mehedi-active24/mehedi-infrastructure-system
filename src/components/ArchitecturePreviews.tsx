@@ -23,18 +23,15 @@ export default function ArchitecturePreviews() {
             <Link 
               href={`/architecture/${arch.slug}`} 
               key={arch.slug}
-              className="bg-surface border border-border-subtle p-6 flex flex-col group hover:border-accent transition-colors relative overflow-hidden block"
+              className="bg-surface border border-border-subtle p-6 flex flex-col group hover:border-accent transition-colors block"
             >
               {/* Card top stats */}
-              <div className="flex justify-between items-start mb-6 border-b border-border-subtle pb-4">
+              <div className="mb-6 border-b border-border-subtle pb-4">
                 <div className="space-y-1">
                   <div className="text-[10px] font-mono text-text-secondary uppercase tracking-wider">{arch.category}</div>
                   <h4 className="text-lg font-bold text-text-primary group-hover:text-accent transition-colors">{arch.title}</h4>
                 </div>
-                <div className="flex items-center gap-1.5 text-[10px] font-mono border border-border-subtle px-2 py-1 bg-bg-dark">
-                  <div className={`w-1.5 h-1.5 rounded-full ${arch.status === 'ACTIVE' ? 'bg-emerald-400' : arch.status === 'STANDBY' ? 'bg-amber-400' : 'bg-blue-400'}`} />
-                  <span className={arch.status === 'ACTIVE' ? 'text-emerald-400' : arch.status === 'STANDBY' ? 'text-amber-400' : 'text-blue-400'}>{arch.status}</span>
-                </div>
+
               </div>
 
               {/* Data grid */}
@@ -63,7 +60,6 @@ export default function ArchitecturePreviews() {
                 </div>
               </div>
 
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-colors pointer-events-none" />
             </Link>
           ))}
         </div>
@@ -72,9 +68,9 @@ export default function ArchitecturePreviews() {
         <div className="mt-10 text-center">
           <Link 
             href="/architecture" 
-            className="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline uppercase tracking-widest"
+            className="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline"
           >
-            [ VIEW ALL CASE STUDIES → ]
+            View all case studies →
           </Link>
         </div>
 

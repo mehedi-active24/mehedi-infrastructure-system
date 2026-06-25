@@ -49,17 +49,7 @@ export default function HeroCommandCenter() {
           <div className="relative w-full max-w-lg mx-auto lg:ml-auto h-[350px] md:h-[400px] flex items-center justify-center">
             
             {/* Environment: Background Topology Lines & Pulses */}
-            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-               {/* Ambient blue glow */}
-               <motion.div 
-                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 bg-accent/10 rounded-full blur-[80px]"
-                 animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-               />
-               
-               {/* Faint Grid Texture */}
-               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KPHBhdGggZD0iTTAgNDBMMDAgMEw0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')]" />
-            </div>
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">               {/* Faint Grid Texture */}            </div>
 
             {/* Tight Relative Container for Portrait + Overlays */}
             <div className="relative w-48 h-48 md:w-64 md:h-64">

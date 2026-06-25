@@ -60,13 +60,10 @@ export default function Testimonials() {
       <div className="container mx-auto px-6 max-w-7xl">
 
         <div className="mb-12">
-          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Client Recovery Logs</h2>
+          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">What Clients Say</h2>
           <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">
-            The Failure. The Diagnosis. The Number.
+            From the Agencies and Teams I've Worked With
           </h3>
-          <p className="text-xs font-mono text-text-secondary mt-2">
-            Each entry is one engagement: what broke, what standard tools missed, and the result in days and percentages.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -96,10 +93,6 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Social proof note */}
-        <p className="mt-6 text-[10px] font-mono text-text-secondary/40 text-center uppercase tracking-wider">
-          Full case breakdowns available in the Client Recovery Cases section above
-        </p>
 
       </div>
     </section>

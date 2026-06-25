@@ -5,19 +5,13 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative pt-12 pb-8 bg-bg-dark overflow-hidden selection:bg-accent/30">
+    <footer className="pt-12 pb-8 bg-bg-dark border-t border-border-subtle selection:bg-accent/30">
       
       {/* Background Depth Layers */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Subtle grid texture */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KPHBhdGggZD0iTTAgNDBMMDAgMEw0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMSkiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')]" />
-        
+        {/* Subtle grid texture */}        
         {/* Ambient infrastructure glow */}
-        <motion.div 
-          className="absolute bottom-0 right-1/4 w-[500px] h-[300px] bg-accent/5 blur-[120px] rounded-full"
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
+
 
 
       </div>
@@ -48,7 +42,7 @@ export default function Footer() {
         {/* Section 4: Copyright & Signature Layer */}
         <div className="border-t border-border-subtle pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-text-secondary/60 uppercase tracking-widest">
           <div>
-             <span className="text-text-primary/80">MEHEDI HASAN</span> · EMAIL DELIVERABILITY CONSULTANT
+             <span className="text-text-primary/80">Mehedi Hasan</span> · Email Deliverability
           </div>
           <div className="flex items-center gap-2">
              © 2026

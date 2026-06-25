@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Activity, CheckCircle, ChevronDown } from "lucide-react";
+import { CheckCircle, ChevronDown } from "lucide-react";
 import PostmasterAuditVisual from "@/components/PostmasterAuditVisual";
 import AuthHeaderForensics from "@/components/AuthHeaderForensics";
 
@@ -64,7 +64,7 @@ const recoveryLogs = [
     quickResult: "31% → 68% inbox placement · 10/12 domains recovered · 18 days",
     failure: "Silent inbox placement collapse. 31% placement over 90 days. Budget was being spent on active sequences but replies weren't arriving — the pipeline had effectively stopped. All validators passing. All blacklists clean.\n\nRoot Cause Identified:\n• Warmup service running on identical timing schedule as active outbound campaigns. ESPs flagging combined pattern as automated bulk traffic\n• DKIM passing format validation but breaking on replies and forwards — precisely the sends that generate positive engagement signals with receiving servers\n• DMARC at p=none with no RUA reporting. Zero visibility into authentication failures at receiving servers",
     intervention: "Warmup schedule isolated from outbound cadences. DKIM realigned across all message paths including reply and forward paths. DMARC enforced to p=quarantine with active RUA and RUF forensic reporting. Domain reputation isolated per sending domain.",
-    result: "Inbox placement recovered from 31% to 68% by day 18 — pipeline generation restored within the same outbound sequences. 10 of 12 domains recovered. 2 domains had exceeded the reputation recovery window and were retired. [TIMELINE: 18 DAYS]",
+    result: "Inbox placement recovered from 31% to 68% by day 18 — pipeline generation restored within the same outbound sequences. 10 of 12 domains recovered. 2 domains had exceeded the reputation recovery window and were retired.",
     severity: "CRITICAL",
   },
   {
@@ -73,7 +73,7 @@ const recoveryLogs = [
     quickResult: "500k/month delivery restored · M365 SCL 5-6 → 1-2 · 21 days",
     failure: "Domain burnout during volume scaling. Sustained 500k/month sends collapsing to Junk across Microsoft 365 targets — while Gmail contacts still showed good open rates, masking the full scope of the problem.\n\nRoot Cause Identified:\n- All 50 sending domains registered under the same registrar account with shared billing. Microsoft Defender clustering all 50 as a single sender identity\n- SPF lookup count at 14 across primary domains (RFC limit is 10), causing PermError on strict receivers and silent delivery failures without bounce codes\n- No domain reputation isolation. One reputation event cascading across the entire fleet",
     intervention: "Domain registrar accounts separated across 3 entities. SPF records rebuilt to 4 DNS lookups maximum. Fleet architecture redesigned with reputation isolation per cluster: 10-domain clusters, no shared ASN or DNS provider across clusters.",
-    result: "Sustained 500k/month delivery restored without reputation drift. Microsoft 365 SCL scores reduced from 5-6 to 1-2 across the full fleet — Outlook contacts reachable again, recovering the pipeline segment that had been effectively dead. [TIMELINE: 21 DAYS]",
+    result: "Sustained 500k/month delivery restored without reputation drift. Microsoft 365 SCL scores reduced from 5-6 to 1-2 across the full fleet — Outlook contacts reachable again, recovering the pipeline segment that had been effectively dead.",
     severity: "HIGH",
   },
   {
@@ -82,7 +82,7 @@ const recoveryLogs = [
     quickResult: "4.2% → 0.7% bounce rate · Google reputation: High tier · 30 days",
     failure: "Google Sender Compliance failure. Bounce rate elevated to 4.2% and rising — candidate outreach was being rejected at scale, directly reducing the volume of hires the team could source. Clean MXToolbox results throughout.\n\nRoot Cause Identified:\n- DMARC enforcement absent: p=none with no aggregate reporting. Google's bulk sender requirements require p=quarantine for senders above 5k/day\n- Bounce classification undifferentiated: hard and soft bounces treated identically, accelerating list decay into reputation damage\n- No PTR record on sending IP. Reverse DNS mismatch flagged by Gmail's inbound authentication layer",
     intervention: "DMARC enforced to p=quarantine with active RUA reporting. PTR records configured with reverse DNS matching the sending hostname. Bounce classification separated by error code: 5xx hard bounces suppressed permanently, 4xx soft bounces retried with adaptive throttle tuning.",
-    result: "Bounce rate reduced from 4.2% to 0.7% within 30 days — candidate outreach reaching inbox again at full volume. Google Postmaster domain reputation recovered to High tier. Google Sender Compliance requirements met in full. [TIMELINE: 30 DAYS]",
+    result: "Bounce rate reduced from 4.2% to 0.7% within 30 days — candidate outreach reaching inbox again at full volume. Google Postmaster domain reputation recovered to High tier. Google Sender Compliance requirements met in full.",
     severity: "HIGH",
   },
   {
@@ -91,7 +91,7 @@ const recoveryLogs = [
     quickResult: "SPF + DKIM + DMARC: PASS · Validator-invisible failure resolved · Apr 2026",
     failure: "DMARC failing silently on all outbound. Inbox placement declining with no visible cause — transactional and marketing emails missing the inbox, affecting customer re-engagement revenue. All validator tools — MXToolbox, mail-tester, in-platform checks — reporting authentication as healthy.\n\nRoot Cause Identified:\n• GoHighLevel routing outbound through Google Workspace SMTP relay. Google's relay signs DKIM with a relay-specific subdomain (gappssmtp.com), not the client's From domain\n• DMARC alignment requires DKIM signing domain to match From domain. Mismatch causes silent DMARC failure — no bounce code, no validator flag\n• SPF: NONE — Google relay IPs not included in the domain's SPF record",
     intervention: "Custom sending domain configured inside GoHighLevel, authenticated directly on the client domain. DKIM now signs with the client domain — not Google's relay subdomain. SPF record updated to include Google's outbound SMTP IP ranges. DMARC alignment achieved on both paths.",
-    result: "SPF: PASS. DKIM: PASS (client domain — correctly aligned). DMARC: PASS. Verified via Gmail Show Original header inspection. Standard validators had reported green throughout — the failure was only visible in raw message headers. Customer email fully recovered. [VERIFIED: APR 2026]",
+    result: "SPF: PASS. DKIM: PASS (client domain — correctly aligned). DMARC: PASS. Verified via Gmail Show Original header inspection. Standard validators had reported green throughout — the failure was only visible in raw message headers. Customer email fully recovered.",
     severity: "HIGH",
   },
 ];
@@ -105,38 +105,22 @@ export default function DeliverabilityProof() {
   const [openId, setOpenId] = useState<string | null>("01");
 
   return (
-    <section id="results" className="py-16 border-b border-border-subtle bg-surface/10 relative overflow-hidden">
+    <section id="results" className="py-16 border-b border-border-subtle bg-surface/10">
 
-      {/* Background texture */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KPHBhdGggZD0iTTAgNDBMMDAgMEw0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')] pointer-events-none opacity-30 z-0" />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 space-y-12">
+      <div className="container mx-auto px-6 max-w-7xl space-y-12">
 
         {/* ── SECTION 1: TELEMETRY METRICS ── */}
         <div>
           <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Verified Results</h2>
-              <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">Proof of Work</h3>
-              <p className="text-xs font-mono text-text-secondary mt-2">
-                Live metrics across active client infrastructure. Updated Q2 2026.
-              </p>
+              <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">Results From Recent Engagements</h3>
             </div>
-            <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 shrink-0">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              VERIFIED METRICS
-            </div>
+
           </div>
 
-          {/* Telemetry Panel Header */}
           <div className="border border-border-subtle">
-            <div className="bg-surface/50 px-5 py-2.5 border-b border-border-subtle flex items-center justify-between">
-              <span className="text-[9px] font-mono text-text-secondary uppercase tracking-widest flex items-center gap-2">
-                <Activity className="w-3 h-3 text-accent" /> Infrastructure Metrics
-              </span>
-              <span className="text-[9px] font-mono text-text-secondary/40 hidden sm:inline">DATASET: COMPLIANT // VERIFICATION STATUS: COMPLETE</span>
-            </div>
-
             {/* Metric Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border-subtle">
               {telemetry.map((metric, i) => {
@@ -148,14 +132,12 @@ export default function DeliverabilityProof() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.07 }}
-                    className="group bg-bg-dark p-5 flex flex-col gap-3 hover:bg-surface transition-colors relative overflow-hidden"
+                    className="group bg-bg-dark p-5 flex flex-col gap-3 hover:bg-surface transition-colors"
                   >
                     {/* Status dot */}
                     <div className="flex items-center justify-between">
                       <span className="text-[9px] font-mono text-text-secondary uppercase tracking-wider leading-tight pr-2">{metric.label}</span>
-                      <div className="flex items-center gap-1.5">
-                        <div className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
-                      </div>
+
                     </div>
 
                     {/* Value */}
@@ -163,24 +145,10 @@ export default function DeliverabilityProof() {
                       {metric.value}
                     </div>
 
-                    {/* Progress bar */}
-                    <div className="h-px bg-border-subtle w-full overflow-hidden mt-1">
-                      <motion.div
-                        className={`h-full ${c.dot} opacity-60`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${metric.bar}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.4, delay: i * 0.08, ease: "easeOut" }}
-                      />
-                    </div>
-
                     {/* Meta */}
-                    <div className={`text-[8px] font-mono px-1.5 py-0.5 border w-fit ${c.border} ${c.bg} ${c.text}`}>
+                    <div className="text-[9px] font-mono text-text-secondary/50">
                       {metric.meta}
                     </div>
-
-                    {/* Hover line trace */}
-                    <div className="absolute bottom-0 left-0 right-0 h-px bg-accent/0 group-hover:bg-accent/20 transition-colors" />
                   </motion.div>
                 );
               })}
@@ -247,11 +215,10 @@ export default function DeliverabilityProof() {
                   onClick={() => setOpenId(openId === log.id ? null : log.id)}
                   className="w-full text-left px-5 py-4 flex items-center gap-4 hover:bg-surface/40 transition-colors group"
                 >
-                  <span className="text-[9px] font-mono text-accent shrink-0 w-14">[ {log.id} ]</span>
+                  <span className="text-[9px] font-mono text-text-secondary/40 shrink-0 w-10">{log.id}</span>
                   <div className="flex-1 min-w-0 space-y-1">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="text-xs font-mono font-bold text-text-primary group-hover:text-accent transition-colors">{log.env}</span>
-                      <span className={`text-[8px] font-mono px-1.5 py-0.5 border ${severityColors[log.severity]}`}>{log.severity}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" />
@@ -300,14 +267,7 @@ export default function DeliverabilityProof() {
               </motion.div>
             ))}
 
-            {/* Footer */}
-            <div className="px-5 py-3 bg-surface/20 flex justify-between items-center text-[9px] font-mono text-text-secondary/30 uppercase tracking-widest">
-              <span>Client Recovery Archive · Full Documentation Available</span>
-              <div className="flex items-center gap-2">
-                <motion.div className="w-1 h-1 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-                All Environments Stabilized
-              </div>
-            </div>
+
           </div>
         </div>
 
