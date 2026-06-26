@@ -119,9 +119,6 @@ export default function BuildProcess() {
           })}
         </div>
 
-
-        </div>
-
       </div>
     </section>
   );
