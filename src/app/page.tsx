@@ -1,5 +1,7 @@
 import HeroCommandCenter from "@/components/HeroCommandCenter";
+import Services from "@/components/Services";
 import OperatorProfile from "@/components/OperatorProfile";
+import ToolStack from "@/components/ToolStack";
 import DeliverabilityProof from "@/components/DeliverabilityProof";
 import Testimonials from "@/components/Testimonials";
 import BuildProcess from "@/components/BuildProcess";
@@ -11,21 +13,25 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-bg-dark selection:bg-accent/30 overflow-x-hidden">
-      {/* 1. Claim */}
+      {/* 1. Hook */}
       <HeroCommandCenter />
-      {/* 2. Differentiator */}
+      {/* 2. What I do — 3 buyer types */}
+      <Services />
+      {/* 3. Who I am */}
       <OperatorProfile />
-      {/* 4. Proof — convince before asking them to understand the process */}
+      {/* 4. Tools I work with — hands-on evidence */}
+      <ToolStack />
+      {/* 5. Documented case recoveries */}
       <DeliverabilityProof />
-      {/* 5. Social proof */}
+      {/* 6. Social proof */}
       <Testimonials />
-      {/* 6. How it works */}
+      {/* 7. How it works */}
       <BuildProcess />
-      {/* 7. Deep proof for readers who want case-level detail */}
+      {/* 8. Deep proof for technical readers */}
       <ArchitecturePreviews />
-      {/* 10. Objection handling */}
+      {/* 9. Objection handling */}
       <FAQ />
-      {/* 11. Final CTA */}
+      {/* 10. Final CTA */}
       <AuditCTA />
       <Footer />
     </main>
