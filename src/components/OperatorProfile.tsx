@@ -3,10 +3,19 @@
 const tools = [
   "Instantly", "Smartlead", "GoHighLevel", "Google Workspace",
   "Microsoft 365", "Apollo.io", "Clay", "MailerLite",
-  "ActiveCampaign", "Brevo", "MXToolbox", "Google Postmaster",
+  "ActiveCampaign", "Brevo", "Klaviyo", "Beehiiv",
+  "Zapier", "Make", "n8n", "Cloudflare",
+  "Warmbox", "MXToolbox", "Google Postmaster",
 ];
 
 const background = ["Cisco ESA", "Cisco WSA", "Barracuda ESG", "Email Security · 2018–present"];
+
+const markets = [
+  "🇺🇸 United States",
+  "🇬🇧 United Kingdom",
+  "🇦🇺 Australia",
+  "🇨🇦 Canada",
+];
 
 export default function OperatorProfile() {
   return (
@@ -42,26 +51,26 @@ export default function OperatorProfile() {
             </div>
           </div>
 
-          {/* Right — Tools */}
-          <div className="space-y-5">
-            <p className="text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest">Tools I work with</p>
-
-            <div className="flex flex-wrap gap-2">
-              {tools.map((t) => (
-                <span
-                  key={t}
-                  className="text-[10px] sm:text-xs font-mono text-text-secondary border border-border-subtle bg-surface/60 px-3 py-1.5 hover:border-accent/30 hover:text-text-primary transition-all duration-200"
-                >
-                  {t}
-                </span>
-              ))}
+          {/* Right — Tools + Markets */}
+          <div className="space-y-6">
+            <div>
+              <p className="text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest mb-3">Tools I work with</p>
+              <div className="flex flex-wrap gap-2">
+                {tools.map((t) => (
+                  <span
+                    key={t}
+                    className="text-[10px] sm:text-xs font-mono text-text-secondary border border-border-subtle bg-surface/60 px-3 py-1.5 hover:border-accent/30 hover:text-text-primary transition-all duration-200"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Markets */}
-            <div className="border border-border-subtle bg-surface/40 p-4 mt-2">
+            <div className="border border-border-subtle bg-surface/40 p-4">
               <p className="text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest mb-3">Markets served</p>
-              <div className="grid grid-cols-3 gap-3">
-                {["🇺🇸 United States", "🇬🇧 United Kingdom", "🇦🇺 Australia"].map((m) => (
+              <div className="grid grid-cols-2 gap-2.5">
+                {markets.map((m) => (
                   <div key={m} className="text-xs font-mono text-text-secondary/70">{m}</div>
                 ))}
               </div>
