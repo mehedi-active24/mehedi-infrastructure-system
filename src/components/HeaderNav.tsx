@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Case Studies", href: "/#results" },
-  { label: "Work Sample",  href: "/sample-audit-report.pdf", external: true },
+  { label: "Work Sample",  href: "/work-sample" },
   { label: "Contact",      href: "/#book" },
 ];
 
@@ -76,7 +76,7 @@ export default function HeaderNav() {
                     transition={{ type: "spring", stiffness: 500, damping: 40 }}
                   />
                 )}
-                <span className="relative z-10">{item.label}{item.external && <span className="ml-1 opacity-40">↗</span>}</span>
+                <span className="relative z-10">{item.label}</span>
               </a>
             ))}
           </nav>
@@ -141,8 +141,6 @@ export default function HeaderNav() {
                     >
                       <a
                         href={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
                         onClick={() => setMobileOpen(false)}
                         className="flex items-center justify-between px-3 py-2.5 border border-border-subtle hover:border-accent/30 hover:bg-surface transition-all group"
                       >
@@ -150,7 +148,7 @@ export default function HeaderNav() {
                           {item.label}
                         </span>
                         <span className="text-accent opacity-0 group-hover:opacity-100 text-[10px] font-mono transition-all">
-                          {item.external ? "↗" : "→"}
+                          →
                         </span>
                       </a>
                     </motion.div>
