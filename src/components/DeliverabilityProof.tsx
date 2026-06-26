@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, ChevronDown } from "lucide-react";
-import PostmasterAuditVisual from "@/components/PostmasterAuditVisual";
-import AuthHeaderForensics from "@/components/AuthHeaderForensics";
 
 const telemetry = [
   {
@@ -51,12 +49,6 @@ const telemetry = [
   },
 ];
 
-const statusColors: Record<string, { dot: string; text: string; border: string; bg: string }> = {
-  emerald: { dot: "bg-emerald-400", text: "text-emerald-400", border: "border-emerald-400/20", bg: "bg-emerald-400/5" },
-  blue:    { dot: "bg-blue-400",    text: "text-blue-400",    border: "border-blue-400/20",    bg: "bg-blue-400/5"    },
-  accent:  { dot: "bg-accent",      text: "text-accent",      border: "border-accent/20",      bg: "bg-accent/5"      },
-};
-
 const recoveryLogs = [
   {
     id: "01",
@@ -96,11 +88,6 @@ const recoveryLogs = [
   },
 ];
 
-const severityColors: Record<string, string> = {
-  CRITICAL: "text-red-400 border-red-400/20 bg-red-400/5",
-  HIGH:     "text-amber-400 border-amber-400/20 bg-amber-400/5",
-};
-
 export default function DeliverabilityProof() {
   const [openId, setOpenId] = useState<string | null>("01");
 
@@ -124,7 +111,6 @@ export default function DeliverabilityProof() {
             {/* Metric Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border-subtle">
               {telemetry.map((metric, i) => {
-                const c = statusColors[metric.status];
                 return (
                   <motion.div
                     key={i}
@@ -154,30 +140,6 @@ export default function DeliverabilityProof() {
               })}
             </div>
           </div>
-        </div>
-
-        {/* ── POSTMASTER AUDIT VISUAL ── */}
-        <div>
-          <div className="mb-6">
-            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Forensic Monitoring</h2>
-            <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">What I Actually Read During an Audit</h3>
-            <p className="text-xs font-mono text-text-secondary mt-2 max-w-xl">
-              Google Postmaster tracks domain reputation at the receiving end — the signal that validators like MXToolbox never check. This is the first dashboard I open on every engagement.
-            </p>
-          </div>
-          <PostmasterAuditVisual />
-        </div>
-
-        {/* ── AUTH HEADER FORENSICS ── */}
-        <div>
-          <div className="mb-6">
-            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Authentication Forensics</h2>
-            <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">What Standard Validators Miss</h3>
-            <p className="text-xs font-mono text-text-secondary mt-2 max-w-xl">
-              Real email headers from a GoHighLevel + Google Workspace audit. DKIM showed PASS on every tool. DMARC was failing silently. The failure was only visible in raw message headers.
-            </p>
-          </div>
-          <AuthHeaderForensics />
         </div>
 
         {/* ── SECTION 2: INFRASTRUCTURE RECOVERY LOGS ── */}

@@ -29,13 +29,6 @@ export default function AuditCTA() {
           <span>3-day avg. to root cause</span>
         </div>
 
-        {/* Triage CTA */}
-        <p className="text-[10px] font-mono text-text-secondary/30 uppercase tracking-wider">
-          Not sure if this applies to your situation?{" "}
-          <a href="#triage" className="text-accent/50 hover:text-accent transition-colors underline underline-offset-2">
-            Run the free inbox diagnostic →
-          </a>
-        </p>
 
       </div>
     </section>

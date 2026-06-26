@@ -71,13 +71,6 @@ const stages = [
   },
 ];
 
-const colorMap: Record<string, { text: string; border: string; bg: string; dot: string; line: string }> = {
-  blue:    { text: "text-blue-400",    border: "border-blue-400/25",    bg: "bg-blue-400/5",    dot: "bg-blue-400",    line: "from-blue-400/40"    },
-  violet:  { text: "text-violet-400",  border: "border-violet-400/25",  bg: "bg-violet-400/5",  dot: "bg-violet-400",  line: "from-violet-400/40"  },
-  amber:   { text: "text-amber-400",   border: "border-amber-400/25",   bg: "bg-amber-400/5",   dot: "bg-amber-400",   line: "from-amber-400/40"   },
-  emerald: { text: "text-emerald-400", border: "border-emerald-400/25", bg: "bg-emerald-400/5", dot: "bg-emerald-400", line: "from-emerald-400/40" },
-};
-
 export default function BuildProcess() {
   return (
     <section id="process" className="py-24 border-b border-border-subtle bg-bg-dark">
@@ -126,14 +119,6 @@ export default function BuildProcess() {
           })}
         </div>
 
-          {/* Pipeline footer */}
-          <div className="mt-8 ml-0 md:ml-20 pt-6 border-t border-border-subtle flex items-center justify-between text-[10px] font-mono text-text-secondary/30 uppercase tracking-widest">
-            <span>Consulting Process · Discovery to Ongoing Protection</span>
-            <div className="flex items-center gap-2">
-              <motion.div className="w-1 h-1 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-              All Stages Operational
-            </div>
-          </div>
 
         </div>
 

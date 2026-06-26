@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   description: "Email deliverability consultant helping cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation. 4 documented case recoveries. Inbox placement specialists for cold email agencies.",
   openGraph: {
     title: "Mehedi Hasan · Email Deliverability Consultant",
-    description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 1,235+ domains recovered. Free 20-minute discovery call.",
-    url: "https://mehedi-active24.vercel.app",
+    description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 4 documented case recoveries across US, UK, and AU agencies.",
+    url: "https://mehedi-infrastructure-system.vercel.app",
     siteName: "Mehedi Hasan",
     type: "website",
     locale: "en_US",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Mehedi Hasan · Email Deliverability Consultant",
-    description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 1,235+ domains recovered.",
+    description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 4 documented case recoveries.",
   },
   robots: {
     index: true,
@@ -41,7 +41,7 @@ const jsonLd = {
   "name": "Mehedi Hasan",
   "jobTitle": "Email Deliverability Consultant",
   "description": "Email deliverability consultant specialising in inbox recovery, cold email infrastructure, and authentication forensics for cold email agencies and B2B outbound teams.",
-  "url": "https://mehedi-active24.vercel.app",
+  "url": "https://mehedi-infrastructure-system.vercel.app",
   "sameAs": [
     "https://github.com/mehedi-active24"
   ],

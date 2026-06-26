@@ -3,10 +3,7 @@ import OperatorProfile from "@/components/OperatorProfile";
 import DeliverabilityProof from "@/components/DeliverabilityProof";
 import Testimonials from "@/components/Testimonials";
 import BuildProcess from "@/components/BuildProcess";
-import DeliverabilityTriage from "@/components/DeliverabilityTriage";
 import ArchitecturePreviews from "@/components/ArchitecturePreviews";
-import FreeChecklist from "@/components/FreeChecklist";
-import InsightsLog from "@/components/InsightsLog";
 import FAQ from "@/components/FAQ";
 import AuditCTA from "@/components/AuditCTA";
 import Footer from "@/components/Footer";
@@ -18,8 +15,6 @@ export default function Home() {
       <HeroCommandCenter />
       {/* 2. Differentiator */}
       <OperatorProfile />
-      {/* 3. Self-qualify — lead-gen product, high on page to capture intent early */}
-      <DeliverabilityTriage />
       {/* 4. Proof — convince before asking them to understand the process */}
       <DeliverabilityProof />
       {/* 5. Social proof */}
@@ -28,10 +23,6 @@ export default function Home() {
       <BuildProcess />
       {/* 7. Deep proof for readers who want case-level detail */}
       <ArchitecturePreviews />
-      {/* 8. Lead magnet */}
-      <FreeChecklist />
-      {/* 9. Authority + email capture */}
-      <InsightsLog condensed={true} />
       {/* 10. Objection handling */}
       <FAQ />
       {/* 11. Final CTA */}
