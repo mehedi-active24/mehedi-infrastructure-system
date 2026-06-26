@@ -62,8 +62,6 @@ export default function HeaderNav() {
               <a
                 key={item.label}
                 href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
                 onMouseEnter={() => setActiveItem(item.label)}
                 onMouseLeave={() => setActiveItem(null)}
                 className="relative group px-3 py-1.5 text-[11px] font-mono text-text-secondary uppercase tracking-wider hover:text-text-primary transition-colors duration-150"
