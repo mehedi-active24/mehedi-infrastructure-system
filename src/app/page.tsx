@@ -3,9 +3,8 @@ import Services from "@/components/Services";
 import OperatorProfile from "@/components/OperatorProfile";
 import ToolStack from "@/components/ToolStack";
 import DeliverabilityProof from "@/components/DeliverabilityProof";
-import Testimonials from "@/components/Testimonials";
+import EvidenceGallery from "@/components/EvidenceGallery";
 import BuildProcess from "@/components/BuildProcess";
-import ArchitecturePreviews from "@/components/ArchitecturePreviews";
 import FAQ from "@/components/FAQ";
 import AuditCTA from "@/components/AuditCTA";
 import Footer from "@/components/Footer";
@@ -19,19 +18,17 @@ export default function Home() {
       <Services />
       {/* 3. Who I am */}
       <OperatorProfile />
-      {/* 4. Tools I work with — hands-on evidence */}
+      {/* 4. Tools I work with */}
       <ToolStack />
       {/* 5. Documented case recoveries */}
       <DeliverabilityProof />
-      {/* 6. Social proof */}
-      <Testimonials />
+      {/* 6. Additional real evidence */}
+      <EvidenceGallery />
       {/* 7. How it works */}
       <BuildProcess />
-      {/* 8. Deep proof for technical readers */}
-      <ArchitecturePreviews />
-      {/* 9. Objection handling */}
+      {/* 8. Objection handling */}
       <FAQ />
-      {/* 10. Final CTA */}
+      {/* 9. Final CTA */}
       <AuditCTA />
       <Footer />
     </main>

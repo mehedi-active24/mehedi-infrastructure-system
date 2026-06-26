@@ -258,6 +258,20 @@ export default function DeliverabilityProof() {
                           </div>
                         </div>
                       </div>
+                      {/* Case 05: selfcraft.me post-remediation auth headers */}
+                      {log.id === "05" && (
+                        <div className="px-5 pb-6 bg-surface/20">
+                          <div className="text-[8px] font-mono text-emerald-400/60 uppercase tracking-widest mb-3">Post-Remediation Evidence · selfcraft.me</div>
+                          <div className="border border-border-subtle overflow-hidden">
+                            <img
+                              src="/evidence/selfcraft-passed.png"
+                              alt="selfcraft.me — post-remediation email authentication headers showing SPF, DKIM, and DMARC all passing"
+                              className="w-full block"
+                            />
+                          </div>
+                          <p className="text-[9px] font-mono text-text-secondary/30 mt-2">selfcraft.me · Gmail Show Original · Authentication headers captured after remediation · Jun 2026</p>
+                        </div>
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>

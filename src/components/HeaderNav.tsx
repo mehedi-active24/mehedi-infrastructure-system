@@ -6,9 +6,9 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "Services",     href: "/services"     },
-  { label: "Case Studies", href: "/architecture" },
-  { label: "Field Reports", href: "/logs"        },
+  { label: "Services",     href: "/#services"     },
+  { label: "Case Studies", href: "/#results" },
+  { label: "Process",      href: "/#process" },
 ];
 
 export default function HeaderNav() {
@@ -22,7 +22,6 @@ export default function HeaderNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Prevent body scroll when drawer is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -43,11 +42,9 @@ export default function HeaderNav() {
             : "bg-bg-dark/80 backdrop-blur-sm border-b border-transparent py-4"
         }`}
       >
-
-
         <div className="container mx-auto px-6 max-w-7xl relative flex items-center justify-between">
 
-          {/* LEFT: Operator Identity */}
+          {/* LEFT: Identity */}
           <Link href="/" className="group flex flex-col leading-none select-none">
             <span className="font-mono text-sm font-bold tracking-[0.15em] text-text-primary uppercase group-hover:text-accent transition-colors duration-200">
               Mehedi Hasan
@@ -57,7 +54,7 @@ export default function HeaderNav() {
             </span>
           </Link>
 
-          {/* CENTER: Availability Signal (desktop) */}
+          {/* CENTER: Availability (desktop) */}
           <div className="hidden lg:flex items-center gap-2 text-[9px] font-mono text-text-secondary/50 uppercase tracking-widest">
             <motion.div
               className="w-1.5 h-1.5 rounded-full bg-emerald-400"
@@ -67,7 +64,7 @@ export default function HeaderNav() {
             <span>Accepting new clients · Q3 2026</span>
           </div>
 
-          {/* RIGHT: Navigation (desktop) */}
+          {/* RIGHT: Nav (desktop) */}
           <nav className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
@@ -77,7 +74,6 @@ export default function HeaderNav() {
                 onMouseLeave={() => setActiveItem(null)}
                 className="relative group px-3 py-1.5 text-[11px] font-mono text-text-secondary uppercase tracking-wider hover:text-text-primary transition-colors duration-150"
               >
-                {/* Hover background */}
                 {activeItem === item.label && (
                   <motion.span
                     layoutId="nav-hover"
@@ -86,16 +82,12 @@ export default function HeaderNav() {
                     transition={{ type: "spring", stiffness: 500, damping: 40 }}
                   />
                 )}
-
-                {/* Label */}
-                <span className="relative z-10 flex items-center gap-1.5">
-                  {item.label}
-                </span>
+                <span className="relative z-10">{item.label}</span>
               </Link>
             ))}
           </nav>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 border border-border-subtle text-text-secondary hover:text-text-primary hover:border-accent/40 transition-colors"
@@ -107,11 +99,10 @@ export default function HeaderNav() {
         </div>
       </header>
 
-      {/* Mobile Side Drawer Navigation */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Backdrop overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
@@ -120,7 +111,6 @@ export default function HeaderNav() {
               className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm md:hidden"
             />
 
-            {/* Sliding Drawer */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -128,9 +118,7 @@ export default function HeaderNav() {
               transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
               className="fixed top-0 right-0 bottom-0 w-[85vw] sm:w-[350px] z-50 bg-bg-dark border-l border-border-subtle p-6 flex flex-col justify-between shadow-2xl md:hidden overflow-y-auto selection:bg-accent/30"
             >
-              {/* Top Section */}
               <div className="space-y-8">
-                {/* Drawer Header */}
                 <div className="flex items-center justify-between border-b border-border-subtle pb-4">
                   <div className="flex flex-col">
                     <span className="font-mono text-xs font-bold text-text-primary uppercase tracking-wider">
@@ -149,7 +137,6 @@ export default function HeaderNav() {
                   </button>
                 </div>
 
-                {/* Navigation Nodes */}
                 <nav className="flex flex-col gap-1.5">
                   {navItems.map((item, i) => (
                     <motion.div
@@ -163,12 +150,10 @@ export default function HeaderNav() {
                         onClick={() => setMobileOpen(false)}
                         className="flex items-center justify-between px-3 py-2.5 border border-border-subtle hover:border-accent/30 hover:bg-surface transition-all group"
                       >
-                        <div className="flex items-center gap-3">
-                          <span className="text-[11px] font-mono text-text-secondary group-hover:text-text-primary uppercase tracking-wider transition-colors">
-                            {item.label}
-                          </span>
-                        </div>
-                        <span className="text-accent opacity-0 group-hover:opacity-100 text-[10px] font-mono transition-all transform translate-x-1 group-hover:translate-x-0">
+                        <span className="text-[11px] font-mono text-text-secondary group-hover:text-text-primary uppercase tracking-wider transition-colors">
+                          {item.label}
+                        </span>
+                        <span className="text-accent opacity-0 group-hover:opacity-100 text-[10px] font-mono transition-all">
                           →
                         </span>
                       </Link>
@@ -177,23 +162,18 @@ export default function HeaderNav() {
                 </nav>
               </div>
 
-              {/* Bottom: Availability */}
-              <div className="space-y-3 mt-8 pt-6 border-t border-border-subtle font-mono text-[9px] text-text-secondary/50">
+              <div className="space-y-3 mt-8 pt-6 border-t border-border-subtle font-mono text-[9px] text-text-secondary/50 uppercase tracking-widest">
                 <div className="flex justify-between">
-                  <span>ACCEPTING CLIENTS</span>
+                  <span>Accepting clients</span>
                   <span className="text-emerald-400">Q3 2026</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>DISCOVERY CALL</span>
-                  <span className="text-emerald-400">FREE · 20 MIN</span>
+                  <span>Discovery call</span>
+                  <span className="text-emerald-400">Free · 20 min</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>RESPONSE TIME</span>
-                  <span className="text-emerald-400">WITHIN 24H</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>ACTIVE SLOTS</span>
-                  <span className="text-amber-400">LIMITED</span>
+                  <span>Response time</span>
+                  <span className="text-emerald-400">Within 24h</span>
                 </div>
               </div>
             </motion.div>
