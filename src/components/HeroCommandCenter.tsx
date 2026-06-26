@@ -30,13 +30,13 @@ export default function HeroCommandCenter() {
             <div className="space-y-3">
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="/architecture"
+                  href="/#results"
                   className="px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
                 >
                   View Case Studies
                 </a>
                 <a
-                  href="/#triage"
+                  href="/#book"
                   className="px-5 py-2.5 bg-surface text-text-primary text-xs font-mono uppercase tracking-wider border border-border-subtle hover:bg-surface-hover transition-colors"
                 >
                   Free Inbox Diagnostic
