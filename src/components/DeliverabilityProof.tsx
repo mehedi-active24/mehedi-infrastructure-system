@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, ChevronDown } from "lucide-react";
+import PostmasterAuditVisual from "@/components/PostmasterAuditVisual";
+import AuthHeaderForensics from "@/components/AuthHeaderForensics";
 
 const telemetry = [
   {
@@ -22,7 +24,7 @@ const telemetry = [
   {
     value: "18 Days",
     label: "Median Recovery Time",
-    meta: "Domain reputation restoration · 4 cases",
+    meta: "Domain reputation restoration · 5 cases",
     status: "emerald",
     bar: 78,
   },
@@ -86,6 +88,15 @@ const recoveryLogs = [
     result: "SPF: PASS. DKIM: PASS (client domain — correctly aligned). DMARC: PASS. Verified via Gmail Show Original header inspection. Standard validators had reported green throughout — the failure was only visible in raw message headers. Customer email fully recovered.",
     severity: "HIGH",
   },
+  {
+    id: "05",
+    env: "Multi-Domain Newsletter Operation (Microsoft 365 + MailerLite + Beehiiv)",
+    quickResult: "Inbox score 2/10 → 10/10 · Suomispam delisted · DMARC p=reject · 4 root causes fixed",
+    failure: "Multi-newsletter operation with 12,480+ combined subscribers across 4 domains. Deliverability collapsing silently across all properties: Suomispam blacklist listing active on primary sending IP, Apple Mail showing signature warning on every outbound email.\n\nRoot Cause Identified:\n• Duplicate DMARC records at _dmarc subdomain — 4 errors, 2 warnings on domain health check\n• DMARC policy: p=none with conflicting rua= reporting addresses — zero enforcement, zero visibility\n• Microsoft 365 DKIM: disabled, falling back to onmicrosoft.com default selector (misaligned)\n• Legacy S/MIME certificate referencing previous sender identity — causing Apple Mail signature warning on all outbound",
+    intervention: "Duplicate DMARC records removed, single record rebuilt to p=reject, pct=100, sp=reject with strict alignment (adkim=s, aspf=s) and active rua + ruf reporting. Microsoft 365 DKIM enabled with selector1 + selector2 active, both CNAMEs verified. Legacy S/MIME certificate identified, retired, and replaced with correct identity. IP delisting submitted across 70+ blacklist databases.",
+    result: "Suomispam delisted Jun 6, 2026. Microsoft 365 DKIM active (both selectors, CNAMEs verified Jun 5, 2026). Apple Mail digital signature verified — correct identity bound. Inbox deliverability score recovered from 2/10 to 10/10. All 4 domains clean across full blacklist sweep.",
+    severity: "HIGH",
+  },
 ];
 
 export default function DeliverabilityProof() {
@@ -140,6 +151,30 @@ export default function DeliverabilityProof() {
               })}
             </div>
           </div>
+        </div>
+
+        {/* ── POSTMASTER AUDIT VISUAL ── */}
+        <div>
+          <div className="mb-6">
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Forensic Monitoring</h2>
+            <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">What I Actually Read During an Audit</h3>
+            <p className="text-xs font-mono text-text-secondary mt-2 max-w-xl">
+              Google Postmaster tracks domain reputation at the receiving end — the signal that validators like MXToolbox never check. This is the first dashboard I open on every engagement.
+            </p>
+          </div>
+          <PostmasterAuditVisual />
+        </div>
+
+        {/* ── AUTH HEADER FORENSICS ── */}
+        <div>
+          <div className="mb-6">
+            <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Authentication Forensics</h2>
+            <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">What Standard Validators Miss</h3>
+            <p className="text-xs font-mono text-text-secondary mt-2 max-w-xl">
+              Real email headers from a GoHighLevel + Google Workspace audit. DKIM showed PASS on every tool. DMARC was failing silently. The failure was only visible in raw message headers.
+            </p>
+          </div>
+          <AuthHeaderForensics />
         </div>
 
         {/* ── SECTION 2: INFRASTRUCTURE RECOVERY LOGS ── */}
@@ -234,6 +269,25 @@ export default function DeliverabilityProof() {
         </div>
 
       </div>
+
+      {/* ── CASE STUDY CARD ── */}
+      <div className="container mx-auto px-6 max-w-7xl pb-12">
+        <div className="mb-6">
+          <h2 className="text-xs font-mono text-text-secondary uppercase tracking-wider mb-3">Full Engagement Overview</h2>
+          <h3 className="text-3xl font-bold text-text-primary uppercase tracking-tight leading-tight">Multi-Domain Authentication Remediation</h3>
+          <p className="text-xs font-mono text-text-secondary mt-2 max-w-xl">
+            4 domains audited across Microsoft 365, MailerLite, and Beehiiv. 4 root causes found. Inbox deliverability score: 2/10 to 10/10.
+          </p>
+        </div>
+        <div className="border border-border-subtle overflow-hidden">
+          <img
+            src="/evidence/case-multidomain.png"
+            alt="Multi-Domain Authentication Remediation case study — Before: Suomispam listed, duplicate DMARC, DKIM disabled, inbox score 2/10. After: all clear, DMARC p=reject, DKIM active, inbox score 10/10"
+            className="w-full block"
+          />
+        </div>
+      </div>
+
     </section>
   );
 }

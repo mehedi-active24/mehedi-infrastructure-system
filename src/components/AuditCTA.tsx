@@ -20,7 +20,7 @@ export default function AuditCTA() {
 
         {/* Proof bar */}
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8 text-[10px] font-mono text-text-secondary/40 uppercase tracking-wider">
-          <span>4 documented case recoveries</span>
+          <span>5 documented case recoveries</span>
           <span className="text-text-secondary/20">·</span>
           <span>31+ agencies recovered</span>
           <span className="text-text-secondary/20">·</span>

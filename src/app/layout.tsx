@@ -15,10 +15,10 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Mehedi Hasan | Email Deliverability Consultant | Inbox Recovery & Cold Email Infrastructure",
-  description: "Email deliverability consultant helping cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation. 4 documented case recoveries. Inbox placement specialists for cold email agencies.",
+  description: "Email deliverability consultant helping cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation. 5 documented case recoveries. Inbox placement specialists for cold email agencies.",
   openGraph: {
     title: "Mehedi Hasan · Email Deliverability Consultant",
-    description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 4 documented case recoveries across US, UK, and AU agencies.",
+    description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 5 documented case recoveries across US, UK, and AU agencies.",
     url: "https://mehedi-infrastructure-system.vercel.app",
     siteName: "Mehedi Hasan",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Mehedi Hasan · Email Deliverability Consultant",
-    description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 4 documented case recoveries.",
+    description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 5 documented case recoveries.",
   },
   robots: {
     index: true,
