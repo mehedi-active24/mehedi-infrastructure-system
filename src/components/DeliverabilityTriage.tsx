@@ -406,10 +406,15 @@ export default function DeliverabilityTriage() {
                 </div>
 
                 {/* CTA */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <div className="flex items-center justify-center gap-2 px-6 py-3 bg-accent/10 border border-accent/30 text-accent text-xs font-mono uppercase tracking-wider">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {result.cta === "calendly" ? "Contact via Upwork" : "Contact via Upwork"}
+                <div className="flex flex-col gap-4">
+                  <div className="border border-accent/20 bg-accent/5 p-4 space-y-2">
+                    <p className="text-xs font-mono font-bold text-accent uppercase tracking-wider">Message me on Upwork with:</p>
+                    <ol className="space-y-1">
+                      {["1. Your monthly send volume and number of active domains", "2. The platform you use (Instantly, Smartlead, GHL, etc.)", "3. The symptom you're seeing — spam folder, reply rate drop, Outlook vs Gmail gap"].map((item, i) => (
+                        <li key={i} className="text-[11px] font-mono text-text-secondary leading-relaxed">{item}</li>
+                      ))}
+                    </ol>
+                    <p className="text-[10px] font-mono text-text-secondary/40 pt-1">I'll respond with a diagnosis or a follow-up question within 24 hours.</p>
                   </div>
                   <button
                     onClick={handleReset}
@@ -420,8 +425,8 @@ export default function DeliverabilityTriage() {
                   </button>
                 </div>
 
-                <p className="mt-4 text-[10px] font-mono text-text-secondary/30">
-                  This triage uses infrastructure risk signals, not inbox placement validation. For a forensic diagnosis, message via Upwork with 3 data points.
+                <p className="mt-2 text-[10px] font-mono text-text-secondary/30">
+                  This triage uses infrastructure risk signals. For a full diagnosis, the 3 data points above are the fastest path.
                 </p>
               </motion.div>
             )}

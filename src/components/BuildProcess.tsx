@@ -10,7 +10,7 @@ const stages = [
     label: "Discovery Call",
     layer: "STEP 01 — FREE",
     description:
-      "A 20-minute call to understand your sending environment, infrastructure setup, and the symptoms you're seeing. You'll leave knowing whether this is an infrastructure problem and whether I can fix it.",
+      "Day 1. A 20-minute call to scope your sending environment and symptoms. You'll leave knowing whether this is an infrastructure problem, what likely caused it, and whether I can fix it. No payment until you decide to proceed.",
     indicators: [
       { key: "DURATION", value: "20 MIN" },
       { key: "COST", value: "FREE" },
@@ -23,7 +23,7 @@ const stages = [
     label: "Forensic Audit",
     layer: "STEP 02 — DIAGNOSIS",
     description:
-      "I test DKIM alignment on replies and forwards, not just originating sends. I trace SPF resolution through all forwarding paths. I review DMARC aggregate reports for real failure rates. You get a written findings report with the specific cause and specific fix.",
+      "Days 2–4. I test DKIM on reply and forward paths (not just originating sends), trace SPF through all forwarding chains, and review DMARC aggregate reports for real failure rates at receiving servers. Delivered: a written findings report — specific cause, specific fix. No generic checklist.",
     indicators: [
       { key: "DELIVERY", value: "72 HOURS" },
       { key: "OUTPUT", value: "WRITTEN REPORT" },
@@ -36,7 +36,7 @@ const stages = [
     label: "Fix & Implement",
     layer: "STEP 03 — REMEDIATION",
     description:
-      "Targeted fixes applied across your sending infrastructure: DNS authentication records, platform configuration, warmup scheduling, and fleet architecture where needed. Not a checklist. The actual repair.",
+      "Days 4–7. Targeted fixes across your infrastructure: DNS authentication records corrected, platform configuration updated, warmup schedule isolated from outbound timing. I implement the repair, not a PDF telling you how to do it yourself.",
     indicators: [
       { key: "DNS AUTH", value: "CORRECTED" },
       { key: "PLACEMENT", value: "RECOVERING" },
@@ -49,7 +49,7 @@ const stages = [
     label: "Verify & Hand Off",
     layer: "STEP 04 — CONFIRMATION",
     description:
-      "Inbox placement confirmed via seed testing across Gmail, Outlook, and Apple Mail before handoff. You receive a monitoring checklist and documented changes so your team knows what was done and why.",
+      "Day 7–10. Inbox placement verified via seed testing across Gmail, Outlook, and Apple Mail before handoff. You receive a one-page documented change log so your team knows exactly what was fixed and why.",
     indicators: [
       { key: "PLACEMENT TEST", value: "PASSED" },
       { key: "DOCS", value: "DELIVERED" },
@@ -62,7 +62,7 @@ const stages = [
     label: "Ongoing Monitoring",
     layer: "STEP 05 — OPTIONAL RETAINER",
     description:
-      "For agencies where outbound is the primary acquisition channel. Weekly DMARC report review, reputation tracking, blacklist surveillance, and inbox spot testing. Issues caught weeks before reply rates move.",
+      "Optional. For agencies where a two-week deliverability failure costs real pipeline. Weekly DMARC report review, Google Postmaster reputation tracking, blacklist surveillance across major RBLs, and inbox spot testing. Issues flagged weeks before reply rates move.",
     indicators: [
       { key: "MONITORING", value: "WEEKLY" },
       { key: "RESPONSE TIME", value: "24H" },

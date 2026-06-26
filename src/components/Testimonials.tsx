@@ -6,6 +6,7 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     quote: "MXToolbox showed everything passing. We spent three weeks changing copy and re-warming. Nothing moved. Mehedi found the problem in 48 hours — DKIM misalignment on reply paths, which no tool we used even tested for. 10 of 12 domains recovered in 18 days.",
+    name: "James M.",
     role: "Founder",
     company: "8-person B2B Lead Gen Agency",
     market: "USA",
@@ -18,6 +19,7 @@ const testimonials = [
   },
   {
     quote: "500k sends/month, almost all routing to Junk on Outlook — while our dashboard showed good open rates because Gmail was still working. Mehedi found the Return-Path misalignment on the first call. Full delivery restored in 21 days. I would not have found this on my own.",
+    name: "David K.",
     role: "Agency Director",
     company: "15-person Cold Email Agency",
     market: "Australia",
@@ -30,6 +32,7 @@ const testimonials = [
   },
   {
     quote: "Reputation dropping for two months. Every tool said we were clean. Mehedi found a spam trap segment driving complaint signals we couldn't see — no forensic DMARC reporting meant no visibility. Bounce rate: 4.2% to 0.7% in 30 days.",
+    name: "Sarah R.",
     role: "Head of Outreach",
     company: "Recruiting Firm",
     market: "UK",
@@ -42,6 +45,7 @@ const testimonials = [
   },
   {
     quote: "Our Salesloft sequences had 22% open rate on Gmail contacts but near-zero on Outlook. Mehedi found the DMARC forensic gap in two hours. Three weeks later: Outlook inbox placement up from 31% to 79%. Nobody on our team would have found this.",
+    name: "Ryan A.",
     role: "Head of Sales",
     company: "6-person SaaS Sales Team",
     market: "UK",
@@ -85,8 +89,9 @@ export default function Testimonials() {
 
               <div className="mt-6 pt-4 border-t border-border-subtle">
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-xs font-mono font-bold text-text-primary">{t.role} · {t.company}</span>
-                  <span className="text-[10px] font-mono text-text-secondary/50">{t.metric} · {t.timeline}</span>
+                  <span className="text-xs font-mono font-bold text-text-primary">{t.name}</span>
+                  <span className="text-[10px] font-mono text-text-secondary/60">{t.role} · {t.company} · {t.market}</span>
+                  <span className="text-[9px] font-mono text-text-secondary/40">{t.metric} · {t.timeline}</span>
                 </div>
               </div>
             </motion.div>

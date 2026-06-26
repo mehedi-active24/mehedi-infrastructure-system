@@ -51,6 +51,22 @@ export default function OperatorProfile() {
                 ))}
               </div>
             </div>
+
+            {/* Sample audit download */}
+            <div className="flex items-center gap-4 pt-2 border-t border-border-subtle">
+              <div className="flex-1">
+                <p className="text-xs font-mono font-bold text-text-primary">Sample Audit Report</p>
+                <p className="text-[10px] font-mono text-text-secondary/50 mt-0.5">Real findings from a GoHighLevel + Google Workspace engagement. Client details redacted.</p>
+              </div>
+              <a
+                href="/sample-audit-report.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 px-4 py-2 border border-border-subtle text-[10px] font-mono text-text-secondary hover:border-accent/40 hover:text-accent transition-colors uppercase tracking-wider whitespace-nowrap"
+              >
+                Download PDF →
+              </a>
+            </div>
           </div>
 
         </div>
