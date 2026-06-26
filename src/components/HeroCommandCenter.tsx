@@ -84,7 +84,7 @@ export default function HeroCommandCenter() {
               {[
                 { v: "5", l: "Documented Cases" },
                 { v: "94%", l: "Avg. Inbox Rate" },
-                { v: "14–30d", l: "Avg. Recovery" },
+                { v: "3–7d", l: "Avg. Recovery" },
               ].map((s) => (
                 <div key={s.l} className="flex flex-col gap-0.5">
                   <span className="text-xl sm:text-2xl font-bold text-text-primary leading-none" style={{ fontFamily: "var(--font-space-grotesk)" }}>{s.v}</span>

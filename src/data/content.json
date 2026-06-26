@@ -27,7 +27,7 @@
     },
     {
       "label": "Avg. Recovery Timeline",
-      "value": "14–30 days",
+      "value": "3–7 days",
       "status": "VERIFIED"
     },
     {
@@ -120,7 +120,7 @@
       },
       {
         "label": "Avg. Recovery Timeline",
-        "value": "14–30 days"
+        "value": "3–7 days"
       }
     ],
     "timeline": [
