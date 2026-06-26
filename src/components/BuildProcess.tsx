@@ -1,4 +1,4 @@
-"use client";
+"use client"; // v2
 
 import { motion } from "framer-motion";
 import { Search, Server, Gauge, Zap, Activity } from "lucide-react";
