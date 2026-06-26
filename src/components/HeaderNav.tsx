@@ -6,9 +6,9 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "Services",     href: "/#services"     },
   { label: "Case Studies", href: "/#results" },
-  { label: "Process",      href: "/#process" },
+  { label: "Work Sample",  href: "/sample-audit-report.pdf", external: true },
+  { label: "Contact",      href: "/#book" },
 ];
 
 export default function HeaderNav() {
@@ -54,22 +54,16 @@ export default function HeaderNav() {
             </span>
           </Link>
 
-          {/* CENTER: Availability (desktop) */}
-          <div className="hidden lg:flex items-center gap-2 text-[9px] font-mono text-text-secondary/50 uppercase tracking-widest">
-            <motion.div
-              className="w-1.5 h-1.5 rounded-full bg-emerald-400"
-              animate={{ opacity: [1, 0.3, 1] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
-            />
-            <span>Accepting new clients · Q3 2026</span>
-          </div>
+
 
           {/* RIGHT: Nav (desktop) */}
           <nav className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 onMouseEnter={() => setActiveItem(item.label)}
                 onMouseLeave={() => setActiveItem(null)}
                 className="relative group px-3 py-1.5 text-[11px] font-mono text-text-secondary uppercase tracking-wider hover:text-text-primary transition-colors duration-150"
@@ -82,8 +76,8 @@ export default function HeaderNav() {
                     transition={{ type: "spring", stiffness: 500, damping: 40 }}
                   />
                 )}
-                <span className="relative z-10">{item.label}</span>
-              </Link>
+                <span className="relative z-10">{item.label}{item.external && <span className="ml-1 opacity-40">↗</span>}</span>
+              </a>
             ))}
           </nav>
 
@@ -145,8 +139,10 @@ export default function HeaderNav() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.04 }}
                     >
-                      <Link
+                      <a
                         href={item.href}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
                         onClick={() => setMobileOpen(false)}
                         className="flex items-center justify-between px-3 py-2.5 border border-border-subtle hover:border-accent/30 hover:bg-surface transition-all group"
                       >
@@ -154,9 +150,9 @@ export default function HeaderNav() {
                           {item.label}
                         </span>
                         <span className="text-accent opacity-0 group-hover:opacity-100 text-[10px] font-mono transition-all">
-                          →
+                          {item.external ? "↗" : "→"}
                         </span>
-                      </Link>
+                      </a>
                     </motion.div>
                   ))}
                 </nav>
