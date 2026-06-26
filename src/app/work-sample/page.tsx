@@ -113,7 +113,7 @@ export default function WorkSamplePage() {
 
               <div className={`grid gap-4 ${section.items.length === 1 ? "grid-cols-1 max-w-2xl" : "md:grid-cols-2"}`}>
                 {section.items.map((item) => (
-                  <div key={item.src} className={`border border-border-subtle overflow-hidden flex flex-col ${item.wide ? "md:col-span-2 max-w-2xl" : ""}`}>
+                  <div key={item.src} className={`border border-border-subtle overflow-hidden flex flex-col ${"wide" in item && item.wide ? "md:col-span-2 max-w-2xl" : ""}`}>
                     <div className="bg-surface px-4 py-2.5 border-b border-border-subtle flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent/60 shrink-0" />
                       <span className="text-[10px] font-mono text-text-secondary/60 uppercase tracking-wider">{item.label}</span>
