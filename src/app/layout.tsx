@@ -1,21 +1,30 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import HeaderNav from "@/components/HeaderNav";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Mehedi Hasan | Email Deliverability Consultant | Inbox Recovery & Cold Email Infrastructure",
-  description: "Email deliverability consultant helping cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation. 5 documented case recoveries. Inbox placement specialists for cold email agencies.",
+  description: "Email deliverability consultant helping cold email agencies and B2B outbound teams recover inbox placement, fix authentication failures, and protect sender reputation. 5 documented case recoveries.",
   openGraph: {
     title: "Mehedi Hasan · Email Deliverability Consultant",
     description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 5 documented case recoveries across US, UK, and AU agencies.",
@@ -29,10 +38,7 @@ export const metadata: Metadata = {
     title: "Mehedi Hasan · Email Deliverability Consultant",
     description: "Cold email agencies come to me when every validator says pass and inbox placement still drops. 5 documented case recoveries.",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 const jsonLd = {
@@ -42,43 +48,18 @@ const jsonLd = {
   "jobTitle": "Email Deliverability Consultant",
   "description": "Email deliverability consultant specialising in inbox recovery, cold email infrastructure, and authentication forensics for cold email agencies and B2B outbound teams.",
   "url": "https://mehedi-infrastructure-system.vercel.app",
-  "sameAs": [
-    "https://github.com/mehedi-active24"
-  ],
-  "knowsAbout": [
-    "Email Deliverability",
-    "SPF",
-    "DKIM",
-    "DMARC",
-    "Cold Email Infrastructure",
-    "Inbox Placement",
-    "Blacklist Recovery"
-  ],
+  "sameAs": ["https://github.com/mehedi-active24"],
+  "knowsAbout": ["Email Deliverability", "SPF", "DKIM", "DMARC", "Cold Email Infrastructure", "Inbox Placement", "Blacklist Recovery"],
   "areaServed": ["US", "UK", "AU"],
-  "offers": {
-    "@type": "Offer",
-    "name": "Forensic Deliverability Audit",
-    "price": "799",
-    "priceCurrency": "USD"
-  }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-bg-dark text-text-primary selection:bg-accent/30`}
-      >
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased bg-bg-dark text-text-primary selection:bg-accent/30`}>
         <HeaderNav />
         {children}
       </body>

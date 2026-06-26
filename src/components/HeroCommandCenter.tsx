@@ -3,82 +3,124 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import content from "@/data/content.json";
-import Link from "next/link";
 
 export default function HeroCommandCenter() {
   const { personal } = content;
 
   return (
-    <section className="pt-28 pb-16 border-b border-border-subtle bg-bg-dark">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-          
-          {/* Left Side: Copy & CTA */}
-          <div className="space-y-6 pt-4">
-            <div>
-              <h2 className="text-text-secondary text-sm font-mono mb-2 uppercase tracking-wider">{personal.name}</h2>
-              <h1 className="text-4xl md:text-6xl font-bold text-text-primary tracking-tight leading-[1.05] uppercase">
-                {personal.title}
-              </h1>
-            </div>
-            
-            <p className="text-text-secondary text-sm md:text-base max-w-xl">
+    <section className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24 border-b border-border-subtle overflow-hidden">
+
+      {/* Ambient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.06] via-transparent to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent" />
+
+      <div className="relative container mx-auto px-5 sm:px-6 max-w-6xl">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16">
+
+          {/* ── Text column ── */}
+          <div className="flex-1 space-y-5 sm:space-y-6">
+
+            {/* Status pill */}
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center gap-2 border border-border-subtle bg-surface/60 px-3 py-1.5 rounded-sm"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="text-[10px] font-mono text-text-secondary/70 uppercase tracking-widest">
+                Email Deliverability Consultant
+              </span>
+            </motion.div>
+
+            {/* H1 */}
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl xl:text-[3.5rem] font-bold text-text-primary tracking-tight"
+            >
+              {personal.title}
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-xl"
+            >
               {personal.subtitle}
-            </p>
+            </motion.p>
 
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.24 }}
+              className="flex flex-wrap gap-3 pt-1"
+            >
+              <a
+                href="/#results"
+                className="px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 active:bg-accent/80 transition-colors"
+              >
+                View Case Studies
+              </a>
+              <a
+                href="/#book"
+                className="px-5 py-2.5 border border-border-subtle text-text-secondary text-xs font-mono uppercase tracking-wider hover:bg-surface hover:text-text-primary hover:border-accent/30 active:bg-surface-hover transition-all"
+              >
+                Free Inbox Diagnostic
+              </a>
+            </motion.div>
 
-            <div className="space-y-3">
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="/#results"
-                  className="px-5 py-2.5 bg-accent text-white text-xs font-mono uppercase tracking-wider hover:bg-accent/90 transition-colors"
-                >
-                  View Case Studies
-                </a>
-                <a
-                  href="/#book"
-                  className="px-5 py-2.5 bg-surface text-text-primary text-xs font-mono uppercase tracking-wider border border-border-subtle hover:bg-surface-hover transition-colors"
-                >
-                  Free Inbox Diagnostic
-                </a>
+            {/* Proof strip */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.32 }}
+              className="flex flex-wrap gap-x-6 gap-y-3 pt-2 border-t border-border-subtle"
+            >
+              {[
+                { v: "5", l: "Documented Cases" },
+                { v: "94%", l: "Avg. Inbox Rate" },
+                { v: "14–30d", l: "Avg. Recovery" },
+              ].map((s) => (
+                <div key={s.l} className="flex flex-col gap-0.5">
+                  <span className="text-xl sm:text-2xl font-bold text-text-primary leading-none" style={{ fontFamily: "var(--font-space-grotesk)" }}>{s.v}</span>
+                  <span className="text-[9px] font-mono text-text-secondary/45 uppercase tracking-widest">{s.l}</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* ── Portrait column ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex justify-center lg:justify-end lg:shrink-0"
+          >
+            <div className="relative">
+              {/* Glow ring */}
+              <div className="absolute -inset-4 rounded-full bg-accent/10 blur-2xl" />
+              {/* Outer ring */}
+              <div className="absolute -inset-1 rounded-full border border-accent/15" />
+              <div
+                className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full overflow-hidden border border-surface"
+              >
+                <Image
+                  src="/portrait.jpg"
+                  alt={personal.name}
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
               </div>
             </div>
-          </div>
-
-          {/* Right Side: Dual-Layer Portrait System */}
-          <div className="relative w-full max-w-lg mx-auto lg:ml-auto h-[350px] md:h-[400px] flex items-center justify-center">
-            
-            {/* Environment: Background Topology Lines & Pulses */}
-            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">               {/* Faint Grid Texture */}            </div>
-
-            {/* Tight Relative Container for Portrait + Overlays */}
-            <div className="relative w-48 h-48 md:w-64 md:h-64">
-              {/* Core Portrait Node */}
-              <motion.div 
-                className="w-full h-full z-10 group relative"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
-                {/* Portrait */}
-                <div className="absolute inset-0 rounded-full overflow-hidden">
-                  <Image 
-                    src="/portrait.jpg" 
-                    alt={personal.name}
-                    fill
-                    className="object-cover object-center"
-                    priority
-                  />
-                </div>
-                
-                {/* Hover Glow Edge */}
-                <div className="absolute inset-0 rounded-full border border-accent/0 group-hover:border-accent/30 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-700 pointer-events-none" />
-              </motion.div>
-
-            </div>
-          </div>
+          </motion.div>
 
         </div>
-
       </div>
     </section>
   );

@@ -56,19 +56,22 @@ export default function DeliverabilityProof() {
   const [openId, setOpenId] = useState<string | null>("01");
 
   return (
-    <section id="results" className="py-16 border-b border-border-subtle bg-surface/10">
-      <div className="container mx-auto px-6 max-w-7xl space-y-16">
+    <section id="results" className="py-16 sm:py-20 border-b border-border-subtle bg-surface/10">
+      <div className="container mx-auto px-5 sm:px-6 max-w-6xl space-y-16">
 
         {/* ── CASE ACCORDION ── */}
         <div>
           <div className="mb-8">
             <p className="text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest mb-2">Client Recovery Cases</p>
-            <h2 className="text-2xl font-bold text-text-primary tracking-tight">5 Documented Cases. Real Failures, Real Fixes.</h2>
-            <p className="text-xs font-mono text-text-secondary mt-1">US, UK, and AU markets · Cold email agencies and B2B outbound teams</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
+              5 Documented Cases. Real Failures, Real Fixes.
+            </h2>
+            <p className="text-xs font-mono text-text-secondary/60 mt-2">US, UK, and AU markets · Cold email agencies and B2B outbound teams</p>
           </div>
 
           <div className="border border-border-subtle bg-bg-dark divide-y divide-border-subtle">
-            <div className="hidden md:flex bg-surface/50 px-5 py-2.5 text-[9px] font-mono text-text-secondary/50 uppercase tracking-widest">
+            {/* Table header — desktop only */}
+            <div className="hidden md:flex bg-surface/50 px-5 py-2.5 text-[9px] font-mono text-text-secondary/40 uppercase tracking-widest">
               <span className="w-10 shrink-0">Ref</span>
               <span className="flex-1">Environment · Key Result</span>
               <span className="w-8 shrink-0" />
@@ -84,14 +87,14 @@ export default function DeliverabilityProof() {
               >
                 <button
                   onClick={() => setOpenId(openId === log.id ? null : log.id)}
-                  className="w-full text-left px-5 py-4 flex items-center gap-4 hover:bg-surface/40 transition-colors group"
+                  className="w-full text-left px-4 sm:px-5 py-4 flex items-center gap-3 sm:gap-4 hover:bg-surface/40 active:bg-surface/60 transition-colors group"
                 >
-                  <span className="text-[9px] font-mono text-text-secondary/40 shrink-0 w-10">{log.id}</span>
-                  <div className="flex-1 min-w-0 space-y-1">
-                    <span className="text-xs font-mono font-bold text-text-primary group-hover:text-accent transition-colors">{log.env}</span>
+                  <span className="text-[9px] font-mono text-text-secondary/40 shrink-0 w-8 sm:w-10 hidden sm:block">{log.id}</span>
+                  <div className="flex-1 min-w-0 space-y-1.5">
+                    <span className="block text-xs sm:text-sm font-semibold text-text-primary group-hover:text-accent transition-colors leading-snug">{log.env}</span>
                     <div className="flex items-center gap-1.5">
                       <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" />
-                      <span className="text-[10px] font-mono text-emerald-400">{log.quickResult}</span>
+                      <span className="text-[10px] sm:text-xs font-mono text-emerald-400 leading-snug">{log.quickResult}</span>
                     </div>
                   </div>
                   <ChevronDown className={`w-4 h-4 text-text-secondary/30 shrink-0 transition-transform duration-300 ${openId === log.id ? "rotate-180" : ""}`} />
@@ -104,28 +107,30 @@ export default function DeliverabilityProof() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.28, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-6 pt-1 grid md:grid-cols-3 gap-6 bg-surface/20 border-t border-border-subtle/50">
-                        <div>
-                          <div className="text-[8px] font-mono text-red-400/60 uppercase tracking-widest mb-2">Failure State</div>
+                      {/* Three-column detail — stacks on mobile */}
+                      <div className="px-4 sm:px-5 pb-6 pt-2 grid sm:grid-cols-3 gap-5 sm:gap-6 bg-surface/20 border-t border-border-subtle/50">
+                        <div className="space-y-2">
+                          <div className="text-[8px] font-mono text-red-400/70 uppercase tracking-widest">Failure State</div>
                           <p className="text-xs text-text-secondary leading-relaxed whitespace-pre-line">{log.failure}</p>
                         </div>
-                        <div>
-                          <div className="text-[8px] font-mono text-accent/60 uppercase tracking-widest mb-2">Action Taken</div>
+                        <div className="space-y-2">
+                          <div className="text-[8px] font-mono text-accent/70 uppercase tracking-widest">Action Taken</div>
                           <p className="text-xs text-text-secondary leading-relaxed">{log.intervention}</p>
                         </div>
-                        <div>
-                          <div className="text-[8px] font-mono text-emerald-400/60 uppercase tracking-widest mb-2">Result</div>
+                        <div className="space-y-2">
+                          <div className="text-[8px] font-mono text-emerald-400/70 uppercase tracking-widest">Result</div>
                           <div className="flex items-start gap-1.5">
                             <CheckCircle className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
                             <span className="text-xs text-emerald-400 font-mono leading-relaxed">{log.result}</span>
                           </div>
                         </div>
                       </div>
+
                       {log.screenshot && (
-                        <div className="px-5 pb-6 bg-surface/20">
+                        <div className="px-4 sm:px-5 pb-6 bg-surface/20">
                           <div className="text-[8px] font-mono text-emerald-400/60 uppercase tracking-widest mb-3">Post-Remediation Evidence</div>
                           <div className="border border-border-subtle overflow-hidden">
                             <img src={log.screenshot} alt={log.screenshotAlt} className="w-full block" />
@@ -142,22 +147,17 @@ export default function DeliverabilityProof() {
         </div>
 
         {/* ── TWO EVIDENCE SCREENSHOTS ── */}
-        <div className="grid md:grid-cols-2 gap-10">
-
-          {/* Google Postmaster */}
-          <div>
-            <p className="text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest mb-2">Monitoring</p>
-            <h3 className="text-lg font-bold text-text-primary mb-4">Google Postmaster — Post-Remediation</h3>
+        <div className="grid sm:grid-cols-2 gap-8 sm:gap-10">
+          <div className="space-y-3">
+            <p className="text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest">Monitoring</p>
+            <h3 className="text-base sm:text-lg font-bold text-text-primary">Google Postmaster — Post-Remediation</h3>
             <PostmasterAuditVisual />
           </div>
-
-          {/* Auth Forensics */}
-          <div>
-            <p className="text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest mb-2">Authentication Forensics</p>
-            <h3 className="text-lg font-bold text-text-primary mb-4">Before &amp; After — Real Headers</h3>
+          <div className="space-y-3">
+            <p className="text-[10px] font-mono text-text-secondary/40 uppercase tracking-widest">Authentication Forensics</p>
+            <h3 className="text-base sm:text-lg font-bold text-text-primary">Before &amp; After — Real Headers</h3>
             <AuthHeaderForensics />
           </div>
-
         </div>
 
       </div>
