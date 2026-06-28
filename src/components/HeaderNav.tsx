@@ -51,7 +51,7 @@ export default function HeaderNav() {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-0.5">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onMouseEnter={() => setActiveItem(item.label)}
@@ -61,13 +61,13 @@ export default function HeaderNav() {
                 {activeItem === item.label && (
                   <motion.span
                     layoutId="nav-hover"
-                    className="absolute inset-0 bg-surface border border-border-subtle rounded-sm"
+                    className="absolute inset-0 bg-surface border border-border-subtle rounded-sm pointer-events-none"
                     initial={false}
                     transition={{ type: "spring", stiffness: 500, damping: 40 }}
                   />
                 )}
                 <span className="relative z-10">{item.label}</span>
-              </a>
+              </Link>
             ))}
           </nav>
 

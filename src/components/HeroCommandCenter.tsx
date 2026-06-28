@@ -67,10 +67,10 @@ export default function HeroCommandCenter() {
                 View Case Studies
               </a>
               <a
-                href="/#book"
+                href="/work-sample"
                 className="px-5 py-2.5 border border-border-subtle text-text-secondary text-xs font-mono uppercase tracking-wider hover:bg-surface hover:text-text-primary hover:border-accent/30 active:bg-surface-hover transition-all"
               >
-                Free Inbox Diagnostic
+                Work Sample
               </a>
             </motion.div>
 
